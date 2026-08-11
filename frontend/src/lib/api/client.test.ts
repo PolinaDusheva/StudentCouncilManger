@@ -69,15 +69,12 @@ describe('apiFetch', () => {
     setTokens({ accessToken: 'expired', refreshToken: 'refresh-1' })
     let refreshCalls = 0
 
-    const guarded = (body: unknown) =>
+    server.use(
       http.get(`${API}/members`, ({ request }) =>
         request.headers.get('Authorization') === 'Bearer new-access'
-          ? HttpResponse.json(body)
+          ? HttpResponse.json({ items: [] })
           : HttpResponse.json({ code: 'unauthorized' }, { status: 401 }),
-      )
-
-    server.use(
-      guarded({ items: [] }),
+      ),
       http.get(`${API}/departments`, ({ request }) =>
         request.headers.get('Authorization') === 'Bearer new-access'
           ? HttpResponse.json([])
