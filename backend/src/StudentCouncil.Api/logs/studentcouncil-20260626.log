@@ -1,0 +1,189 @@
+2026-06-26 00:31:34.010 +03:00 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskAssignee'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-06-26 00:31:34.029 +03:00 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-06-26 00:31:34.030 +03:00 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskDocument'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-06-26 00:31:47.414 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-26 00:31:47.483 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-26 00:31:47.504 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    migration_id character varying(150) NOT NULL,
+    product_version character varying(32) NOT NULL,
+    CONSTRAINT pk___ef_migrations_history PRIMARY KEY (migration_id)
+);
+2026-06-26 00:31:47.508 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-06-26 00:31:47.509 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-26 00:31:47.596 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:31:47.622 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:31:47.623 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:31:47.623 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:31:47.648 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?', @p10='?' (DbType = DateTime), @p11='?' (DbType = Guid), @p12='?', @p13='?', @p14='?' (DbType = DateTime), @p15='?' (DbType = Guid), @p16='?' (DbType = Guid), @p17='?', @p18='?' (DbType = DateTime), @p19='?' (DbType = Guid), @p20='?', @p21='?', @p22='?' (DbType = DateTime), @p23='?' (DbType = Guid), @p24='?' (DbType = Guid), @p25='?', @p26='?' (DbType = DateTime), @p27='?' (DbType = Guid), @p28='?', @p29='?', @p30='?' (DbType = DateTime), @p31='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO departments (id, code, created_at_utc, created_by_id, description, name, updated_at_utc, updated_by_id)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+INSERT INTO departments (id, code, created_at_utc, created_by_id, description, name, updated_at_utc, updated_by_id)
+VALUES (@p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+INSERT INTO departments (id, code, created_at_utc, created_by_id, description, name, updated_at_utc, updated_by_id)
+VALUES (@p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23);
+INSERT INTO departments (id, code, created_at_utc, created_by_id, description, name, updated_at_utc, updated_by_id)
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31);
+2026-06-26 00:31:47.652 +03:00 [INF] Seeded missing departments.
+2026-06-26 00:31:47.671 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-06-26 00:31:47.709 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedUserName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_user_name = @normalizedUserName
+LIMIT 1
+2026-06-26 00:31:47.711 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-06-26 00:31:47.734 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = Date), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTime), @p10='?' (DbType = Boolean), @p11='?', @p12='?', @p13='?', @p14='?', @p15='?' (DbType = Boolean), @p16='?', @p17='?', @p18='?', @p19='?', @p20='?' (DbType = Boolean), @p21='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUsers" (id, access_failed_count, concurrency_stamp, department_id, email, email_confirmed, full_name, joined_on, lockout_enabled, lockout_end, must_change_password, normalized_email, normalized_user_name, password_hash, phone_number, phone_number_confirmed, photo_url, role, security_stamp, status, two_factor_enabled, user_name)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+2026-06-26 00:31:47.734 +03:00 [WRN] Seeded OrgPresident president@ue-varna.bg with temporary password: sQEGGd5Q7JngimeiA1
+2026-06-26 00:31:47.768 +03:00 [WRN] No XML encryptor configured. Key {d5d3e9b5-94d8-40c3-8512-8228c89a5730} may be persisted to storage in unencrypted form.
+2026-06-26 00:31:47.783 +03:00 [INF] Now listening on: http://localhost:5080
+2026-06-26 00:31:47.783 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-26 00:31:47.783 +03:00 [INF] Hosting environment: Development
+2026-06-26 00:31:47.783 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-26 00:32:47.473 +03:00 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskAssignee'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-06-26 00:32:47.492 +03:00 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskComment'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-06-26 00:32:47.492 +03:00 [WRN] Entity 'TaskItem' has a global query filter defined and is the required end of a relationship with the entity 'TaskDocument'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-06-26 00:32:47.620 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-26 00:32:47.679 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-26 00:32:47.696 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    migration_id character varying(150) NOT NULL,
+    product_version character varying(32) NOT NULL,
+    CONSTRAINT pk___ef_migrations_history PRIMARY KEY (migration_id)
+);
+2026-06-26 00:32:47.700 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-06-26 00:32:47.701 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-26 00:32:47.781 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:32:47.784 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:32:47.784 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:32:47.784 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:32:47.803 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-06-26 00:32:47.867 +03:00 [INF] Now listening on: http://localhost:5081
+2026-06-26 00:32:47.867 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-26 00:32:47.867 +03:00 [INF] Hosting environment: Development
+2026-06-26 00:32:47.867 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-26 00:32:48.907 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-26 00:32:48.929 +03:00 [INF] HTTP GET /health responded 200 in 30.3125 ms
+2026-06-26 00:32:48.953 +03:00 [INF] HTTP GET /api/v1/health/ping responded 200 in 11.4550 ms
+2026-06-26 00:32:48.981 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 21.1948 ms
+2026-06-26 00:32:49.014 +03:00 [INF] Application is shutting down...
+2026-06-26 00:43:57.562 +03:00 [INF] Now listening on: http://localhost:5082
+2026-06-26 00:43:57.581 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-26 00:43:57.581 +03:00 [INF] Hosting environment: Staging
+2026-06-26 00:43:57.581 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-26 00:43:58.248 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-26 00:43:58.265 +03:00 [INF] HTTP GET /health responded 200 in 26.9315 ms
+2026-06-26 00:43:58.271 +03:00 [INF] Application is shutting down...
+2026-06-26 00:49:18.186 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-26 00:49:18.270 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-26 00:49:18.289 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    migration_id character varying(150) NOT NULL,
+    product_version character varying(32) NOT NULL,
+    CONSTRAINT pk___ef_migrations_history PRIMARY KEY (migration_id)
+);
+2026-06-26 00:49:18.294 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-06-26 00:49:18.294 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-26 00:49:18.377 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:49:18.379 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:49:18.380 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:49:18.380 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-06-26 00:49:18.399 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-06-26 00:49:18.463 +03:00 [INF] Now listening on: http://localhost:5083
+2026-06-26 00:49:18.464 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-26 00:49:18.464 +03:00 [INF] Hosting environment: Development
+2026-06-26 00:49:18.464 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-26 00:49:19.082 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-26 00:49:19.100 +03:00 [INF] HTTP GET /health responded 200 in 27.1921 ms
+2026-06-26 00:49:19.124 +03:00 [INF] HTTP GET /api/v1/health/ping responded 200 in 11.7141 ms
+2026-06-26 00:49:19.147 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 14.7867 ms
+2026-06-26 00:49:19.149 +03:00 [INF] Application is shutting down...

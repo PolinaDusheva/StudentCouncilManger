@@ -1,0 +1,10 @@
+**/bin/
+**/obj/
+**/logs/
+**/App_Data/
+tests/
+*.user
+efbundle
+**/appsettings.Development.json
+.vs/
+.vscode/

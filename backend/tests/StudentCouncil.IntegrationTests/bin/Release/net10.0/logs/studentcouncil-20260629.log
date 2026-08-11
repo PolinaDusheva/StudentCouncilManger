@@ -1,0 +1,1499 @@
+2026-06-29 00:17:21.704 +03:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:22.036 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:22.121 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:22.195 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:22.195 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:22.195 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:22.232 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:22.333 +03:00 [INF] Handled LoginCommand for user null in 69 ms
+2026-06-29 00:17:22.347 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 119.3977 ms
+2026-06-29 00:17:22.484 +03:00 [INF] Handled ChangePasswordCommand for user "127fb4de-e543-4966-b05a-25d123d324eb" in 79 ms
+2026-06-29 00:17:22.484 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 130.1728 ms
+2026-06-29 00:17:22.520 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:22.520 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.6774 ms
+2026-06-29 00:17:22.544 +03:00 [INF] Handled GetDepartmentsQuery for user "127fb4de-e543-4966-b05a-25d123d324eb" in 17 ms
+2026-06-29 00:17:22.547 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 25.3264 ms
+2026-06-29 00:17:22.624 +03:00 [INF] Handled CreateMemberCommand for user "127fb4de-e543-4966-b05a-25d123d324eb" in 48 ms
+2026-06-29 00:17:22.626 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 72.4340 ms
+2026-06-29 00:17:22.668 +03:00 [INF] Handled LoginCommand for user null in 40 ms
+2026-06-29 00:17:22.668 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 41.3478 ms
+2026-06-29 00:17:22.682 +03:00 [INF] Handled DeactivateMemberCommand for user "127fb4de-e543-4966-b05a-25d123d324eb" in 9 ms
+2026-06-29 00:17:22.683 +03:00 [INF] HTTP POST /api/v1/members/91fc4f2e-d572-41e4-a48e-3f01ac99b456/deactivate responded 204 in 14.4588 ms
+2026-06-29 00:17:22.686 +03:00 [INF] HTTP GET /api/v1/auth/me responded 401 in 2.2733 ms
+2026-06-29 00:17:22.687 +03:00 [INF] Handled LoginCommand for user null in 1 ms
+2026-06-29 00:17:22.688 +03:00 [WRN] Handled account_inactive (401): The account is inactive.
+2026-06-29 00:17:22.692 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 6.4609 ms
+2026-06-29 00:17:22.841 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:22.999 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:23.082 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:23.132 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:23.163 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:23.163 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:23.163 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:23.166 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:23.205 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:23.206 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 40.6951 ms
+2026-06-29 00:17:23.281 +03:00 [INF] Handled ChangePasswordCommand for user "8e563b8a-97fe-42f6-b211-7d07e1246eb9" in 68 ms
+2026-06-29 00:17:23.281 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 74.1006 ms
+2026-06-29 00:17:23.316 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:23.317 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.2447 ms
+2026-06-29 00:17:23.336 +03:00 [WRN] Handled validation_error (400): One or more validation errors occurred.
+2026-06-29 00:17:23.338 +03:00 [INF] HTTP POST /api/v1/events responded 400 in 19.9585 ms
+2026-06-29 00:17:23.478 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:23.635 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:23.689 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:23.725 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:23.740 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:23.740 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:23.740 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:23.741 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:23.779 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:23.779 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.4916 ms
+2026-06-29 00:17:23.858 +03:00 [INF] Handled ChangePasswordCommand for user "4cf6a662-71e4-433e-ad39-05b1a8774c6c" in 72 ms
+2026-06-29 00:17:23.858 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 77.2114 ms
+2026-06-29 00:17:23.893 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:23.893 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 34.7351 ms
+2026-06-29 00:17:23.899 +03:00 [INF] Handled GetDepartmentsQuery for user "4cf6a662-71e4-433e-ad39-05b1a8774c6c" in 1 ms
+2026-06-29 00:17:23.900 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.7782 ms
+2026-06-29 00:17:23.944 +03:00 [INF] Handled CreateMemberCommand for user "4cf6a662-71e4-433e-ad39-05b1a8774c6c" in 36 ms
+2026-06-29 00:17:23.945 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 44.7498 ms
+2026-06-29 00:17:24.035 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Submit report
+2026-06-29 00:17:24.048 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-06-29 00:17:24.072 +03:00 [INF] Handled CreateTaskCommand for user "4cf6a662-71e4-433e-ad39-05b1a8774c6c" in 77 ms
+2026-06-29 00:17:24.080 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 133.9692 ms
+2026-06-29 00:17:24.112 +03:00 [INF] [DEV PUSH] "EventCreated" -> 2 member(s) | Ново събитие | Добавено е събитие: Planning meeting
+2026-06-29 00:17:24.127 +03:00 [INF] Handled CreateEventCommand for user "4cf6a662-71e4-433e-ad39-05b1a8774c6c" in 35 ms
+2026-06-29 00:17:24.129 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 47.2554 ms
+2026-06-29 00:17:24.136 +03:00 [INF] [DEV PUSH] "EventCreated" -> 2 member(s) | Ново събитие | Добавено е събитие: Weekly standup
+2026-06-29 00:17:24.137 +03:00 [INF] Handled CreateEventCommand for user "4cf6a662-71e4-433e-ad39-05b1a8774c6c" in 4 ms
+2026-06-29 00:17:24.137 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 5.9626 ms
+2026-06-29 00:17:24.155 +03:00 [INF] Handled GetEventsQuery for user "4cf6a662-71e4-433e-ad39-05b1a8774c6c" in 10 ms
+2026-06-29 00:17:24.156 +03:00 [INF] HTTP GET /api/v1/events responded 200 in 18.0535 ms
+2026-06-29 00:17:24.167 +03:00 [INF] Handled ExportEventsIcsQuery for user "4cf6a662-71e4-433e-ad39-05b1a8774c6c" in 3 ms
+2026-06-29 00:17:24.169 +03:00 [INF] HTTP GET /api/v1/events/export.ics responded 200 in 8.8802 ms
+2026-06-29 00:17:24.174 +03:00 [INF] [DEV PUSH] "EventCreated" -> 2 member(s) | Ново събитие | Добавено е събитие: Overlapping meeting
+2026-06-29 00:17:24.175 +03:00 [INF] Handled CreateEventCommand for user "4cf6a662-71e4-433e-ad39-05b1a8774c6c" in 4 ms
+2026-06-29 00:17:24.176 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 6.6293 ms
+2026-06-29 00:17:24.316 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:24.459 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:24.528 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:24.564 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:24.578 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:24.578 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:24.578 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:24.580 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:24.584 +03:00 [INF] Handled LoginCommand for user null in 1 ms
+2026-06-29 00:17:24.584 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.584 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 5.2952 ms
+2026-06-29 00:17:24.588 +03:00 [INF] Handled LoginCommand for user null in 1 ms
+2026-06-29 00:17:24.588 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.588 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 2.0454 ms
+2026-06-29 00:17:24.594 +03:00 [INF] Handled LoginCommand for user null in 4 ms
+2026-06-29 00:17:24.594 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.595 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 6.4197 ms
+2026-06-29 00:17:24.595 +03:00 [INF] Handled LoginCommand for user null in 0 ms
+2026-06-29 00:17:24.595 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.595 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 0.7923 ms
+2026-06-29 00:17:24.596 +03:00 [INF] Handled LoginCommand for user null in 0 ms
+2026-06-29 00:17:24.596 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.596 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 0.7661 ms
+2026-06-29 00:17:24.597 +03:00 [INF] Handled LoginCommand for user null in 0 ms
+2026-06-29 00:17:24.597 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.597 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 0.6755 ms
+2026-06-29 00:17:24.598 +03:00 [INF] Handled LoginCommand for user null in 0 ms
+2026-06-29 00:17:24.598 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.598 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 0.6908 ms
+2026-06-29 00:17:24.599 +03:00 [INF] Handled LoginCommand for user null in 0 ms
+2026-06-29 00:17:24.599 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.599 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 0.6445 ms
+2026-06-29 00:17:24.603 +03:00 [INF] Handled LoginCommand for user null in 3 ms
+2026-06-29 00:17:24.603 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.603 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 4.1002 ms
+2026-06-29 00:17:24.604 +03:00 [INF] Handled LoginCommand for user null in 0 ms
+2026-06-29 00:17:24.604 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:24.604 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 1.0067 ms
+2026-06-29 00:17:24.605 +03:00 [INF] HTTP POST /api/v1/auth/login responded 429 in 0.3360 ms
+2026-06-29 00:17:24.749 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:24.933 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:24.997 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:25.030 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:25.045 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:25.045 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:25.045 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:25.050 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:25.088 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:25.089 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 39.0981 ms
+2026-06-29 00:17:25.164 +03:00 [INF] Handled ChangePasswordCommand for user "8380252a-1505-45cd-951c-44ace00bb26e" in 67 ms
+2026-06-29 00:17:25.164 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 73.4854 ms
+2026-06-29 00:17:25.201 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:25.201 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 37.1925 ms
+2026-06-29 00:17:25.206 +03:00 [INF] Handled GetDepartmentsQuery for user "8380252a-1505-45cd-951c-44ace00bb26e" in 1 ms
+2026-06-29 00:17:25.207 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.2277 ms
+2026-06-29 00:17:25.213 +03:00 [INF] Handled GetDepartmentsQuery for user "8380252a-1505-45cd-951c-44ace00bb26e" in 0 ms
+2026-06-29 00:17:25.213 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 4.1210 ms
+2026-06-29 00:17:25.255 +03:00 [INF] Handled CreateMemberCommand for user "8380252a-1505-45cd-951c-44ace00bb26e" in 36 ms
+2026-06-29 00:17:25.256 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 42.7049 ms
+2026-06-29 00:17:25.293 +03:00 [INF] Handled CreateMemberCommand for user "8380252a-1505-45cd-951c-44ace00bb26e" in 34 ms
+2026-06-29 00:17:25.293 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 36.8236 ms
+2026-06-29 00:17:25.308 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Sports task
+2026-06-29 00:17:25.313 +03:00 [INF] Handled CreateTaskCommand for user "8380252a-1505-45cd-951c-44ace00bb26e" in 12 ms
+2026-06-29 00:17:25.315 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 20.7472 ms
+2026-06-29 00:17:25.320 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Org initiative
+2026-06-29 00:17:25.322 +03:00 [INF] Handled CreateTaskCommand for user "8380252a-1505-45cd-951c-44ace00bb26e" in 3 ms
+2026-06-29 00:17:25.322 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 6.2633 ms
+2026-06-29 00:17:25.360 +03:00 [INF] Handled LoginCommand for user null in 36 ms
+2026-06-29 00:17:25.360 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 37.3261 ms
+2026-06-29 00:17:25.428 +03:00 [INF] Handled ChangePasswordCommand for user "2339ee63-6def-4150-ae50-2c415f5bd57e" in 66 ms
+2026-06-29 00:17:25.429 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 67.9982 ms
+2026-06-29 00:17:25.462 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:25.463 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.8263 ms
+2026-06-29 00:17:25.480 +03:00 [INF] Handled UpdateTaskCommand for user "2339ee63-6def-4150-ae50-2c415f5bd57e" in 9 ms
+2026-06-29 00:17:25.480 +03:00 [WRN] Handled not_found (404): Task with key 'ccfea8b4-64e3-4c68-b456-dfe5bdd800f6' was not found.
+2026-06-29 00:17:25.481 +03:00 [INF] HTTP PUT /api/v1/tasks/ccfea8b4-64e3-4c68-b456-dfe5bdd800f6 responded 404 in 17.1270 ms
+2026-06-29 00:17:25.485 +03:00 [INF] Handled UpdateTaskCommand for user "2339ee63-6def-4150-ae50-2c415f5bd57e" in 1 ms
+2026-06-29 00:17:25.485 +03:00 [WRN] Handled forbidden (403): You do not have permission to modify this task.
+2026-06-29 00:17:25.486 +03:00 [INF] HTTP PUT /api/v1/tasks/ddd5af65-4058-4ff0-af14-9be7995b9867 responded 403 in 4.3885 ms
+2026-06-29 00:17:25.632 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:25.761 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:25.823 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:25.859 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:25.875 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:25.875 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:25.875 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:25.885 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:25.923 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:25.924 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 40.2551 ms
+2026-06-29 00:17:25.998 +03:00 [INF] Handled ChangePasswordCommand for user "1375d8e3-4caf-4cc2-aa11-a88fe769ab7d" in 67 ms
+2026-06-29 00:17:25.998 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.1263 ms
+2026-06-29 00:17:26.033 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:26.034 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.4337 ms
+2026-06-29 00:17:26.039 +03:00 [INF] Handled GetDepartmentsQuery for user "1375d8e3-4caf-4cc2-aa11-a88fe769ab7d" in 1 ms
+2026-06-29 00:17:26.039 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.2560 ms
+2026-06-29 00:17:26.083 +03:00 [INF] Handled CreateMemberCommand for user "1375d8e3-4caf-4cc2-aa11-a88fe769ab7d" in 36 ms
+2026-06-29 00:17:26.084 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.8898 ms
+2026-06-29 00:17:26.121 +03:00 [INF] Handled CreateMemberCommand for user "1375d8e3-4caf-4cc2-aa11-a88fe769ab7d" in 34 ms
+2026-06-29 00:17:26.121 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 36.8796 ms
+2026-06-29 00:17:26.133 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Task with documents
+2026-06-29 00:17:26.137 +03:00 [INF] Handled CreateTaskCommand for user "1375d8e3-4caf-4cc2-aa11-a88fe769ab7d" in 9 ms
+2026-06-29 00:17:26.138 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 16.8764 ms
+2026-06-29 00:17:26.147 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Task with documents
+2026-06-29 00:17:26.150 +03:00 [INF] Handled UpdateTaskCommand for user "1375d8e3-4caf-4cc2-aa11-a88fe769ab7d" in 6 ms
+2026-06-29 00:17:26.150 +03:00 [INF] HTTP PUT /api/v1/tasks/5e78c952-d8f8-4c85-8877-afd4e27bbe5c responded 200 in 12.0435 ms
+2026-06-29 00:17:26.187 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:26.187 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.4564 ms
+2026-06-29 00:17:26.255 +03:00 [INF] Handled ChangePasswordCommand for user "56227d78-e887-4939-aa03-cb4a208e6379" in 66 ms
+2026-06-29 00:17:26.255 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 68.2303 ms
+2026-06-29 00:17:26.289 +03:00 [INF] Handled LoginCommand for user null in 32 ms
+2026-06-29 00:17:26.289 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.1200 ms
+2026-06-29 00:17:26.291 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+2026-06-29 00:17:26.294 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+2026-06-29 00:17:26.320 +03:00 [INF] Handled UploadTaskDocumentCommand for user "56227d78-e887-4939-aa03-cb4a208e6379" in 21 ms
+2026-06-29 00:17:26.320 +03:00 [INF] HTTP POST /api/v1/tasks/5e78c952-d8f8-4c85-8877-afd4e27bbe5c/documents responded 201 in 29.7084 ms
+2026-06-29 00:17:26.355 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:26.355 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.8406 ms
+2026-06-29 00:17:26.428 +03:00 [INF] Handled ChangePasswordCommand for user "5bcee909-f97f-4200-b8e1-9fb229de92a2" in 66 ms
+2026-06-29 00:17:26.428 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.6243 ms
+2026-06-29 00:17:26.461 +03:00 [INF] Handled LoginCommand for user null in 32 ms
+2026-06-29 00:17:26.461 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.2973 ms
+2026-06-29 00:17:26.470 +03:00 [INF] Handled DeleteTaskDocumentCommand for user "5bcee909-f97f-4200-b8e1-9fb229de92a2" in 4 ms
+2026-06-29 00:17:26.471 +03:00 [WRN] Handled forbidden (403): Only the uploader or organisation leadership can delete this document.
+2026-06-29 00:17:26.471 +03:00 [INF] HTTP DELETE /api/v1/tasks/5e78c952-d8f8-4c85-8877-afd4e27bbe5c/documents/39f28e6e-9144-42cb-8ea7-e472a137b753 responded 403 in 9.0716 ms
+2026-06-29 00:17:26.478 +03:00 [INF] Handled DeleteTaskDocumentCommand for user "1375d8e3-4caf-4cc2-aa11-a88fe769ab7d" in 5 ms
+2026-06-29 00:17:26.478 +03:00 [INF] HTTP DELETE /api/v1/tasks/5e78c952-d8f8-4c85-8877-afd4e27bbe5c/documents/39f28e6e-9144-42cb-8ea7-e472a137b753 responded 204 in 6.5296 ms
+2026-06-29 00:17:26.618 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:26.761 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:26.835 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:26.872 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:26.890 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:26.890 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:26.890 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:26.893 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:26.930 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:26.930 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.2741 ms
+2026-06-29 00:17:27.004 +03:00 [INF] Handled ChangePasswordCommand for user "49d5d53c-4db6-4a89-8109-739fe55de8d0" in 66 ms
+2026-06-29 00:17:27.004 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 71.7562 ms
+2026-06-29 00:17:27.039 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:27.039 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.3437 ms
+2026-06-29 00:17:27.045 +03:00 [INF] Handled GetDepartmentsQuery for user "49d5d53c-4db6-4a89-8109-739fe55de8d0" in 1 ms
+2026-06-29 00:17:27.045 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.0596 ms
+2026-06-29 00:17:27.088 +03:00 [INF] Handled CreateMemberCommand for user "49d5d53c-4db6-4a89-8109-739fe55de8d0" in 35 ms
+2026-06-29 00:17:27.089 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.4668 ms
+2026-06-29 00:17:27.126 +03:00 [INF] Handled CreateMemberCommand for user "49d5d53c-4db6-4a89-8109-739fe55de8d0" in 34 ms
+2026-06-29 00:17:27.126 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 37.2761 ms
+2026-06-29 00:17:27.138 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Deletable task
+2026-06-29 00:17:27.142 +03:00 [INF] Handled CreateTaskCommand for user "49d5d53c-4db6-4a89-8109-739fe55de8d0" in 8 ms
+2026-06-29 00:17:27.142 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 15.9506 ms
+2026-06-29 00:17:27.179 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:27.179 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.1298 ms
+2026-06-29 00:17:27.247 +03:00 [INF] Handled ChangePasswordCommand for user "5d79821b-4c67-449a-9e29-58c016c0e059" in 66 ms
+2026-06-29 00:17:27.247 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 67.7973 ms
+2026-06-29 00:17:27.281 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:27.282 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 34.4626 ms
+2026-06-29 00:17:27.284 +03:00 [INF] HTTP DELETE /api/v1/tasks/ff6b3a2f-a671-47bf-87fa-13f300705476 responded 403 in 1.9280 ms
+2026-06-29 00:17:27.298 +03:00 [INF] Handled DeleteTaskCommand for user "49d5d53c-4db6-4a89-8109-739fe55de8d0" in 10 ms
+2026-06-29 00:17:27.299 +03:00 [INF] HTTP DELETE /api/v1/tasks/ff6b3a2f-a671-47bf-87fa-13f300705476 responded 204 in 14.4155 ms
+2026-06-29 00:17:27.311 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-06-29 00:17:27.323 +03:00 [INF] Handled GetTaskQuery for user "49d5d53c-4db6-4a89-8109-739fe55de8d0" in 20 ms
+2026-06-29 00:17:27.323 +03:00 [WRN] Handled not_found (404): Task with key 'ff6b3a2f-a671-47bf-87fa-13f300705476' was not found.
+2026-06-29 00:17:27.324 +03:00 [INF] HTTP GET /api/v1/tasks/ff6b3a2f-a671-47bf-87fa-13f300705476 responded 404 in 24.5620 ms
+2026-06-29 00:17:27.466 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:27.602 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:27.661 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:27.696 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:27.720 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:27.720 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:27.720 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:27.725 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:27.766 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:27.767 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 42.5575 ms
+2026-06-29 00:17:27.840 +03:00 [INF] Handled ChangePasswordCommand for user "b50f5d35-d479-4818-855b-12bdc68f9689" in 67 ms
+2026-06-29 00:17:27.840 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.1820 ms
+2026-06-29 00:17:27.876 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:27.877 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.0548 ms
+2026-06-29 00:17:27.882 +03:00 [INF] Handled GetDepartmentsQuery for user "b50f5d35-d479-4818-855b-12bdc68f9689" in 1 ms
+2026-06-29 00:17:27.883 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.6340 ms
+2026-06-29 00:17:27.887 +03:00 [INF] Handled GetDepartmentsQuery for user "b50f5d35-d479-4818-855b-12bdc68f9689" in 0 ms
+2026-06-29 00:17:27.887 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 4.1229 ms
+2026-06-29 00:17:27.929 +03:00 [INF] Handled CreateMemberCommand for user "b50f5d35-d479-4818-855b-12bdc68f9689" in 36 ms
+2026-06-29 00:17:27.929 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 41.8804 ms
+2026-06-29 00:17:27.967 +03:00 [INF] Handled CreateMemberCommand for user "b50f5d35-d479-4818-855b-12bdc68f9689" in 34 ms
+2026-06-29 00:17:27.967 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 37.1116 ms
+2026-06-29 00:17:28.003 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:28.003 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.7664 ms
+2026-06-29 00:17:28.072 +03:00 [INF] Handled ChangePasswordCommand for user "a3c72826-e463-464d-b275-700e85341ebc" in 67 ms
+2026-06-29 00:17:28.072 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 69.0106 ms
+2026-06-29 00:17:28.107 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:28.107 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 34.4310 ms
+2026-06-29 00:17:28.114 +03:00 [INF] Handled CreateTaskCommand for user "a3c72826-e463-464d-b275-700e85341ebc" in 0 ms
+2026-06-29 00:17:28.114 +03:00 [WRN] Handled forbidden (403): Only organisation leadership can create organisational tasks.
+2026-06-29 00:17:28.115 +03:00 [INF] HTTP POST /api/v1/tasks responded 403 in 7.4282 ms
+2026-06-29 00:17:28.117 +03:00 [INF] Handled CreateTaskCommand for user "a3c72826-e463-464d-b275-700e85341ebc" in 0 ms
+2026-06-29 00:17:28.117 +03:00 [WRN] Handled forbidden (403): You can only create tasks for your own department.
+2026-06-29 00:17:28.117 +03:00 [INF] HTTP POST /api/v1/tasks responded 403 in 2.4348 ms
+2026-06-29 00:17:28.126 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Dept own task
+2026-06-29 00:17:28.130 +03:00 [INF] Handled CreateTaskCommand for user "a3c72826-e463-464d-b275-700e85341ebc" in 9 ms
+2026-06-29 00:17:28.131 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 13.5047 ms
+2026-06-29 00:17:28.276 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:28.424 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:28.482 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:28.515 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:28.532 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:28.532 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:28.532 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:28.538 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:28.576 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:28.576 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 39.2215 ms
+2026-06-29 00:17:28.650 +03:00 [INF] Handled ChangePasswordCommand for user "9f50cc01-2775-40b5-a011-9ad93bec1edd" in 67 ms
+2026-06-29 00:17:28.650 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.4346 ms
+2026-06-29 00:17:28.685 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:28.686 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.0855 ms
+2026-06-29 00:17:28.691 +03:00 [INF] Handled GetDepartmentsQuery for user "9f50cc01-2775-40b5-a011-9ad93bec1edd" in 1 ms
+2026-06-29 00:17:28.691 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.0924 ms
+2026-06-29 00:17:28.734 +03:00 [INF] Handled CreateMemberCommand for user "9f50cc01-2775-40b5-a011-9ad93bec1edd" in 35 ms
+2026-06-29 00:17:28.734 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 42.4068 ms
+2026-06-29 00:17:28.770 +03:00 [INF] Handled CreateMemberCommand for user "9f50cc01-2775-40b5-a011-9ad93bec1edd" in 33 ms
+2026-06-29 00:17:28.770 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 36.2765 ms
+2026-06-29 00:17:28.783 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Insider only task
+2026-06-29 00:17:28.787 +03:00 [INF] Handled CreateTaskCommand for user "9f50cc01-2775-40b5-a011-9ad93bec1edd" in 9 ms
+2026-06-29 00:17:28.788 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 16.8826 ms
+2026-06-29 00:17:28.824 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:28.824 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.2229 ms
+2026-06-29 00:17:28.892 +03:00 [INF] Handled ChangePasswordCommand for user "9c2a6d34-601c-4fcb-a1ec-95577ab44d36" in 66 ms
+2026-06-29 00:17:28.893 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 68.1760 ms
+2026-06-29 00:17:28.926 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:28.926 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.5136 ms
+2026-06-29 00:17:28.934 +03:00 [INF] Handled GetTaskQuery for user "9c2a6d34-601c-4fcb-a1ec-95577ab44d36" in 3 ms
+2026-06-29 00:17:28.934 +03:00 [WRN] Handled not_found (404): Task with key 'd77d8ab2-d904-4296-be5f-dc61cc9f785d' was not found.
+2026-06-29 00:17:28.935 +03:00 [INF] HTTP GET /api/v1/tasks/d77d8ab2-d904-4296-be5f-dc61cc9f785d responded 404 in 7.9318 ms
+2026-06-29 00:17:28.954 +03:00 [INF] Handled GetTasksQuery for user "9c2a6d34-601c-4fcb-a1ec-95577ab44d36" in 14 ms
+2026-06-29 00:17:28.955 +03:00 [INF] HTTP GET /api/v1/tasks responded 200 in 20.1586 ms
+2026-06-29 00:17:28.970 +03:00 [INF] Handled GetMyTasksQuery for user "9c2a6d34-601c-4fcb-a1ec-95577ab44d36" in 9 ms
+2026-06-29 00:17:28.970 +03:00 [INF] HTTP GET /api/v1/tasks/mine responded 200 in 13.6836 ms
+2026-06-29 00:17:28.971 +03:00 [INF] HTTP POST /api/v1/tasks responded 403 in 1.1056 ms
+2026-06-29 00:17:29.116 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:29.264 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:29.343 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:29.381 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:29.398 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:29.398 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:29.399 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:29.408 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:29.446 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:29.447 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.9723 ms
+2026-06-29 00:17:29.520 +03:00 [INF] Handled ChangePasswordCommand for user "d9815c67-3102-44c9-9418-786fc6ab67e8" in 66 ms
+2026-06-29 00:17:29.520 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 71.8044 ms
+2026-06-29 00:17:29.555 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:29.555 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.3505 ms
+2026-06-29 00:17:29.561 +03:00 [INF] Handled GetDepartmentsQuery for user "d9815c67-3102-44c9-9418-786fc6ab67e8" in 1 ms
+2026-06-29 00:17:29.562 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.7750 ms
+2026-06-29 00:17:29.605 +03:00 [INF] Handled CreateMemberCommand for user "d9815c67-3102-44c9-9418-786fc6ab67e8" in 35 ms
+2026-06-29 00:17:29.606 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.9863 ms
+2026-06-29 00:17:29.618 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Bad upload task
+2026-06-29 00:17:29.622 +03:00 [INF] Handled CreateTaskCommand for user "d9815c67-3102-44c9-9418-786fc6ab67e8" in 8 ms
+2026-06-29 00:17:29.623 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 16.4960 ms
+2026-06-29 00:17:29.660 +03:00 [INF] Handled LoginCommand for user null in 36 ms
+2026-06-29 00:17:29.661 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 37.7267 ms
+2026-06-29 00:17:29.729 +03:00 [INF] Handled ChangePasswordCommand for user "e697bdfa-a4a1-4f0a-af27-3e8ccdfd5db5" in 66 ms
+2026-06-29 00:17:29.729 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 68.1321 ms
+2026-06-29 00:17:29.762 +03:00 [INF] Handled LoginCommand for user null in 32 ms
+2026-06-29 00:17:29.763 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.3234 ms
+2026-06-29 00:17:29.763 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+2026-06-29 00:17:29.767 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+2026-06-29 00:17:29.770 +03:00 [INF] Handled UploadTaskDocumentCommand for user "e697bdfa-a4a1-4f0a-af27-3e8ccdfd5db5" in 2 ms
+2026-06-29 00:17:29.770 +03:00 [WRN] Handled unsupported_file_type (400): The file's content does not match its extension.
+2026-06-29 00:17:29.770 +03:00 [INF] HTTP POST /api/v1/tasks/a6809366-c5d6-4a10-bc78-2bf314a9cb9b/documents responded 400 in 6.8703 ms
+2026-06-29 00:17:29.916 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:30.070 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:30.130 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:30.169 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:30.190 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:30.190 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:30.190 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:30.407 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:30.410 +03:00 [INF] HTTP POST /api/v1/members responded 403 in 3.7018 ms
+2026-06-29 00:17:30.412 +03:00 [INF] HTTP POST /api/v1/members responded 403 in 1.3597 ms
+2026-06-29 00:17:30.416 +03:00 [INF] HTTP POST /api/v1/members responded 403 in 3.6950 ms
+2026-06-29 00:17:30.417 +03:00 [INF] HTTP POST /api/v1/members responded 403 in 0.9266 ms
+2026-06-29 00:17:30.418 +03:00 [INF] HTTP POST /api/v1/members responded 403 in 0.6912 ms
+2026-06-29 00:17:30.458 +03:00 [INF] [DEV EMAIL] To: matrix.created@ue-varna.bg | Subject: Достъп до Студентски съвет — временна парола
+<p>Здравейте, Matrix Created,</p>
+<p>Създаден е акаунт за Вас в приложението на Студентския съвет.</p>
+<p><strong>Имейл за вход:</strong> matrix.created@ue-varna.bg<br/>
+<strong>Временна парола:</strong> dUyONs3PH0y4J8xVA1</p>
+<p>При първото влизане ще бъдете подканени да смените паролата си.</p>
+2026-06-29 00:17:30.459 +03:00 [INF] Handled CreateMemberCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 36 ms
+2026-06-29 00:17:30.460 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 41.4146 ms
+2026-06-29 00:17:30.467 +03:00 [WRN] Handled validation_error (400): One or more validation errors occurred.
+2026-06-29 00:17:30.468 +03:00 [INF] HTTP POST /api/v1/members responded 400 in 7.9596 ms
+2026-06-29 00:17:30.468 +03:00 [INF] HTTP POST /api/v1/members responded 401 in 0.0923 ms
+2026-06-29 00:17:30.469 +03:00 [INF] HTTP PUT /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 1.2521 ms
+2026-06-29 00:17:30.475 +03:00 [INF] HTTP PUT /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 5.0477 ms
+2026-06-29 00:17:30.476 +03:00 [INF] HTTP PUT /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7405 ms
+2026-06-29 00:17:30.477 +03:00 [INF] HTTP PUT /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.8415 ms
+2026-06-29 00:17:30.478 +03:00 [INF] HTTP PUT /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 1.3042 ms
+2026-06-29 00:17:30.488 +03:00 [INF] Handled UpdateMemberCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 2 ms
+2026-06-29 00:17:30.488 +03:00 [WRN] Handled not_found (404): Member with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.488 +03:00 [INF] HTTP PUT /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 9.9225 ms
+2026-06-29 00:17:30.492 +03:00 [INF] Handled UpdateMemberCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 1 ms
+2026-06-29 00:17:30.492 +03:00 [WRN] Handled not_found (404): Member with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.492 +03:00 [INF] HTTP PUT /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 3.3908 ms
+2026-06-29 00:17:30.492 +03:00 [INF] HTTP PUT /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 401 in 0.0458 ms
+2026-06-29 00:17:30.493 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/deactivate responded 403 in 0.9671 ms
+2026-06-29 00:17:30.494 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/deactivate responded 403 in 0.7441 ms
+2026-06-29 00:17:30.495 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/deactivate responded 403 in 0.8023 ms
+2026-06-29 00:17:30.496 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/deactivate responded 403 in 0.7423 ms
+2026-06-29 00:17:30.497 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/deactivate responded 403 in 0.6933 ms
+2026-06-29 00:17:30.501 +03:00 [INF] Handled DeactivateMemberCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 0 ms
+2026-06-29 00:17:30.502 +03:00 [WRN] Handled not_found (404): Member with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.502 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/deactivate responded 404 in 4.3998 ms
+2026-06-29 00:17:30.503 +03:00 [INF] Handled DeactivateMemberCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 0 ms
+2026-06-29 00:17:30.504 +03:00 [WRN] Handled not_found (404): Member with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.504 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/deactivate responded 404 in 1.8483 ms
+2026-06-29 00:17:30.504 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/deactivate responded 401 in 0.0318 ms
+2026-06-29 00:17:30.505 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/reactivate responded 403 in 0.8244 ms
+2026-06-29 00:17:30.506 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/reactivate responded 403 in 0.7543 ms
+2026-06-29 00:17:30.507 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/reactivate responded 403 in 0.8223 ms
+2026-06-29 00:17:30.507 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/reactivate responded 403 in 0.7395 ms
+2026-06-29 00:17:30.508 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/reactivate responded 403 in 0.7856 ms
+2026-06-29 00:17:30.514 +03:00 [INF] Handled ReactivateMemberCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 2 ms
+2026-06-29 00:17:30.514 +03:00 [WRN] Handled not_found (404): Member with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.514 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/reactivate responded 404 in 5.5973 ms
+2026-06-29 00:17:30.516 +03:00 [INF] Handled ReactivateMemberCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 0 ms
+2026-06-29 00:17:30.516 +03:00 [WRN] Handled not_found (404): Member with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.516 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/reactivate responded 404 in 2.1060 ms
+2026-06-29 00:17:30.517 +03:00 [INF] HTTP POST /api/v1/members/9d024a66-8809-44ea-af3a-21b99f2caca2/reactivate responded 401 in 0.0405 ms
+2026-06-29 00:17:30.518 +03:00 [INF] HTTP POST /api/v1/tasks responded 403 in 1.3746 ms
+2026-06-29 00:17:30.519 +03:00 [INF] HTTP POST /api/v1/tasks responded 403 in 0.8503 ms
+2026-06-29 00:17:30.532 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Matrix task
+2026-06-29 00:17:30.536 +03:00 [INF] Handled CreateTaskCommand for user "8e754ef8-3327-40f4-af47-21cf1cf2f640" in 9 ms
+2026-06-29 00:17:30.536 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 16.6354 ms
+2026-06-29 00:17:30.541 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Matrix task
+2026-06-29 00:17:30.543 +03:00 [INF] Handled CreateTaskCommand for user "930f8787-c886-4c70-a892-4720fdabbee8" in 4 ms
+2026-06-29 00:17:30.543 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 6.5859 ms
+2026-06-29 00:17:30.544 +03:00 [INF] HTTP POST /api/v1/tasks responded 403 in 1.1250 ms
+2026-06-29 00:17:30.550 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Matrix task
+2026-06-29 00:17:30.552 +03:00 [INF] Handled CreateTaskCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 4 ms
+2026-06-29 00:17:30.552 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 7.6985 ms
+2026-06-29 00:17:30.556 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Matrix task
+2026-06-29 00:17:30.559 +03:00 [INF] Handled CreateTaskCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 4 ms
+2026-06-29 00:17:30.559 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 6.2607 ms
+2026-06-29 00:17:30.559 +03:00 [INF] HTTP POST /api/v1/tasks responded 401 in 0.0461 ms
+2026-06-29 00:17:30.560 +03:00 [INF] HTTP PUT /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.8367 ms
+2026-06-29 00:17:30.561 +03:00 [INF] HTTP PUT /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.8056 ms
+2026-06-29 00:17:30.569 +03:00 [INF] Handled UpdateTaskCommand for user "8e754ef8-3327-40f4-af47-21cf1cf2f640" in 1 ms
+2026-06-29 00:17:30.569 +03:00 [WRN] Handled not_found (404): Task with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.569 +03:00 [INF] HTTP PUT /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 7.6112 ms
+2026-06-29 00:17:30.571 +03:00 [INF] Handled UpdateTaskCommand for user "930f8787-c886-4c70-a892-4720fdabbee8" in 0 ms
+2026-06-29 00:17:30.571 +03:00 [WRN] Handled not_found (404): Task with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.571 +03:00 [INF] HTTP PUT /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 2.2862 ms
+2026-06-29 00:17:30.572 +03:00 [INF] HTTP PUT /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.6807 ms
+2026-06-29 00:17:30.575 +03:00 [INF] Handled UpdateTaskCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 0 ms
+2026-06-29 00:17:30.575 +03:00 [WRN] Handled not_found (404): Task with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.575 +03:00 [INF] HTTP PUT /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 3.0496 ms
+2026-06-29 00:17:30.577 +03:00 [INF] Handled UpdateTaskCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 0 ms
+2026-06-29 00:17:30.578 +03:00 [WRN] Handled not_found (404): Task with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.578 +03:00 [INF] HTTP PUT /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 2.2197 ms
+2026-06-29 00:17:30.578 +03:00 [INF] HTTP PUT /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 401 in 0.0312 ms
+2026-06-29 00:17:30.579 +03:00 [INF] HTTP DELETE /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7188 ms
+2026-06-29 00:17:30.579 +03:00 [INF] HTTP DELETE /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.6692 ms
+2026-06-29 00:17:30.580 +03:00 [INF] HTTP DELETE /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7433 ms
+2026-06-29 00:17:30.581 +03:00 [INF] HTTP DELETE /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.8687 ms
+2026-06-29 00:17:30.582 +03:00 [INF] HTTP DELETE /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.6655 ms
+2026-06-29 00:17:30.583 +03:00 [INF] HTTP DELETE /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7609 ms
+2026-06-29 00:17:30.588 +03:00 [INF] Handled DeleteTaskCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 2 ms
+2026-06-29 00:17:30.589 +03:00 [WRN] Handled not_found (404): Task with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.589 +03:00 [INF] HTTP DELETE /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 5.5483 ms
+2026-06-29 00:17:30.589 +03:00 [INF] HTTP DELETE /api/v1/tasks/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 401 in 0.0325 ms
+2026-06-29 00:17:30.590 +03:00 [INF] HTTP POST /api/v1/duty-records responded 403 in 0.8522 ms
+2026-06-29 00:17:30.591 +03:00 [INF] HTTP POST /api/v1/duty-records responded 403 in 0.6918 ms
+2026-06-29 00:17:30.592 +03:00 [INF] HTTP POST /api/v1/duty-records responded 403 in 0.9063 ms
+2026-06-29 00:17:30.593 +03:00 [INF] HTTP POST /api/v1/duty-records responded 403 in 0.6880 ms
+2026-06-29 00:17:30.594 +03:00 [INF] HTTP POST /api/v1/duty-records responded 403 in 0.5966 ms
+2026-06-29 00:17:30.614 +03:00 [INF] Handled CreateDutyRecordCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 11 ms
+2026-06-29 00:17:30.615 +03:00 [INF] HTTP POST /api/v1/duty-records responded 201 in 21.1214 ms
+2026-06-29 00:17:30.620 +03:00 [INF] Handled CreateDutyRecordCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 1 ms
+2026-06-29 00:17:30.620 +03:00 [INF] HTTP POST /api/v1/duty-records responded 201 in 4.6462 ms
+2026-06-29 00:17:30.620 +03:00 [INF] HTTP POST /api/v1/duty-records responded 401 in 0.0403 ms
+2026-06-29 00:17:30.621 +03:00 [INF] HTTP PUT /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.9141 ms
+2026-06-29 00:17:30.622 +03:00 [INF] HTTP PUT /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7242 ms
+2026-06-29 00:17:30.623 +03:00 [INF] HTTP PUT /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.8191 ms
+2026-06-29 00:17:30.624 +03:00 [INF] HTTP PUT /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.9033 ms
+2026-06-29 00:17:30.625 +03:00 [INF] HTTP PUT /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.9868 ms
+2026-06-29 00:17:30.635 +03:00 [INF] Handled UpdateDutyRecordCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 3 ms
+2026-06-29 00:17:30.635 +03:00 [WRN] Handled not_found (404): Duty record with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.635 +03:00 [INF] HTTP PUT /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 9.3135 ms
+2026-06-29 00:17:30.637 +03:00 [INF] Handled UpdateDutyRecordCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 0 ms
+2026-06-29 00:17:30.637 +03:00 [WRN] Handled not_found (404): Duty record with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.637 +03:00 [INF] HTTP PUT /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 2.1821 ms
+2026-06-29 00:17:30.638 +03:00 [INF] HTTP PUT /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 401 in 0.0410 ms
+2026-06-29 00:17:30.639 +03:00 [INF] HTTP DELETE /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.8482 ms
+2026-06-29 00:17:30.639 +03:00 [INF] HTTP DELETE /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7898 ms
+2026-06-29 00:17:30.640 +03:00 [INF] HTTP DELETE /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.8446 ms
+2026-06-29 00:17:30.641 +03:00 [INF] HTTP DELETE /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7407 ms
+2026-06-29 00:17:30.642 +03:00 [INF] HTTP DELETE /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.9527 ms
+2026-06-29 00:17:30.647 +03:00 [INF] Handled DeleteDutyRecordCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 1 ms
+2026-06-29 00:17:30.648 +03:00 [WRN] Handled not_found (404): Duty record with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.648 +03:00 [INF] HTTP DELETE /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 5.3405 ms
+2026-06-29 00:17:30.650 +03:00 [INF] Handled DeleteDutyRecordCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 0 ms
+2026-06-29 00:17:30.650 +03:00 [WRN] Handled not_found (404): Duty record with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.650 +03:00 [INF] HTTP DELETE /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 1.9803 ms
+2026-06-29 00:17:30.650 +03:00 [INF] HTTP DELETE /api/v1/duty-records/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 401 in 0.0486 ms
+2026-06-29 00:17:30.651 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 403 in 0.9415 ms
+2026-06-29 00:17:30.652 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 403 in 0.8987 ms
+2026-06-29 00:17:30.655 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 403 in 2.4243 ms
+2026-06-29 00:17:30.656 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 403 in 0.7071 ms
+2026-06-29 00:17:30.656 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 403 in 0.7887 ms
+2026-06-29 00:17:30.673 +03:00 [INF] Handled GetDutySummaryQuery for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 12 ms
+2026-06-29 00:17:30.674 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 200 in 17.5764 ms
+2026-06-29 00:17:30.677 +03:00 [INF] Handled GetDutySummaryQuery for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 1 ms
+2026-06-29 00:17:30.678 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 200 in 3.0581 ms
+2026-06-29 00:17:30.678 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 401 in 0.0385 ms
+2026-06-29 00:17:30.679 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 403 in 0.7871 ms
+2026-06-29 00:17:30.680 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 403 in 0.7331 ms
+2026-06-29 00:17:30.680 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 403 in 0.6959 ms
+2026-06-29 00:17:30.681 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 403 in 0.9387 ms
+2026-06-29 00:17:30.682 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 403 in 0.6246 ms
+2026-06-29 00:17:30.692 +03:00 [INF] [DEV PUSH] "DutyReminder" -> 7 member(s) | Напомняне за дежурство | Все още не сте изпълнили нормата за дежурства за юни 2026.
+2026-06-29 00:17:30.692 +03:00 [INF] Handled RemindDutiesCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 5 ms
+2026-06-29 00:17:30.693 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 200 in 10.1538 ms
+2026-06-29 00:17:30.697 +03:00 [INF] [DEV PUSH] "DutyReminder" -> 7 member(s) | Напомняне за дежурство | Все още не сте изпълнили нормата за дежурства за юни 2026.
+2026-06-29 00:17:30.697 +03:00 [INF] Handled RemindDutiesCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 2 ms
+2026-06-29 00:17:30.697 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 200 in 4.0176 ms
+2026-06-29 00:17:30.697 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 401 in 0.0406 ms
+2026-06-29 00:17:30.700 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 403 in 1.0391 ms
+2026-06-29 00:17:30.701 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 403 in 1.1093 ms
+2026-06-29 00:17:30.702 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 403 in 0.8723 ms
+2026-06-29 00:17:30.703 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 403 in 0.7515 ms
+2026-06-29 00:17:30.704 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 403 in 0.6404 ms
+2026-06-29 00:17:30.726 +03:00 [INF] Handled CreateExpenseCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 11 ms
+2026-06-29 00:17:30.726 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 201 in 22.3348 ms
+2026-06-29 00:17:30.729 +03:00 [INF] Handled CreateExpenseCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 1 ms
+2026-06-29 00:17:30.730 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 201 in 2.9780 ms
+2026-06-29 00:17:30.730 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 401 in 0.0625 ms
+2026-06-29 00:17:30.731 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.8011 ms
+2026-06-29 00:17:30.732 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.6997 ms
+2026-06-29 00:17:30.733 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.6415 ms
+2026-06-29 00:17:30.734 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7704 ms
+2026-06-29 00:17:30.734 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.6017 ms
+2026-06-29 00:17:30.743 +03:00 [INF] Handled UpdateExpenseCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 3 ms
+2026-06-29 00:17:30.743 +03:00 [WRN] Handled not_found (404): Expense with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.743 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 8.3891 ms
+2026-06-29 00:17:30.745 +03:00 [INF] Handled UpdateExpenseCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 0 ms
+2026-06-29 00:17:30.745 +03:00 [WRN] Handled not_found (404): Expense with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.745 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 2.0025 ms
+2026-06-29 00:17:30.745 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 401 in 0.0377 ms
+2026-06-29 00:17:30.746 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7688 ms
+2026-06-29 00:17:30.747 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.6420 ms
+2026-06-29 00:17:30.748 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.6792 ms
+2026-06-29 00:17:30.748 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.6723 ms
+2026-06-29 00:17:30.749 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.5855 ms
+2026-06-29 00:17:30.754 +03:00 [INF] Handled DeleteExpenseCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 0 ms
+2026-06-29 00:17:30.754 +03:00 [WRN] Handled not_found (404): Expense with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.754 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 4.4938 ms
+2026-06-29 00:17:30.755 +03:00 [INF] Handled DeleteExpenseCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 0 ms
+2026-06-29 00:17:30.755 +03:00 [WRN] Handled not_found (404): Expense with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.755 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 1.4520 ms
+2026-06-29 00:17:30.756 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 401 in 0.0325 ms
+2026-06-29 00:17:30.756 +03:00 [INF] HTTP POST /api/v1/events responded 403 in 0.7913 ms
+2026-06-29 00:17:30.767 +03:00 [INF] [DEV PUSH] "EventCreated" -> 8 member(s) | Ново събитие | Добавено е събитие: Matrix event
+2026-06-29 00:17:30.770 +03:00 [INF] Handled CreateEventCommand for user "fdfd6dc2-8c4b-4678-89dc-ce207ac2cd9a" in 7 ms
+2026-06-29 00:17:30.772 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 14.9175 ms
+2026-06-29 00:17:30.777 +03:00 [INF] [DEV PUSH] "EventCreated" -> 8 member(s) | Ново събитие | Добавено е събитие: Matrix event
+2026-06-29 00:17:30.779 +03:00 [INF] Handled CreateEventCommand for user "8e754ef8-3327-40f4-af47-21cf1cf2f640" in 5 ms
+2026-06-29 00:17:30.779 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 7.3720 ms
+2026-06-29 00:17:30.785 +03:00 [INF] [DEV PUSH] "EventCreated" -> 8 member(s) | Ново събитие | Добавено е събитие: Matrix event
+2026-06-29 00:17:30.787 +03:00 [INF] Handled CreateEventCommand for user "930f8787-c886-4c70-a892-4720fdabbee8" in 5 ms
+2026-06-29 00:17:30.788 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 8.0698 ms
+2026-06-29 00:17:30.796 +03:00 [INF] [DEV PUSH] "EventCreated" -> 8 member(s) | Ново събитие | Добавено е събитие: Matrix event
+2026-06-29 00:17:30.797 +03:00 [INF] Handled CreateEventCommand for user "a61cb119-b9aa-4130-ae8c-9ea0adf3871f" in 4 ms
+2026-06-29 00:17:30.798 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 9.8510 ms
+2026-06-29 00:17:30.802 +03:00 [INF] [DEV PUSH] "EventCreated" -> 8 member(s) | Ново събитие | Добавено е събитие: Matrix event
+2026-06-29 00:17:30.804 +03:00 [INF] Handled CreateEventCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 4 ms
+2026-06-29 00:17:30.804 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 6.3745 ms
+2026-06-29 00:17:30.808 +03:00 [INF] [DEV PUSH] "EventCreated" -> 8 member(s) | Ново събитие | Добавено е събитие: Matrix event
+2026-06-29 00:17:30.810 +03:00 [INF] Handled CreateEventCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 4 ms
+2026-06-29 00:17:30.810 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 5.6699 ms
+2026-06-29 00:17:30.810 +03:00 [INF] HTTP POST /api/v1/events responded 401 in 0.0485 ms
+2026-06-29 00:17:30.811 +03:00 [INF] HTTP PUT /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7810 ms
+2026-06-29 00:17:30.825 +03:00 [INF] Handled UpdateEventCommand for user "fdfd6dc2-8c4b-4678-89dc-ce207ac2cd9a" in 6 ms
+2026-06-29 00:17:30.825 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.825 +03:00 [INF] HTTP PUT /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 13.8768 ms
+2026-06-29 00:17:30.828 +03:00 [INF] Handled UpdateEventCommand for user "8e754ef8-3327-40f4-af47-21cf1cf2f640" in 0 ms
+2026-06-29 00:17:30.828 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.828 +03:00 [INF] HTTP PUT /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 3.0383 ms
+2026-06-29 00:17:30.832 +03:00 [INF] Handled UpdateEventCommand for user "930f8787-c886-4c70-a892-4720fdabbee8" in 0 ms
+2026-06-29 00:17:30.832 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.832 +03:00 [INF] HTTP PUT /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 3.1541 ms
+2026-06-29 00:17:30.834 +03:00 [INF] Handled UpdateEventCommand for user "a61cb119-b9aa-4130-ae8c-9ea0adf3871f" in 0 ms
+2026-06-29 00:17:30.834 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.834 +03:00 [INF] HTTP PUT /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 2.0156 ms
+2026-06-29 00:17:30.836 +03:00 [INF] Handled UpdateEventCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 0 ms
+2026-06-29 00:17:30.836 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.836 +03:00 [INF] HTTP PUT /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 2.0238 ms
+2026-06-29 00:17:30.838 +03:00 [INF] Handled UpdateEventCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 0 ms
+2026-06-29 00:17:30.838 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.838 +03:00 [INF] HTTP PUT /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 1.7405 ms
+2026-06-29 00:17:30.838 +03:00 [INF] HTTP PUT /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 401 in 0.0358 ms
+2026-06-29 00:17:30.839 +03:00 [INF] HTTP DELETE /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 403 in 0.7898 ms
+2026-06-29 00:17:30.844 +03:00 [INF] Handled DeleteEventCommand for user "fdfd6dc2-8c4b-4678-89dc-ce207ac2cd9a" in 1 ms
+2026-06-29 00:17:30.845 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.845 +03:00 [INF] HTTP DELETE /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 5.4925 ms
+2026-06-29 00:17:30.847 +03:00 [INF] Handled DeleteEventCommand for user "8e754ef8-3327-40f4-af47-21cf1cf2f640" in 0 ms
+2026-06-29 00:17:30.847 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.847 +03:00 [INF] HTTP DELETE /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 1.9005 ms
+2026-06-29 00:17:30.848 +03:00 [INF] Handled DeleteEventCommand for user "930f8787-c886-4c70-a892-4720fdabbee8" in 0 ms
+2026-06-29 00:17:30.848 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.849 +03:00 [INF] HTTP DELETE /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 1.6261 ms
+2026-06-29 00:17:30.850 +03:00 [INF] Handled DeleteEventCommand for user "a61cb119-b9aa-4130-ae8c-9ea0adf3871f" in 0 ms
+2026-06-29 00:17:30.850 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.850 +03:00 [INF] HTTP DELETE /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 1.3988 ms
+2026-06-29 00:17:30.852 +03:00 [INF] Handled DeleteEventCommand for user "020bcf9d-cc4a-4c22-98db-9c3ffabebe2c" in 0 ms
+2026-06-29 00:17:30.852 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.852 +03:00 [INF] HTTP DELETE /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 1.5349 ms
+2026-06-29 00:17:30.853 +03:00 [INF] Handled DeleteEventCommand for user "d80fa369-9b9d-4309-bf23-7c855fdda0de" in 0 ms
+2026-06-29 00:17:30.853 +03:00 [WRN] Handled not_found (404): Event with key '9d024a66-8809-44ea-af3a-21b99f2caca2' was not found.
+2026-06-29 00:17:30.853 +03:00 [INF] HTTP DELETE /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 404 in 1.4299 ms
+2026-06-29 00:17:30.853 +03:00 [INF] HTTP DELETE /api/v1/events/9d024a66-8809-44ea-af3a-21b99f2caca2 responded 401 in 0.0370 ms
+2026-06-29 00:17:30.998 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:31.135 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:31.198 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:31.233 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:31.249 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:31.249 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:31.249 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:31.460 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:31.470 +03:00 [INF] Handled CreateTaskCommand for user "3e66ff81-3175-44e8-a194-b700961af04a" in 0 ms
+2026-06-29 00:17:31.470 +03:00 [WRN] Handled forbidden (403): Only organisation leadership can create organisational tasks.
+2026-06-29 00:17:31.470 +03:00 [INF] HTTP POST /api/v1/tasks responded 403 in 10.5333 ms
+2026-06-29 00:17:31.473 +03:00 [INF] Handled CreateTaskCommand for user "3e66ff81-3175-44e8-a194-b700961af04a" in 0 ms
+2026-06-29 00:17:31.474 +03:00 [WRN] Handled forbidden (403): You can only create tasks for your own department.
+2026-06-29 00:17:31.474 +03:00 [INF] HTTP POST /api/v1/tasks responded 403 in 2.4807 ms
+2026-06-29 00:17:31.614 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:31.753 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:31.817 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:31.850 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:31.867 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:31.867 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:31.867 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:31.869 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:31.907 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:31.909 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 39.8320 ms
+2026-06-29 00:17:31.982 +03:00 [INF] Handled ChangePasswordCommand for user "b5d2f10d-a351-4ba7-ae04-d94e80214e47" in 67 ms
+2026-06-29 00:17:31.982 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.1538 ms
+2026-06-29 00:17:32.018 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:32.019 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.8050 ms
+2026-06-29 00:17:32.024 +03:00 [INF] Handled GetDepartmentsQuery for user "b5d2f10d-a351-4ba7-ae04-d94e80214e47" in 1 ms
+2026-06-29 00:17:32.024 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.1591 ms
+2026-06-29 00:17:32.067 +03:00 [INF] Handled CreateMemberCommand for user "b5d2f10d-a351-4ba7-ae04-d94e80214e47" in 35 ms
+2026-06-29 00:17:32.068 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.1102 ms
+2026-06-29 00:17:32.077 +03:00 [INF] Handled CreateExpenseCommand for user "b5d2f10d-a351-4ba7-ae04-d94e80214e47" in 4 ms
+2026-06-29 00:17:32.077 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 201 in 9.1448 ms
+2026-06-29 00:17:32.087 +03:00 [INF] Handled GetBudgetSummaryQuery for user "b5d2f10d-a351-4ba7-ae04-d94e80214e47" in 5 ms
+2026-06-29 00:17:32.088 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 9.3931 ms
+2026-06-29 00:17:32.098 +03:00 [INF] Handled GetExpensesQuery for user "b5d2f10d-a351-4ba7-ae04-d94e80214e47" in 5 ms
+2026-06-29 00:17:32.099 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 10.3087 ms
+2026-06-29 00:17:32.136 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:32.137 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.4382 ms
+2026-06-29 00:17:32.209 +03:00 [INF] Handled ChangePasswordCommand for user "6781673f-28b4-4ba0-b91e-e93753b481d3" in 70 ms
+2026-06-29 00:17:32.209 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 71.9316 ms
+2026-06-29 00:17:32.243 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:32.243 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 34.2576 ms
+2026-06-29 00:17:32.245 +03:00 [INF] Handled GetBudgetSummaryQuery for user "6781673f-28b4-4ba0-b91e-e93753b481d3" in 0 ms
+2026-06-29 00:17:32.246 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 1.9111 ms
+2026-06-29 00:17:32.248 +03:00 [INF] Handled GetExpensesQuery for user "6781673f-28b4-4ba0-b91e-e93753b481d3" in 1 ms
+2026-06-29 00:17:32.248 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 2.5058 ms
+2026-06-29 00:17:32.249 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 403 in 0.5915 ms
+2026-06-29 00:17:32.396 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:32.543 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:32.615 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:32.648 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:32.670 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:32.670 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:32.670 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:32.673 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:32.711 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:32.712 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 39.7491 ms
+2026-06-29 00:17:32.785 +03:00 [INF] Handled ChangePasswordCommand for user "8766261d-2b06-4fa3-88d4-c813a334bb01" in 66 ms
+2026-06-29 00:17:32.786 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.2606 ms
+2026-06-29 00:17:32.821 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:32.821 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.3437 ms
+2026-06-29 00:17:32.827 +03:00 [WRN] Handled validation_error (400): One or more validation errors occurred.
+2026-06-29 00:17:32.827 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 400 in 5.7698 ms
+2026-06-29 00:17:32.831 +03:00 [WRN] Handled validation_error (400): One or more validation errors occurred.
+2026-06-29 00:17:32.831 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 400 in 3.3900 ms
+2026-06-29 00:17:32.834 +03:00 [WRN] Handled validation_error (400): One or more validation errors occurred.
+2026-06-29 00:17:32.834 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 400 in 2.2426 ms
+2026-06-29 00:17:32.979 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:33.122 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:33.189 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:33.225 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:33.244 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:33.244 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:33.244 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:33.246 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:33.247 +03:00 [INF] HTTP GET /health/live responded 200 in 2.3606 ms
+2026-06-29 00:17:33.390 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:33.537 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:33.606 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:33.644 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:33.662 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:33.662 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:33.662 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:33.664 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:33.702 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:33.703 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.8040 ms
+2026-06-29 00:17:33.778 +03:00 [INF] Handled ChangePasswordCommand for user "e839569d-b781-4b3e-b116-1005b33e161e" in 68 ms
+2026-06-29 00:17:33.778 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 73.6601 ms
+2026-06-29 00:17:33.814 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:33.814 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.8195 ms
+2026-06-29 00:17:33.822 +03:00 [INF] Handled GetDepartmentsQuery for user "e839569d-b781-4b3e-b116-1005b33e161e" in 1 ms
+2026-06-29 00:17:33.823 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.5750 ms
+2026-06-29 00:17:33.866 +03:00 [INF] Handled CreateMemberCommand for user "e839569d-b781-4b3e-b116-1005b33e161e" in 36 ms
+2026-06-29 00:17:33.867 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.8621 ms
+2026-06-29 00:17:33.886 +03:00 [INF] Handled UpdateMemberCommand for user "e839569d-b781-4b3e-b116-1005b33e161e" in 8 ms
+2026-06-29 00:17:33.886 +03:00 [INF] HTTP PUT /api/v1/members/202b91ad-9609-46a8-9b11-16d724d831a5 responded 200 in 13.8466 ms
+2026-06-29 00:17:33.897 +03:00 [INF] Handled UpdateMemberCommand for user "e839569d-b781-4b3e-b116-1005b33e161e" in 4 ms
+2026-06-29 00:17:33.897 +03:00 [INF] HTTP PUT /api/v1/members/202b91ad-9609-46a8-9b11-16d724d831a5 responded 200 in 10.1470 ms
+2026-06-29 00:17:33.907 +03:00 [INF] Handled DeactivateMemberCommand for user "e839569d-b781-4b3e-b116-1005b33e161e" in 5 ms
+2026-06-29 00:17:33.907 +03:00 [INF] HTTP POST /api/v1/members/202b91ad-9609-46a8-9b11-16d724d831a5/deactivate responded 204 in 8.5800 ms
+2026-06-29 00:17:33.913 +03:00 [INF] Handled ReactivateMemberCommand for user "e839569d-b781-4b3e-b116-1005b33e161e" in 3 ms
+2026-06-29 00:17:33.914 +03:00 [INF] HTTP POST /api/v1/members/202b91ad-9609-46a8-9b11-16d724d831a5/reactivate responded 204 in 6.4368 ms
+2026-06-29 00:17:34.055 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:34.194 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:34.257 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:34.293 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:34.310 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:34.310 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:34.310 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:34.312 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:34.350 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:34.350 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.7200 ms
+2026-06-29 00:17:34.424 +03:00 [INF] Handled ChangePasswordCommand for user "c4c09c11-134a-41b3-a197-120f54fcceca" in 67 ms
+2026-06-29 00:17:34.424 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 71.9995 ms
+2026-06-29 00:17:34.460 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:34.460 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.6516 ms
+2026-06-29 00:17:34.465 +03:00 [INF] Handled DeleteExpenseCommand for user "c4c09c11-134a-41b3-a197-120f54fcceca" in 1 ms
+2026-06-29 00:17:34.465 +03:00 [WRN] Handled not_found (404): Expense with key '918812c5-1193-4214-b9e1-1d98096e9808' was not found.
+2026-06-29 00:17:34.466 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/918812c5-1193-4214-b9e1-1d98096e9808 responded 404 in 5.1579 ms
+2026-06-29 00:17:34.608 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:34.746 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:34.828 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:34.865 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:34.884 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:34.884 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:34.884 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:34.887 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:34.928 +03:00 [INF] Handled LoginCommand for user null in 38 ms
+2026-06-29 00:17:34.929 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 42.5835 ms
+2026-06-29 00:17:35.002 +03:00 [INF] Handled ChangePasswordCommand for user "55b9bc35-2e08-4d18-a81e-d3e33cd7ac79" in 67 ms
+2026-06-29 00:17:35.003 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.5185 ms
+2026-06-29 00:17:35.038 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:35.038 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.0266 ms
+2026-06-29 00:17:35.044 +03:00 [INF] Handled GetDepartmentsQuery for user "55b9bc35-2e08-4d18-a81e-d3e33cd7ac79" in 1 ms
+2026-06-29 00:17:35.045 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.7116 ms
+2026-06-29 00:17:35.089 +03:00 [INF] Handled CreateMemberCommand for user "55b9bc35-2e08-4d18-a81e-d3e33cd7ac79" in 36 ms
+2026-06-29 00:17:35.089 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.9010 ms
+2026-06-29 00:17:35.100 +03:00 [INF] Handled CreateDutyRecordCommand for user "55b9bc35-2e08-4d18-a81e-d3e33cd7ac79" in 3 ms
+2026-06-29 00:17:35.100 +03:00 [INF] HTTP POST /api/v1/duty-records responded 201 in 10.6602 ms
+2026-06-29 00:17:35.112 +03:00 [INF] Handled UpdateDutyRecordCommand for user "55b9bc35-2e08-4d18-a81e-d3e33cd7ac79" in 3 ms
+2026-06-29 00:17:35.112 +03:00 [INF] HTTP PUT /api/v1/duty-records/01ba98dd-514a-4071-abaa-8e3e198e7e1d responded 200 in 11.1665 ms
+2026-06-29 00:17:35.118 +03:00 [INF] Handled DeleteDutyRecordCommand for user "55b9bc35-2e08-4d18-a81e-d3e33cd7ac79" in 2 ms
+2026-06-29 00:17:35.118 +03:00 [INF] HTTP DELETE /api/v1/duty-records/01ba98dd-514a-4071-abaa-8e3e198e7e1d responded 204 in 5.6688 ms
+2026-06-29 00:17:35.269 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:35.407 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:35.463 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:35.498 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:35.513 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:35.513 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:35.513 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:35.522 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:35.560 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:35.561 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 40.0478 ms
+2026-06-29 00:17:35.636 +03:00 [INF] Handled ChangePasswordCommand for user "a18cc20e-e576-433b-b6b0-b9f7d5fffae0" in 67 ms
+2026-06-29 00:17:35.636 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 73.4804 ms
+2026-06-29 00:17:35.672 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:35.672 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.7123 ms
+2026-06-29 00:17:35.684 +03:00 [INF] Handled CreateExpenseCommand for user "a18cc20e-e576-433b-b6b0-b9f7d5fffae0" in 6 ms
+2026-06-29 00:17:35.684 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 201 in 10.7736 ms
+2026-06-29 00:17:35.693 +03:00 [INF] Handled UpdateExpenseCommand for user "a18cc20e-e576-433b-b6b0-b9f7d5fffae0" in 3 ms
+2026-06-29 00:17:35.694 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/5300dc93-0a0e-4c52-b881-9ca61365c4e9 responded 200 in 8.7096 ms
+2026-06-29 00:17:35.699 +03:00 [INF] Handled DeleteExpenseCommand for user "a18cc20e-e576-433b-b6b0-b9f7d5fffae0" in 1 ms
+2026-06-29 00:17:35.699 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/5300dc93-0a0e-4c52-b881-9ca61365c4e9 responded 204 in 4.9933 ms
+2026-06-29 00:17:35.838 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:35.972 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:36.028 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:36.063 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:36.081 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:36.081 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:36.081 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:36.084 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:36.121 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:36.122 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 39.1198 ms
+2026-06-29 00:17:36.196 +03:00 [INF] Handled ChangePasswordCommand for user "7cf4266d-47ce-4408-b123-911367aebe97" in 66 ms
+2026-06-29 00:17:36.196 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.7988 ms
+2026-06-29 00:17:36.232 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:36.233 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.0670 ms
+2026-06-29 00:17:36.240 +03:00 [INF] Handled GetDepartmentsQuery for user "7cf4266d-47ce-4408-b123-911367aebe97" in 2 ms
+2026-06-29 00:17:36.240 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.8841 ms
+2026-06-29 00:17:36.284 +03:00 [INF] Handled CreateMemberCommand for user "7cf4266d-47ce-4408-b123-911367aebe97" in 35 ms
+2026-06-29 00:17:36.284 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.3853 ms
+2026-06-29 00:17:36.304 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Doomed task
+2026-06-29 00:17:36.314 +03:00 [INF] Handled CreateTaskCommand for user "7cf4266d-47ce-4408-b123-911367aebe97" in 22 ms
+2026-06-29 00:17:36.316 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 31.4539 ms
+2026-06-29 00:17:36.316 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+2026-06-29 00:17:36.323 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+2026-06-29 00:17:36.328 +03:00 [INF] Handled UploadTaskDocumentCommand for user "7cf4266d-47ce-4408-b123-911367aebe97" in 4 ms
+2026-06-29 00:17:36.328 +03:00 [INF] HTTP POST /api/v1/tasks/eb403838-3492-4b93-959b-ee565e56c337/documents responded 201 in 12.2350 ms
+2026-06-29 00:17:36.335 +03:00 [INF] Handled DeleteTaskDocumentCommand for user "7cf4266d-47ce-4408-b123-911367aebe97" in 3 ms
+2026-06-29 00:17:36.335 +03:00 [INF] HTTP DELETE /api/v1/tasks/eb403838-3492-4b93-959b-ee565e56c337/documents/b567d473-444a-4430-bc47-a917174110da responded 204 in 6.2021 ms
+2026-06-29 00:17:36.342 +03:00 [INF] Handled DeleteTaskCommand for user "7cf4266d-47ce-4408-b123-911367aebe97" in 2 ms
+2026-06-29 00:17:36.342 +03:00 [INF] HTTP DELETE /api/v1/tasks/eb403838-3492-4b93-959b-ee565e56c337 responded 204 in 5.5563 ms
+2026-06-29 00:17:36.486 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:36.630 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:36.693 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:36.730 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:36.748 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:36.748 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:36.748 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:36.751 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:36.788 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:36.789 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.4916 ms
+2026-06-29 00:17:36.863 +03:00 [INF] Handled ChangePasswordCommand for user "e6ba0ee0-b71b-4238-be50-fefc5d7cba1e" in 66 ms
+2026-06-29 00:17:36.863 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.3880 ms
+2026-06-29 00:17:36.899 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:36.899 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.8276 ms
+2026-06-29 00:17:36.905 +03:00 [INF] Handled GetDepartmentsQuery for user "e6ba0ee0-b71b-4238-be50-fefc5d7cba1e" in 1 ms
+2026-06-29 00:17:36.905 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.3448 ms
+2026-06-29 00:17:36.956 +03:00 [INF] Handled CreateMemberCommand for user "e6ba0ee0-b71b-4238-be50-fefc5d7cba1e" in 35 ms
+2026-06-29 00:17:36.957 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 51.3698 ms
+2026-06-29 00:17:36.972 +03:00 [INF] Handled CreateTaskCommand for user "e6ba0ee0-b71b-4238-be50-fefc5d7cba1e" in 8 ms
+2026-06-29 00:17:36.973 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 15.9576 ms
+2026-06-29 00:17:36.982 +03:00 [INF] Handled GetNotificationsQuery for user "e6ba0ee0-b71b-4238-be50-fefc5d7cba1e" in 4 ms
+2026-06-29 00:17:36.985 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 11.5555 ms
+2026-06-29 00:17:37.130 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:37.278 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:37.332 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:37.365 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:37.380 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:37.380 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:37.380 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:37.382 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:37.420 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:37.421 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 39.4389 ms
+2026-06-29 00:17:37.496 +03:00 [INF] Handled ChangePasswordCommand for user "3372b1f3-c520-4feb-b707-8650b1a9a7b2" in 69 ms
+2026-06-29 00:17:37.496 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 73.9730 ms
+2026-06-29 00:17:37.538 +03:00 [INF] Handled LoginCommand for user null in 39 ms
+2026-06-29 00:17:37.538 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 41.6837 ms
+2026-06-29 00:17:37.544 +03:00 [INF] Handled GetDepartmentsQuery for user "3372b1f3-c520-4feb-b707-8650b1a9a7b2" in 1 ms
+2026-06-29 00:17:37.545 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.7488 ms
+2026-06-29 00:17:37.589 +03:00 [INF] Handled CreateMemberCommand for user "3372b1f3-c520-4feb-b707-8650b1a9a7b2" in 36 ms
+2026-06-29 00:17:37.590 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 44.5363 ms
+2026-06-29 00:17:37.604 +03:00 [INF] Handled CreateTaskCommand for user "3372b1f3-c520-4feb-b707-8650b1a9a7b2" in 7 ms
+2026-06-29 00:17:37.605 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 15.2959 ms
+2026-06-29 00:17:37.642 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:37.642 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.9039 ms
+2026-06-29 00:17:37.710 +03:00 [INF] Handled ChangePasswordCommand for user "16c90ef5-abe2-47ce-8b3f-6d60d69516c6" in 66 ms
+2026-06-29 00:17:37.710 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 67.8723 ms
+2026-06-29 00:17:37.744 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:37.744 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.9278 ms
+2026-06-29 00:17:37.764 +03:00 [INF] Handled GetNotificationsQuery for user "16c90ef5-abe2-47ce-8b3f-6d60d69516c6" in 15 ms
+2026-06-29 00:17:37.765 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 20.4045 ms
+2026-06-29 00:17:37.772 +03:00 [INF] Handled MarkNotificationReadCommand for user "3372b1f3-c520-4feb-b707-8650b1a9a7b2" in 2 ms
+2026-06-29 00:17:37.773 +03:00 [WRN] Handled not_found (404): Notification with key '9f439d60-75eb-4611-842a-68ef4b242dd2' was not found.
+2026-06-29 00:17:37.773 +03:00 [INF] HTTP POST /api/v1/notifications/9f439d60-75eb-4611-842a-68ef4b242dd2/read responded 404 in 7.5384 ms
+2026-06-29 00:17:37.776 +03:00 [INF] Handled MarkNotificationReadCommand for user "16c90ef5-abe2-47ce-8b3f-6d60d69516c6" in 1 ms
+2026-06-29 00:17:37.776 +03:00 [INF] HTTP POST /api/v1/notifications/9f439d60-75eb-4611-842a-68ef4b242dd2/read responded 204 in 3.0825 ms
+2026-06-29 00:17:37.778 +03:00 [INF] Handled GetNotificationsQuery for user "16c90ef5-abe2-47ce-8b3f-6d60d69516c6" in 0 ms
+2026-06-29 00:17:37.778 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 1.8310 ms
+2026-06-29 00:17:37.800 +03:00 [INF] Handled AddTaskCommentCommand for user "3372b1f3-c520-4feb-b707-8650b1a9a7b2" in 17 ms
+2026-06-29 00:17:37.801 +03:00 [INF] HTTP POST /api/v1/tasks/5400667c-e35a-4147-a1e0-d7e355cf319e/comments responded 201 in 21.8450 ms
+2026-06-29 00:17:37.804 +03:00 [INF] Handled GetNotificationsQuery for user "16c90ef5-abe2-47ce-8b3f-6d60d69516c6" in 1 ms
+2026-06-29 00:17:37.804 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 2.8413 ms
+2026-06-29 00:17:37.813 +03:00 [INF] Handled MarkAllNotificationsReadCommand for user "16c90ef5-abe2-47ce-8b3f-6d60d69516c6" in 6 ms
+2026-06-29 00:17:37.814 +03:00 [INF] HTTP POST /api/v1/notifications/read-all responded 204 in 9.6878 ms
+2026-06-29 00:17:37.816 +03:00 [INF] Handled GetNotificationsQuery for user "16c90ef5-abe2-47ce-8b3f-6d60d69516c6" in 0 ms
+2026-06-29 00:17:37.816 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 2.3758 ms
+2026-06-29 00:17:37.818 +03:00 [INF] Handled GetNotificationsQuery for user "16c90ef5-abe2-47ce-8b3f-6d60d69516c6" in 0 ms
+2026-06-29 00:17:37.819 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 2.0394 ms
+2026-06-29 00:17:37.962 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:38.095 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:38.149 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:38.183 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:38.198 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:38.198 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:38.198 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:38.200 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:38.201 +03:00 [INF] HTTP GET /health/live responded 200 in 1.4995 ms
+2026-06-29 00:17:38.207 +03:00 [INF] HTTP GET /health responded 200 in 4.9074 ms
+2026-06-29 00:17:38.348 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:38.494 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:38.552 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:38.588 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:38.604 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:38.604 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:38.604 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:38.610 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:38.648 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:38.649 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 42.7537 ms
+2026-06-29 00:17:38.723 +03:00 [INF] Handled ChangePasswordCommand for user "35484632-c7f2-4c0d-8ef4-05b420b3cc27" in 67 ms
+2026-06-29 00:17:38.723 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.4416 ms
+2026-06-29 00:17:38.759 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:38.759 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.8385 ms
+2026-06-29 00:17:38.779 +03:00 [INF] Handled RegisterDeviceCommand for user "35484632-c7f2-4c0d-8ef4-05b420b3cc27" in 10 ms
+2026-06-29 00:17:38.780 +03:00 [INF] HTTP POST /api/v1/devices responded 201 in 19.9043 ms
+2026-06-29 00:17:38.796 +03:00 [INF] Handled RegisterDeviceCommand for user "35484632-c7f2-4c0d-8ef4-05b420b3cc27" in 2 ms
+2026-06-29 00:17:38.796 +03:00 [INF] HTTP POST /api/v1/devices responded 200 in 15.8028 ms
+2026-06-29 00:17:38.939 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:39.075 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:39.132 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:39.168 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:39.187 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:39.187 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:39.187 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:39.190 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:39.228 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:39.229 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 39.3019 ms
+2026-06-29 00:17:39.304 +03:00 [INF] Handled ChangePasswordCommand for user "497ca450-a5e8-456c-bbaf-9111d1f04220" in 68 ms
+2026-06-29 00:17:39.304 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 74.1619 ms
+2026-06-29 00:17:39.339 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:39.339 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.1526 ms
+2026-06-29 00:17:39.345 +03:00 [INF] Handled GetDepartmentsQuery for user "497ca450-a5e8-456c-bbaf-9111d1f04220" in 1 ms
+2026-06-29 00:17:39.346 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.8298 ms
+2026-06-29 00:17:39.354 +03:00 [INF] Handled RegisterDeviceCommand for user "497ca450-a5e8-456c-bbaf-9111d1f04220" in 2 ms
+2026-06-29 00:17:39.355 +03:00 [INF] HTTP POST /api/v1/devices responded 201 in 8.3933 ms
+2026-06-29 00:17:39.396 +03:00 [INF] Handled CreateMemberCommand for user "497ca450-a5e8-456c-bbaf-9111d1f04220" in 36 ms
+2026-06-29 00:17:39.397 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 42.4610 ms
+2026-06-29 00:17:39.434 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:39.434 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.7765 ms
+2026-06-29 00:17:39.502 +03:00 [INF] Handled ChangePasswordCommand for user "413efb2d-e013-4a83-8321-49daf01c4304" in 66 ms
+2026-06-29 00:17:39.503 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 68.0035 ms
+2026-06-29 00:17:39.537 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:39.537 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 34.3687 ms
+2026-06-29 00:17:39.544 +03:00 [INF] Handled DeregisterDeviceCommand for user "413efb2d-e013-4a83-8321-49daf01c4304" in 2 ms
+2026-06-29 00:17:39.545 +03:00 [INF] HTTP DELETE /api/v1/devices/admin-device responded 204 in 7.1375 ms
+2026-06-29 00:17:39.548 +03:00 [INF] Handled DeregisterDeviceCommand for user "497ca450-a5e8-456c-bbaf-9111d1f04220" in 1 ms
+2026-06-29 00:17:39.548 +03:00 [INF] HTTP DELETE /api/v1/devices/admin-device responded 204 in 2.6098 ms
+2026-06-29 00:17:39.551 +03:00 [INF] Handled DeregisterDeviceCommand for user "497ca450-a5e8-456c-bbaf-9111d1f04220" in 0 ms
+2026-06-29 00:17:39.551 +03:00 [INF] HTTP DELETE /api/v1/devices/admin-device responded 204 in 2.2039 ms
+2026-06-29 00:17:39.696 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:39.837 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:39.910 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:39.946 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:39.961 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:39.961 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:39.961 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:39.966 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:40.004 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:40.004 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 41.6116 ms
+2026-06-29 00:17:40.078 +03:00 [INF] Handled ChangePasswordCommand for user "9dd11569-94c4-4f1e-95c9-61d4421dd4ed" in 67 ms
+2026-06-29 00:17:40.079 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.6258 ms
+2026-06-29 00:17:40.115 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:40.115 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.4024 ms
+2026-06-29 00:17:40.122 +03:00 [WRN] Handled validation_error (400): One or more validation errors occurred.
+2026-06-29 00:17:40.122 +03:00 [INF] HTTP POST /api/v1/devices responded 400 in 6.6004 ms
+2026-06-29 00:17:40.128 +03:00 [INF] HTTP POST /api/v1/devices responded 400 in 4.8503 ms
+2026-06-29 00:17:40.271 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:40.410 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:40.471 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:40.506 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:40.523 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:40.523 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:40.523 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:40.525 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:40.563 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:40.563 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.2665 ms
+2026-06-29 00:17:40.637 +03:00 [INF] Handled ChangePasswordCommand for user "7fba5b9b-8acc-4e77-b14e-6c56026f52f8" in 67 ms
+2026-06-29 00:17:40.638 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.8943 ms
+2026-06-29 00:17:40.674 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:40.674 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.3603 ms
+2026-06-29 00:17:40.680 +03:00 [INF] Handled GetDepartmentsQuery for user "7fba5b9b-8acc-4e77-b14e-6c56026f52f8" in 1 ms
+2026-06-29 00:17:40.681 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.5676 ms
+2026-06-29 00:17:40.724 +03:00 [INF] Handled CreateMemberCommand for user "7fba5b9b-8acc-4e77-b14e-6c56026f52f8" in 35 ms
+2026-06-29 00:17:40.725 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.8994 ms
+2026-06-29 00:17:40.734 +03:00 [INF] Handled CreateDutyRecordCommand for user "7fba5b9b-8acc-4e77-b14e-6c56026f52f8" in 2 ms
+2026-06-29 00:17:40.735 +03:00 [INF] HTTP POST /api/v1/duty-records responded 201 in 9.7311 ms
+2026-06-29 00:17:40.740 +03:00 [INF] Handled GetDutySummaryQuery for user "7fba5b9b-8acc-4e77-b14e-6c56026f52f8" in 1 ms
+2026-06-29 00:17:40.741 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 200 in 5.5683 ms
+2026-06-29 00:17:40.750 +03:00 [INF] [DEV PUSH] "DutyReminder" -> 1 member(s) | Напомняне за дежурство | Все още не сте изпълнили нормата за дежурства за юни 2026.
+2026-06-29 00:17:40.750 +03:00 [INF] Handled RemindDutiesCommand for user "7fba5b9b-8acc-4e77-b14e-6c56026f52f8" in 3 ms
+2026-06-29 00:17:40.750 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 200 in 7.5347 ms
+2026-06-29 00:17:40.754 +03:00 [INF] [DEV PUSH] "DutyReminder" -> 1 member(s) | Напомняне за дежурство | Все още не сте изпълнили нормата за дежурства за юни 2026.
+2026-06-29 00:17:40.754 +03:00 [INF] Handled RemindDutiesCommand for user "7fba5b9b-8acc-4e77-b14e-6c56026f52f8" in 1 ms
+2026-06-29 00:17:40.754 +03:00 [INF] HTTP POST /api/v1/duty-records/remind responded 200 in 2.9929 ms
+2026-06-29 00:17:40.790 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:40.790 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.7606 ms
+2026-06-29 00:17:40.858 +03:00 [INF] Handled ChangePasswordCommand for user "5df2f849-3634-4b22-86ad-0ac93deffcf2" in 66 ms
+2026-06-29 00:17:40.858 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 67.9368 ms
+2026-06-29 00:17:40.895 +03:00 [INF] Handled LoginCommand for user null in 36 ms
+2026-06-29 00:17:40.896 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 37.3095 ms
+2026-06-29 00:17:40.903 +03:00 [INF] Handled GetMyDutySummaryQuery for user "5df2f849-3634-4b22-86ad-0ac93deffcf2" in 2 ms
+2026-06-29 00:17:40.904 +03:00 [INF] HTTP GET /api/v1/duty-records/me/summary responded 200 in 7.6557 ms
+2026-06-29 00:17:41.040 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:41.176 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:41.234 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:41.269 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:41.284 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:41.284 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:41.284 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:41.293 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:41.331 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:41.332 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 45.6646 ms
+2026-06-29 00:17:41.406 +03:00 [INF] Handled ChangePasswordCommand for user "42f3284a-c6af-445c-bb53-bf0de6bda525" in 67 ms
+2026-06-29 00:17:41.406 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.4394 ms
+2026-06-29 00:17:41.441 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:41.442 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.3597 ms
+2026-06-29 00:17:41.447 +03:00 [INF] Handled GetDepartmentsQuery for user "42f3284a-c6af-445c-bb53-bf0de6bda525" in 1 ms
+2026-06-29 00:17:41.447 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 4.9686 ms
+2026-06-29 00:17:41.490 +03:00 [INF] Handled CreateMemberCommand for user "42f3284a-c6af-445c-bb53-bf0de6bda525" in 35 ms
+2026-06-29 00:17:41.490 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 42.7958 ms
+2026-06-29 00:17:41.527 +03:00 [INF] Handled CreateMemberCommand for user "42f3284a-c6af-445c-bb53-bf0de6bda525" in 34 ms
+2026-06-29 00:17:41.528 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 37.0378 ms
+2026-06-29 00:17:41.538 +03:00 [INF] Handled DeactivateMemberCommand for user "42f3284a-c6af-445c-bb53-bf0de6bda525" in 6 ms
+2026-06-29 00:17:41.538 +03:00 [INF] HTTP POST /api/v1/members/c785c710-a366-4007-889f-58d139337fb6/deactivate responded 204 in 9.9701 ms
+2026-06-29 00:17:41.545 +03:00 [WRN] Handled validation_error (400): One or more validation errors occurred.
+2026-06-29 00:17:41.546 +03:00 [INF] HTTP POST /api/v1/duty-records responded 400 in 7.7427 ms
+2026-06-29 00:17:41.548 +03:00 [WRN] Handled validation_error (400): One or more validation errors occurred.
+2026-06-29 00:17:41.548 +03:00 [INF] HTTP POST /api/v1/duty-records responded 400 in 2.3179 ms
+2026-06-29 00:17:41.689 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:41.859 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:41.915 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:41.951 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:41.968 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:41.968 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:41.968 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:41.970 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:42.007 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:42.008 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.3538 ms
+2026-06-29 00:17:42.082 +03:00 [INF] Handled ChangePasswordCommand for user "df846e64-77f4-4426-bb7a-0eef61e1a403" in 67 ms
+2026-06-29 00:17:42.082 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.1380 ms
+2026-06-29 00:17:42.117 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:42.117 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.5045 ms
+2026-06-29 00:17:42.123 +03:00 [INF] Handled GetDepartmentsQuery for user "df846e64-77f4-4426-bb7a-0eef61e1a403" in 1 ms
+2026-06-29 00:17:42.123 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 4.9249 ms
+2026-06-29 00:17:42.166 +03:00 [INF] Handled CreateMemberCommand for user "df846e64-77f4-4426-bb7a-0eef61e1a403" in 35 ms
+2026-06-29 00:17:42.166 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.0830 ms
+2026-06-29 00:17:42.204 +03:00 [INF] Handled CreateMemberCommand for user "df846e64-77f4-4426-bb7a-0eef61e1a403" in 34 ms
+2026-06-29 00:17:42.204 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 37.2335 ms
+2026-06-29 00:17:42.216 +03:00 [INF] Handled CreateDutyRecordCommand for user "df846e64-77f4-4426-bb7a-0eef61e1a403" in 3 ms
+2026-06-29 00:17:42.217 +03:00 [INF] HTTP POST /api/v1/duty-records responded 201 in 13.0638 ms
+2026-06-29 00:17:42.221 +03:00 [INF] Handled CreateDutyRecordCommand for user "df846e64-77f4-4426-bb7a-0eef61e1a403" in 1 ms
+2026-06-29 00:17:42.221 +03:00 [INF] HTTP POST /api/v1/duty-records responded 201 in 3.5140 ms
+2026-06-29 00:17:42.257 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:42.257 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.0696 ms
+2026-06-29 00:17:42.326 +03:00 [INF] Handled ChangePasswordCommand for user "e124a5f6-19ed-49d3-b5bf-ac95fe970a0d" in 67 ms
+2026-06-29 00:17:42.327 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 69.3036 ms
+2026-06-29 00:17:42.361 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:42.361 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.9134 ms
+2026-06-29 00:17:42.370 +03:00 [INF] Handled GetDutyRecordsQuery for user "e124a5f6-19ed-49d3-b5bf-ac95fe970a0d" in 4 ms
+2026-06-29 00:17:42.371 +03:00 [INF] HTTP GET /api/v1/duty-records responded 200 in 9.5459 ms
+2026-06-29 00:17:42.373 +03:00 [INF] Handled GetDutyRecordsQuery for user "e124a5f6-19ed-49d3-b5bf-ac95fe970a0d" in 1 ms
+2026-06-29 00:17:42.374 +03:00 [INF] HTTP GET /api/v1/duty-records responded 200 in 2.2287 ms
+2026-06-29 00:17:42.375 +03:00 [INF] HTTP GET /api/v1/duty-records/summary responded 403 in 0.7813 ms
+2026-06-29 00:17:42.376 +03:00 [INF] HTTP POST /api/v1/duty-records responded 403 in 0.8101 ms
+2026-06-29 00:17:42.522 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:42.649 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:42.724 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:42.760 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:42.777 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:42.777 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:42.777 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:42.779 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:42.818 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:42.818 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:42.819 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 40.0378 ms
+2026-06-29 00:17:42.856 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:42.856 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:42.856 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 35.5853 ms
+2026-06-29 00:17:42.897 +03:00 [INF] Handled LoginCommand for user null in 38 ms
+2026-06-29 00:17:42.897 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:42.897 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 41.0660 ms
+2026-06-29 00:17:42.931 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:42.931 +03:00 [WRN] Handled invalid_credentials (401): Invalid email or password.
+2026-06-29 00:17:42.931 +03:00 [INF] HTTP POST /api/v1/auth/login responded 401 in 33.9247 ms
+2026-06-29 00:17:42.967 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:42.967 +03:00 [WRN] Handled account_locked (423): Too many failed attempts. The account is locked for a few minutes.
+2026-06-29 00:17:42.967 +03:00 [INF] HTTP POST /api/v1/auth/login responded 423 in 35.8708 ms
+2026-06-29 00:17:43.106 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:43.236 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:43.290 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:43.324 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:43.342 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:43.342 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:43.342 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:43.344 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:43.381 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:43.382 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.8327 ms
+2026-06-29 00:17:43.457 +03:00 [INF] Handled ChangePasswordCommand for user "73480e8c-2f14-4509-9742-6c3ceecac6a5" in 67 ms
+2026-06-29 00:17:43.457 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.7516 ms
+2026-06-29 00:17:43.493 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:43.493 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.8026 ms
+2026-06-29 00:17:43.498 +03:00 [INF] Handled GetDepartmentsQuery for user "73480e8c-2f14-4509-9742-6c3ceecac6a5" in 1 ms
+2026-06-29 00:17:43.499 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.2257 ms
+2026-06-29 00:17:43.503 +03:00 [INF] Handled GetDepartmentsQuery for user "73480e8c-2f14-4509-9742-6c3ceecac6a5" in 0 ms
+2026-06-29 00:17:43.503 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 4.7324 ms
+2026-06-29 00:17:43.546 +03:00 [INF] Handled CreateMemberCommand for user "73480e8c-2f14-4509-9742-6c3ceecac6a5" in 38 ms
+2026-06-29 00:17:43.547 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.5308 ms
+2026-06-29 00:17:43.557 +03:00 [INF] [DEV PUSH] "EventCreated" -> 2 member(s) | Ново събитие | Добавено е събитие: Sports gala
+2026-06-29 00:17:43.565 +03:00 [INF] Handled CreateEventCommand for user "73480e8c-2f14-4509-9742-6c3ceecac6a5" in 11 ms
+2026-06-29 00:17:43.566 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 17.9136 ms
+2026-06-29 00:17:43.603 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:43.603 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.4518 ms
+2026-06-29 00:17:43.671 +03:00 [INF] Handled ChangePasswordCommand for user "3e1b0f96-4a07-47a1-8861-b1afe520df21" in 66 ms
+2026-06-29 00:17:43.671 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 68.4016 ms
+2026-06-29 00:17:43.705 +03:00 [INF] Handled LoginCommand for user null in 32 ms
+2026-06-29 00:17:43.705 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.2271 ms
+2026-06-29 00:17:43.709 +03:00 [INF] [DEV PUSH] "EventCreated" -> 2 member(s) | Ново събитие | Добавено е събитие: PR briefing
+2026-06-29 00:17:43.711 +03:00 [INF] Handled CreateEventCommand for user "3e1b0f96-4a07-47a1-8861-b1afe520df21" in 4 ms
+2026-06-29 00:17:43.712 +03:00 [INF] HTTP POST /api/v1/events responded 201 in 6.3793 ms
+2026-06-29 00:17:43.721 +03:00 [INF] [DEV PUSH] "EventChanged" -> 2 member(s) | Променено събитие | Събитие „PR briefing (updated)“ беше обновено.
+2026-06-29 00:17:43.723 +03:00 [INF] Handled UpdateEventCommand for user "3e1b0f96-4a07-47a1-8861-b1afe520df21" in 6 ms
+2026-06-29 00:17:43.723 +03:00 [INF] HTTP PUT /api/v1/events/427606f7-cadf-44f0-ab7c-a93c55bc8019 responded 200 in 10.9445 ms
+2026-06-29 00:17:43.728 +03:00 [INF] Handled DeleteEventCommand for user "3e1b0f96-4a07-47a1-8861-b1afe520df21" in 1 ms
+2026-06-29 00:17:43.728 +03:00 [WRN] Handled forbidden (403): You do not have permission to delete this event.
+2026-06-29 00:17:43.728 +03:00 [INF] HTTP DELETE /api/v1/events/427606f7-cadf-44f0-ab7c-a93c55bc8019 responded 403 in 5.3344 ms
+2026-06-29 00:17:43.731 +03:00 [INF] Handled UpdateEventCommand for user "3e1b0f96-4a07-47a1-8861-b1afe520df21" in 0 ms
+2026-06-29 00:17:43.731 +03:00 [WRN] Handled forbidden (403): You do not have permission to modify this event.
+2026-06-29 00:17:43.731 +03:00 [INF] HTTP PUT /api/v1/events/7bd38ae4-a447-4385-adab-f14e08265ad8 responded 403 in 2.2140 ms
+2026-06-29 00:17:43.870 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:43.997 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:44.063 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:44.098 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:44.116 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:44.116 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:44.116 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:44.118 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:44.155 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:44.156 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.4919 ms
+2026-06-29 00:17:44.230 +03:00 [INF] Handled ChangePasswordCommand for user "0b29fa2e-6ef4-4042-a8d5-2b50245082ed" in 66 ms
+2026-06-29 00:17:44.230 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.6125 ms
+2026-06-29 00:17:44.268 +03:00 [INF] Handled LoginCommand for user null in 36 ms
+2026-06-29 00:17:44.269 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.0900 ms
+2026-06-29 00:17:44.275 +03:00 [INF] Handled GetDepartmentsQuery for user "0b29fa2e-6ef4-4042-a8d5-2b50245082ed" in 2 ms
+2026-06-29 00:17:44.276 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 6.5659 ms
+2026-06-29 00:17:44.326 +03:00 [INF] Handled CreateMemberCommand for user "0b29fa2e-6ef4-4042-a8d5-2b50245082ed" in 39 ms
+2026-06-29 00:17:44.326 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 48.4125 ms
+2026-06-29 00:17:44.362 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:44.362 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.1669 ms
+2026-06-29 00:17:44.431 +03:00 [INF] Handled ChangePasswordCommand for user "0e18f544-3529-4baf-891a-48e75977792f" in 67 ms
+2026-06-29 00:17:44.431 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 68.6089 ms
+2026-06-29 00:17:44.466 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:44.466 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 34.2063 ms
+2026-06-29 00:17:44.467 +03:00 [INF] HTTP POST /api/v1/events responded 403 in 1.2281 ms
+2026-06-29 00:17:44.605 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:44.729 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:44.788 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:44.821 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:44.835 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:44.836 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:44.836 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:44.838 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:44.874 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:44.875 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 37.8500 ms
+2026-06-29 00:17:44.881 +03:00 [WRN] Handled password_change_required (403): You must change your password before continuing.
+2026-06-29 00:17:44.882 +03:00 [INF] HTTP GET /api/v1/members responded 403 in 5.5089 ms
+2026-06-29 00:17:44.894 +03:00 [INF] Handled GetMeQuery for user "6c1f89c5-9f4a-4ea5-b396-5555fbeea576" in 3 ms
+2026-06-29 00:17:44.895 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 12.3640 ms
+2026-06-29 00:17:44.969 +03:00 [INF] Handled ChangePasswordCommand for user "6c1f89c5-9f4a-4ea5-b396-5555fbeea576" in 67 ms
+2026-06-29 00:17:44.969 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 73.9215 ms
+2026-06-29 00:17:45.115 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:45.253 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:45.309 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:45.343 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:45.361 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:45.361 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:45.361 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:45.363 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:45.370 +03:00 [INF] [DEV EMAIL] To: int-admin@ue-varna.bg | Subject: Нулиране на парола — Студентски съвет
+<p>Здравейте, int-admin@ue-varna.bg,</p>
+<p>Получена е заявка за нулиране на паролата Ви. За да зададете нова парола, отворете:</p>
+<p><a href="https://app.studentcouncil.ue-varna.bg/reset-password?email=int-admin%40ue-varna.bg&amp;token=CfDJ8LXp09XYlMNAhRKCKMiaVzBXmw7WKhFmB%2BhidkVz5TUs44EI2HvsIZEgnY1bFkUD023pTnhvPloCZtvRYp5yW3%2BZnPIKDcrcJ5Q7Huaw6jBIB02qy9MOSO0EoHzANeEAUbvJWItSilKuXcz%2FPp%2FV1D5XClj%2FKWLjqA6Tsh11nuHUotNN3d25J1AOWr56%2FvlUn0wJ4neqnPMuBIJG5da1DVDgzwnFN18Bk7IWCPK%2FaIU%2F">https://app.studentcouncil.ue-varna.bg/reset-password?email=int-admin%40ue-varna.bg&amp;token=CfDJ8LXp09XYlMNAhRKCKMiaVzBXmw7WKhFmB%2BhidkVz5TUs44EI2HvsIZEgnY1bFkUD023pTnhvPloCZtvRYp5yW3%2BZnPIKDcrcJ5Q7Huaw6jBIB02qy9MOSO0EoHzANeEAUbvJWItSilKuXcz%2FPp%2FV1D5XClj%2FKWLjqA6Tsh11nuHUotNN3d25J1AOWr56%2FvlUn0wJ4neqnPMuBIJG5da1DVDgzwnFN18Bk7IWCPK%2FaIU%2F</a></p>
+<p>Линкът е валиден 30 минути. Ако не сте заявявали това, игнорирайте имейла.</p>
+2026-06-29 00:17:45.370 +03:00 [INF] Handled ForgotPasswordCommand for user null in 2 ms
+2026-06-29 00:17:45.371 +03:00 [INF] HTTP POST /api/v1/auth/forgot-password responded 200 in 7.5839 ms
+2026-06-29 00:17:45.374 +03:00 [INF] Handled ForgotPasswordCommand for user null in 1 ms
+2026-06-29 00:17:45.374 +03:00 [INF] HTTP POST /api/v1/auth/forgot-password responded 200 in 2.1104 ms
+2026-06-29 00:17:45.518 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:45.658 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:45.715 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:45.751 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:45.772 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:45.772 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:45.772 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:45.775 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:45.812 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:45.812 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.1437 ms
+2026-06-29 00:17:45.849 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:45.849 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 34.8073 ms
+2026-06-29 00:17:45.921 +03:00 [INF] Handled ChangePasswordCommand for user "be4c7554-1804-40e7-920d-10b16b1cef46" in 66 ms
+2026-06-29 00:17:45.922 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.5222 ms
+2026-06-29 00:17:45.960 +03:00 [INF] Handled LoginCommand for user null in 37 ms
+2026-06-29 00:17:45.960 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.6152 ms
+2026-06-29 00:17:45.965 +03:00 [INF] Handled GetDepartmentsQuery for user "be4c7554-1804-40e7-920d-10b16b1cef46" in 1 ms
+2026-06-29 00:17:45.965 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 4.8849 ms
+2026-06-29 00:17:46.007 +03:00 [INF] Handled CreateMemberCommand for user "be4c7554-1804-40e7-920d-10b16b1cef46" in 36 ms
+2026-06-29 00:17:46.008 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 41.9675 ms
+2026-06-29 00:17:46.021 +03:00 [INF] Handled GetMembersQuery for user "be4c7554-1804-40e7-920d-10b16b1cef46" in 8 ms
+2026-06-29 00:17:46.022 +03:00 [INF] HTTP GET /api/v1/members responded 200 in 13.5903 ms
+2026-06-29 00:17:46.056 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:46.056 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.5253 ms
+2026-06-29 00:17:46.061 +03:00 [INF] Handled GetMeQuery for user "40b97806-2a3e-44e3-b137-90ed99e9c459" in 0 ms
+2026-06-29 00:17:46.062 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 4.9043 ms
+2026-06-29 00:17:46.202 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:46.328 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:46.381 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:46.416 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:46.429 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:46.429 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:46.429 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:46.431 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:46.432 +03:00 [INF] HTTP GET /api/v1/members responded 401 in 0.9469 ms
+2026-06-29 00:17:46.471 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:46.471 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.1031 ms
+2026-06-29 00:17:46.545 +03:00 [INF] Handled ChangePasswordCommand for user "0a99e48b-cbc4-49b2-8a6e-9a5dbcf5d907" in 67 ms
+2026-06-29 00:17:46.546 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 73.3385 ms
+2026-06-29 00:17:46.581 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:46.581 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.6554 ms
+2026-06-29 00:17:46.587 +03:00 [INF] Handled GetDepartmentsQuery for user "0a99e48b-cbc4-49b2-8a6e-9a5dbcf5d907" in 1 ms
+2026-06-29 00:17:46.587 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.5269 ms
+2026-06-29 00:17:46.637 +03:00 [INF] Handled CreateMemberCommand for user "0a99e48b-cbc4-49b2-8a6e-9a5dbcf5d907" in 37 ms
+2026-06-29 00:17:46.638 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 50.5560 ms
+2026-06-29 00:17:46.674 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:46.674 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.7678 ms
+2026-06-29 00:17:46.743 +03:00 [INF] Handled ChangePasswordCommand for user "a5026651-9081-41f5-9aab-8531df3f5264" in 67 ms
+2026-06-29 00:17:46.743 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 69.0387 ms
+2026-06-29 00:17:46.777 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:46.777 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 33.8431 ms
+2026-06-29 00:17:46.786 +03:00 [INF] Handled GetMembersQuery for user "a5026651-9081-41f5-9aab-8531df3f5264" in 4 ms
+2026-06-29 00:17:46.786 +03:00 [INF] HTTP GET /api/v1/members responded 200 in 9.0386 ms
+2026-06-29 00:17:46.790 +03:00 [INF] HTTP POST /api/v1/members responded 403 in 3.7481 ms
+2026-06-29 00:17:46.928 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:47.060 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:47.114 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:47.149 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:47.165 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:47.165 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:47.165 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:47.168 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:47.205 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:47.206 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 38.8659 ms
+2026-06-29 00:17:47.280 +03:00 [INF] Handled ChangePasswordCommand for user "c87b5e88-8492-4935-9822-2be9a35044f5" in 67 ms
+2026-06-29 00:17:47.280 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.5231 ms
+2026-06-29 00:17:47.316 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:47.316 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.4025 ms
+2026-06-29 00:17:47.321 +03:00 [INF] Handled GetDepartmentsQuery for user "c87b5e88-8492-4935-9822-2be9a35044f5" in 1 ms
+2026-06-29 00:17:47.322 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 4.9763 ms
+2026-06-29 00:17:47.365 +03:00 [INF] Handled CreateMemberCommand for user "c87b5e88-8492-4935-9822-2be9a35044f5" in 36 ms
+2026-06-29 00:17:47.365 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.3619 ms
+2026-06-29 00:17:47.381 +03:00 [INF] Handled CreateTaskCommand for user "c87b5e88-8492-4935-9822-2be9a35044f5" in 9 ms
+2026-06-29 00:17:47.382 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 16.7169 ms
+2026-06-29 00:17:47.540 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:47.677 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:47.731 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:47.766 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:47.779 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:47.779 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:47.779 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:47.783 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:47.827 +03:00 [INF] Handled LoginCommand for user null in 40 ms
+2026-06-29 00:17:47.827 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 46.1369 ms
+2026-06-29 00:17:47.901 +03:00 [INF] Handled ChangePasswordCommand for user "0bcb8aa0-62bd-4e49-8df3-324383c6f944" in 67 ms
+2026-06-29 00:17:47.901 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.1208 ms
+2026-06-29 00:17:47.937 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:47.937 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 35.9054 ms
+2026-06-29 00:17:47.942 +03:00 [INF] Handled GetDepartmentsQuery for user "0bcb8aa0-62bd-4e49-8df3-324383c6f944" in 1 ms
+2026-06-29 00:17:47.943 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.1321 ms
+2026-06-29 00:17:47.986 +03:00 [INF] Handled CreateMemberCommand for user "0bcb8aa0-62bd-4e49-8df3-324383c6f944" in 35 ms
+2026-06-29 00:17:47.986 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 43.5030 ms
+2026-06-29 00:17:48.002 +03:00 [INF] Handled CreateTaskCommand for user "0bcb8aa0-62bd-4e49-8df3-324383c6f944" in 9 ms
+2026-06-29 00:17:48.003 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 16.4099 ms
+2026-06-29 00:17:48.003 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+2026-06-29 00:17:48.006 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+2026-06-29 00:17:48.011 +03:00 [INF] Handled UploadTaskDocumentCommand for user "0bcb8aa0-62bd-4e49-8df3-324383c6f944" in 4 ms
+2026-06-29 00:17:48.011 +03:00 [INF] HTTP POST /api/v1/tasks/096410c9-06ef-4a0e-85d5-716efb8f723d/documents responded 201 in 8.0310 ms
+2026-06-29 00:17:48.171 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:48.296 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:48.347 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:48.383 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:48.400 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:48.400 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:48.400 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:48.402 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:48.441 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:48.441 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 39.3757 ms
+2026-06-29 00:17:48.518 +03:00 [INF] Handled ChangePasswordCommand for user "93d86c33-e4ed-4d3c-be2e-7df38dceb28a" in 70 ms
+2026-06-29 00:17:48.519 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 75.3475 ms
+2026-06-29 00:17:48.556 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:48.556 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 37.1592 ms
+2026-06-29 00:17:48.704 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:48.852 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:48.935 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:48.970 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:48.984 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:48.984 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:48.984 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:48.986 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:49.025 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:49.026 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 40.1485 ms
+2026-06-29 00:17:49.102 +03:00 [INF] Handled ChangePasswordCommand for user "fc2c7c82-ed9a-401d-986b-768fac25043b" in 69 ms
+2026-06-29 00:17:49.102 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 75.0068 ms
+2026-06-29 00:17:49.146 +03:00 [INF] Handled LoginCommand for user null in 41 ms
+2026-06-29 00:17:49.146 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 43.8125 ms
+2026-06-29 00:17:49.147 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+2026-06-29 00:17:49.151 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+2026-06-29 00:17:49.159 +03:00 [INF] Handled UpdateMyPhotoCommand for user "fc2c7c82-ed9a-401d-986b-768fac25043b" in 6 ms
+2026-06-29 00:17:49.160 +03:00 [INF] HTTP PUT /api/v1/members/me/photo responded 200 in 12.5043 ms
+2026-06-29 00:17:49.168 +03:00 [INF] Handled GetMemberPhotoQuery for user "fc2c7c82-ed9a-401d-986b-768fac25043b" in 3 ms
+2026-06-29 00:17:49.170 +03:00 [INF] HTTP GET /api/v1/members/fc2c7c82-ed9a-401d-986b-768fac25043b/photo responded 200 in 10.2968 ms
+2026-06-29 00:17:49.323 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:49.440 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:49.514 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:49.553 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:49.570 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:49.570 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:49.570 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:49.573 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:49.612 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:49.613 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 41.3824 ms
+2026-06-29 00:17:49.700 +03:00 [INF] Handled ChangePasswordCommand for user "ad8d1476-56ac-4c9e-afaa-1c9e604f550f" in 80 ms
+2026-06-29 00:17:49.700 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 85.9104 ms
+2026-06-29 00:17:49.738 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:49.738 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 37.4474 ms
+2026-06-29 00:17:49.738 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+2026-06-29 00:17:49.743 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+2026-06-29 00:17:49.744 +03:00 [INF] Handled UpdateMyPhotoCommand for user "ad8d1476-56ac-4c9e-afaa-1c9e604f550f" in 0 ms
+2026-06-29 00:17:49.744 +03:00 [WRN] Handled unsupported_file_type (400): This file type is not allowed.
+2026-06-29 00:17:49.744 +03:00 [INF] HTTP PUT /api/v1/members/me/photo responded 400 in 5.7622 ms
+2026-06-29 00:17:49.887 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:50.022 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:50.073 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:50.107 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:50.121 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:50.121 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:50.121 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:50.123 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:50.124 +03:00 [INF] HTTP GET /health responded 200 in 1.8026 ms
+2026-06-29 00:17:50.279 +03:00 [INF] Application is shutting down...
+2026-06-29 00:17:50.425 +03:00 [ERR] Failed executing DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-06-29 00:17:50.473 +03:00 [INF] Seeded missing departments.
+2026-06-29 00:17:50.511 +03:00 [INF] Seeded OrgPresident int-admin@ue-varna.bg (temporary password not logged outside Development).
+2026-06-29 00:17:50.531 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-29 00:17:50.531 +03:00 [INF] Hosting environment: Staging
+2026-06-29 00:17:50.531 +03:00 [INF] Content root path: /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Api
+2026-06-29 00:17:50.533 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-06-29 00:17:50.569 +03:00 [INF] Handled LoginCommand for user null in 33 ms
+2026-06-29 00:17:50.569 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.8858 ms
+2026-06-29 00:17:50.643 +03:00 [INF] Handled ChangePasswordCommand for user "3bce9a38-8d11-4dbe-adb0-c6bf4aace790" in 67 ms
+2026-06-29 00:17:50.643 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 72.3160 ms
+2026-06-29 00:17:50.680 +03:00 [INF] Handled LoginCommand for user null in 34 ms
+2026-06-29 00:17:50.680 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.2957 ms
+2026-06-29 00:17:50.685 +03:00 [INF] Handled GetDepartmentsQuery for user "3bce9a38-8d11-4dbe-adb0-c6bf4aace790" in 1 ms
+2026-06-29 00:17:50.686 +03:00 [INF] HTTP GET /api/v1/departments responded 200 in 5.4150 ms
+2026-06-29 00:17:50.729 +03:00 [INF] Handled CreateMemberCommand for user "3bce9a38-8d11-4dbe-adb0-c6bf4aace790" in 36 ms
+2026-06-29 00:17:50.730 +03:00 [INF] HTTP POST /api/v1/members responded 201 in 44.3197 ms
+2026-06-29 00:17:50.746 +03:00 [INF] [DEV PUSH] "TaskAssigned" -> 1 member(s) | Нова задача | Назначена Ви е задача: Organise welcome day
+2026-06-29 00:17:50.751 +03:00 [INF] Handled CreateTaskCommand for user "3bce9a38-8d11-4dbe-adb0-c6bf4aace790" in 11 ms
+2026-06-29 00:17:50.752 +03:00 [INF] HTTP POST /api/v1/tasks responded 201 in 21.8682 ms
+2026-06-29 00:17:50.790 +03:00 [INF] Handled LoginCommand for user null in 35 ms
+2026-06-29 00:17:50.790 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 36.9013 ms
+2026-06-29 00:17:50.858 +03:00 [INF] Handled ChangePasswordCommand for user "07eee1cd-600e-4049-a76e-7da2ad7a7f3d" in 66 ms
+2026-06-29 00:17:50.858 +03:00 [INF] HTTP POST /api/v1/auth/change-password responded 204 in 68.0668 ms
+2026-06-29 00:17:50.891 +03:00 [INF] Handled LoginCommand for user null in 32 ms
+2026-06-29 00:17:50.891 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 32.6617 ms
+2026-06-29 00:17:50.897 +03:00 [INF] Handled GetMyTasksQuery for user "07eee1cd-600e-4049-a76e-7da2ad7a7f3d" in 2 ms
+2026-06-29 00:17:50.897 +03:00 [INF] HTTP GET /api/v1/tasks/mine responded 200 in 5.8869 ms
+2026-06-29 00:17:50.909 +03:00 [INF] Handled GetTaskBoardQuery for user "07eee1cd-600e-4049-a76e-7da2ad7a7f3d" in 8 ms
+2026-06-29 00:17:50.910 +03:00 [INF] HTTP GET /api/v1/tasks/board responded 200 in 11.8745 ms
+2026-06-29 00:17:50.921 +03:00 [INF] [DEV PUSH] "TaskStatusChanged" -> 1 member(s) | Промяна на статус | Задача „Organise welcome day“ е със статус „В процес“.
+2026-06-29 00:17:50.924 +03:00 [INF] Handled ChangeTaskStatusCommand for user "07eee1cd-600e-4049-a76e-7da2ad7a7f3d" in 7 ms
+2026-06-29 00:17:50.924 +03:00 [INF] HTTP PATCH /api/v1/tasks/d94ee32a-f795-4177-8ebc-e3b8f88157e0/status responded 200 in 13.5998 ms
+2026-06-29 00:17:50.929 +03:00 [INF] [DEV PUSH] "TaskStatusChanged" -> 1 member(s) | Промяна на статус | Задача „Organise welcome day“ е със статус „За проверка“.
+2026-06-29 00:17:50.931 +03:00 [INF] Handled ChangeTaskStatusCommand for user "07eee1cd-600e-4049-a76e-7da2ad7a7f3d" in 5 ms
+2026-06-29 00:17:50.932 +03:00 [INF] HTTP PATCH /api/v1/tasks/d94ee32a-f795-4177-8ebc-e3b8f88157e0/status responded 200 in 6.9559 ms
+2026-06-29 00:17:50.935 +03:00 [INF] Handled ChangeTaskStatusCommand for user "07eee1cd-600e-4049-a76e-7da2ad7a7f3d" in 2 ms
+2026-06-29 00:17:50.935 +03:00 [WRN] Handled invalid_status_transition (409): A task cannot move from InReview to Completed.
+2026-06-29 00:17:50.936 +03:00 [INF] HTTP PATCH /api/v1/tasks/d94ee32a-f795-4177-8ebc-e3b8f88157e0/status responded 409 in 4.0405 ms
+2026-06-29 00:17:50.945 +03:00 [INF] [DEV PUSH] "TaskComment" -> 1 member(s) | Нов коментар | Flow Assignee коментира по задача „Organise welcome day“.
+2026-06-29 00:17:50.945 +03:00 [INF] Handled AddTaskCommentCommand for user "07eee1cd-600e-4049-a76e-7da2ad7a7f3d" in 4 ms
+2026-06-29 00:17:50.945 +03:00 [INF] HTTP POST /api/v1/tasks/d94ee32a-f795-4177-8ebc-e3b8f88157e0/comments responded 201 in 9.0685 ms
+2026-06-29 00:17:50.945 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpMaxRequestBodySizeFeature.
+2026-06-29 00:17:50.947 +03:00 [WRN] A request body size limit could not be applied. This server does not support the IHttpRequestBodySizeFeature.
+2026-06-29 00:17:50.951 +03:00 [INF] Handled UploadTaskDocumentCommand for user "07eee1cd-600e-4049-a76e-7da2ad7a7f3d" in 3 ms
+2026-06-29 00:17:50.951 +03:00 [INF] HTTP POST /api/v1/tasks/d94ee32a-f795-4177-8ebc-e3b8f88157e0/documents responded 201 in 6.2948 ms
+2026-06-29 00:17:50.959 +03:00 [INF] Handled DownloadTaskDocumentQuery for user "07eee1cd-600e-4049-a76e-7da2ad7a7f3d" in 4 ms
+2026-06-29 00:17:50.959 +03:00 [INF] HTTP GET /api/v1/tasks/d94ee32a-f795-4177-8ebc-e3b8f88157e0/documents/b243099b-99ed-455a-98df-a62c3edb841c/download responded 200 in 7.6534 ms
+2026-06-29 00:17:50.965 +03:00 [INF] Handled ChangeTaskStatusCommand for user "3bce9a38-8d11-4dbe-adb0-c6bf4aace790" in 3 ms
+2026-06-29 00:17:50.965 +03:00 [INF] HTTP PATCH /api/v1/tasks/d94ee32a-f795-4177-8ebc-e3b8f88157e0/status responded 200 in 5.0454 ms
+2026-06-29 00:17:50.970 +03:00 [INF] Handled GetTaskQuery for user "3bce9a38-8d11-4dbe-adb0-c6bf4aace790" in 2 ms
+2026-06-29 00:17:50.970 +03:00 [INF] HTTP GET /api/v1/tasks/d94ee32a-f795-4177-8ebc-e3b8f88157e0 responded 200 in 5.1529 ms
+2026-06-29 00:17:50.976 +03:00 [INF] Handled GetTaskBoardQuery for user "3bce9a38-8d11-4dbe-adb0-c6bf4aace790" in 4 ms
+2026-06-29 00:17:50.976 +03:00 [INF] HTTP GET /api/v1/tasks/board responded 200 in 5.1881 ms
+2026-06-29 00:17:51.081 +03:00 [INF] Application is shutting down...

@@ -1,0 +1,6 @@
+{
+  "StudentCouncil.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/petarchernaev\/DEV\/StudentCouncilApp\/backend\/src\/StudentCouncil.Api",
+  "StudentCouncil.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/petarchernaev\/DEV\/StudentCouncilApp\/backend\/src\/StudentCouncil.Application",
+  "StudentCouncil.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/petarchernaev\/DEV\/StudentCouncilApp\/backend\/src\/StudentCouncil.Domain",
+  "StudentCouncil.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/petarchernaev\/DEV\/StudentCouncilApp\/backend\/src\/StudentCouncil.Infrastructure"
+}

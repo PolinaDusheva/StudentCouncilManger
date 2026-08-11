@@ -1,0 +1,12 @@
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/bin/Debug/net10.0/StudentCouncil.Domain.deps.json
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/bin/Debug/net10.0/StudentCouncil.Domain.dll
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/bin/Debug/net10.0/StudentCouncil.Domain.pdb
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.AssemblyInfoInputs.cache
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.AssemblyInfo.cs
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.csproj.CoreCompileInputs.cache
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.dll
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/refint/StudentCouncil.Domain.dll
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.pdb
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/ref/StudentCouncil.Domain.dll
+/Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.sourcelink.json
