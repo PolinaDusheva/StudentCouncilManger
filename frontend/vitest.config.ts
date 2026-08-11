@@ -12,6 +12,9 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
+    // Pinned so the origin that relative fetches resolve against is stable and matches the
+    // URLs the msw handlers register. Vitest's default (localhost:3000) is not guaranteed.
+    environmentOptions: { jsdom: { url: 'http://localhost' } },
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
     css: false,
