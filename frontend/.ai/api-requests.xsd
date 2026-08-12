@@ -1,0 +1,1834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="https://studentcouncil.eu-varna.bg/schemas/api/v1"
+           targetNamespace="https://studentcouncil.eu-varna.bg/schemas/api/v1"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="1.0">
+
+  <xs:annotation>
+    <xs:documentation xml:lang="bg"><![CDATA[
+      XSD схема на ВСИЧКИ входящи заявки към Student Council API (версия v1).
+
+      Базов път на всички ендпойнти: /api/v1/...
+
+      КОНВЕНЦИИ
+      ---------
+      * Имената на елементите съвпадат едно към едно с имената на полетата по мрежата.
+        API-то сериализира с System.Text.Json и подразбиращата се camelCase политика
+        (Program.cs регистрира само JsonStringEnumConverter), затова всички полета тук
+        са в camelCase.
+      * Изброимите типове (enum) се предават като СТРИНГОВЕ, а не като числа
+        (JsonStringEnumConverter). Стойностите са чувствителни към регистъра при тяло
+        на заявка (body) и НЕчувствителни при query филтри (Enum.TryParse с ignoreCase).
+      * DateTime полетата са в UTC (xs:dateTime). DateOnly полетата са дати без час
+        (xs:date).
+      * Guid полетата са в каноничен 8-4-4-4-12 формат.
+      * Всеки тип носи в документацията си HTTP метода, маршрута и източника на всяко
+        поле: (path) = параметър в маршрута, (query) = query string, (body) = JSON тяло,
+        (multipart) = поле от multipart/form-data.
+      * Заявки без никакви параметри също са описани (с празен тип), за да е схемата
+        пълно покритие на API-то.
+
+      ОБХВАТ И ТОЧНОСТ
+      ----------------
+      * Ограниченията (дължини, диапазони, регулярни изрази) са пренесени от
+        FluentValidation валидаторите, от EF Core конфигурацията на модела и от
+        клампването в handler-ите.
+      * Схемата е на места по-СТРОГА от сървъра там, където сървърът мълчаливо
+        игнорира невалидна стойност вместо да върне 400 — това е отбелязано изрично
+        при съответния тип (виж напр. филтрите по enum и Month).
+      * Ограничения, които зависят от състоянието на базата (напр. „департаментът
+        трябва да съществува“, „изпълнителите трябва да са активни членове“) не могат
+        да се изразят в XSD и са описани само в документацията.
+      * Авторизацията (JWT bearer токен, роли и policy-та) не е част от тялото на
+        заявката и не е моделирана тук.
+    ]]></xs:documentation>
+  </xs:annotation>
+
+  <!-- ==================================================================== -->
+  <!-- 1. ОБЩИ ПРОСТИ ТИПОВЕ                                                -->
+  <!-- ==================================================================== -->
+
+  <xs:simpleType name="Guid">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        UUID в каноничен вид, напр. 3f2504e0-4f89-11d3-9a0c-0305e82c3301.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Email">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Имейл адрес. Съответства на FluentValidation .EmailAddress() в
+        AspNetCoreCompatible режим: точно едно „@“, което не е нито първи, нито
+        последен символ. Горната граница 256 идва от ASP.NET Core Identity.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="3"/>
+      <xs:maxLength value="256"/>
+      <xs:pattern value="[^@]+@[^@]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PasswordMinLength">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Междинна стъпка от деривацията на Password — само минималната дължина.
+        Не се използва пряко в заявки.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="8"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PasswordWithUpperCase">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Междинна стъпка от деривацията на Password — изисква главна буква.
+        Не се използва пряко в заявки.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="PasswordMinLength">
+      <xs:pattern value=".*[A-Z].*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Password">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Нова парола (PasswordRules.Password, спец. 6.4): минимум 8 символа, поне една
+        главна буква и поне една цифра. Трите ограничения са наложени чрез верига от
+        деривации, защото фасетите pattern в една стъпка се комбинират с ИЛИ, а през
+        отделни стъпки — с И. Забележка: „.“ в XSD regex не съвпада с нов ред, тоест
+        пароли, съдържащи нов ред, не се валидират коректно от тази схема (сървърът
+        ги приема).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="PasswordWithUpperCase">
+      <xs:pattern value=".*[0-9].*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NonEmptyString">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Задължителен стринг без ограничение по горна дължина (FluentValidation
+        .NotEmpty()). Само празен низ не се допуска.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PhoneNumber">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Телефонен номер. Валидира се само при непразна стойност:
+        maxLength 30 и шаблон ^\+?[0-9\s\-]{6,20}$ (UpdateMyProfileValidator).
+        Забележка: полето се валидира само в PUT /members/me; в POST /members и
+        PUT /members/{id} сървърът не налага формат — виж MemberPhoneNumber.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="30"/>
+      <xs:pattern value="\+?[0-9\s\-]{6,20}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MemberPhoneNumber">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Телефон при административно създаване/редакция на член. За това поле няма
+        FluentValidation правило — сървърът приема произволен стринг. Горната граница
+        е тази на Identity колоната PhoneNumber.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FullName">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">Име на член: 2–120 символа.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="120"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Title">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Заглавие на задача или събитие: 3–150 символа.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="3"/>
+      <xs:maxLength value="150"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Description">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Свободно описание на задача или събитие: до 4000 символа.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4000"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Location">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">Място на събитие: до 300 символа.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="300"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DutyNote">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">Бележка към дежурство: до 1000 символа.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1000"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CommentText">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">Текст на коментар: 1–2000 символа.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="2000"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ExpenseDescription">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">Описание на разход: 1–300 символа.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="300"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AmountEur">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Сума в евро: строго положителна, най-много 2 знака след десетичната запетая.
+        Общата точност (10, 2) идва от ExpenseConfiguration.HasPrecision.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minExclusive value="0"/>
+      <xs:totalDigits value="10"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DeviceToken">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">FCM/APNs push токен: 1–512 символа.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="512"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SearchTerm">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Търсене по име или имейл (частично съвпадение, без значение за регистъра).
+        Стойност само от интервали се игнорира.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="PageNumber">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Номер на страница, започвайки от 1. По подразбиране 1. Стойност &lt; 1 не води
+        до грешка — сървърът я нормализира до 1.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PageSize">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Брой записи на страница. По подразбиране 20, максимум 100. Сървърът клампва
+        стойността в интервала [1, 100] вместо да връща грешка.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Year">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Календарна година за филтриране. Сървърът не валидира диапазон — стойност
+        извън смисления обхват просто връща празен резултат.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="9999"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Month">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Месец 1–12. Сървърът НЕ валидира диапазона; стойност извън 1–12 не води до
+        400, а до празен резултат. Схемата тук е умишлено по-строга.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="12"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FileName">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Оригинално име на качен файл: до 260 символа (TaskDocumentConfiguration).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="260"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ==================================================================== -->
+  <!-- 2. ИЗБРОИМИ ТИПОВЕ (StudentCouncil.Domain.Enums)                     -->
+  <!-- ==================================================================== -->
+
+  <xs:simpleType name="SystemRole">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Роля в системата — единственият източник на истина за авторизацията.
+        Org-ролите (OrgSecretary, OrgVicePresident, OrgPresident) НЕ могат да имат
+        департамент; всички останали задължително имат.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Member"/>
+      <xs:enumeration value="DeptSecretary"/>
+      <xs:enumeration value="DeptVicePresident"/>
+      <xs:enumeration value="DeptPresident"/>
+      <xs:enumeration value="OrgSecretary"/>
+      <xs:enumeration value="OrgVicePresident"/>
+      <xs:enumeration value="OrgPresident"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DepartmentCode">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">Код на департамент (използва се при филтрирането).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PR"/>
+      <xs:enumeration value="Projects"/>
+      <xs:enumeration value="Social"/>
+      <xs:enumeration value="Sports"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MemberStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active"/>
+      <xs:enumeration value="Inactive"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TaskScope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Organizational"/>
+      <xs:enumeration value="Departmental"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TaskPriority">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+      <xs:enumeration value="Critical"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TaskStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New"/>
+      <xs:enumeration value="InProgress"/>
+      <xs:enumeration value="InReview"/>
+      <xs:enumeration value="Completed"/>
+      <xs:enumeration value="Cancelled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="EventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Meeting"/>
+      <xs:enumeration value="PublicEvent"/>
+      <xs:enumeration value="InternalMeeting"/>
+      <xs:enumeration value="SportsEvent"/>
+      <xs:enumeration value="Deadline"/>
+      <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="RecurrenceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Weekly"/>
+      <xs:enumeration value="Monthly"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DevicePlatform">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Android"/>
+      <xs:enumeration value="iOS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CalendarView">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Предефиниран календарен прозорец, използван когато from/to липсват:
+        day = текущият ден, week = текущата седмица (от понеделник),
+        month = текущият месец, list = 90 дни напред от „сега“.
+        Всяка неразпозната стойност се третира като „list“ (сървърът не връща грешка).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="day"/>
+      <xs:enumeration value="week"/>
+      <xs:enumeration value="month"/>
+      <xs:enumeration value="list"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TaskSort">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Сортиране на задачи. Префиксът „-“ обръща посоката. Разпознати полета
+        (без значение за регистъра): dueAt, priority, status, title. При липсваща или
+        неразпозната стойност се сортира по createdAt низходящо, а „-“ пред
+        неразпозната стойност дава createdAt възходящо.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="-?([dD][uU][eE][aA][tT]|[pP][rR][iI][oO][rR][iI][tT][yY]|[sS][tT][aA][tT][uU][sS]|[tT][iI][tT][lL][eE]|[cC][rR][eE][aA][tT][eE][dD][aA][tT])"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MemberSort">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Сортиране на членове. Префиксът „-“ обръща посоката. Разпознати полета
+        (без значение за регистъра): joinedOn, role. При липсваща или неразпозната
+        стойност се сортира по fullName.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="-?([jJ][oO][iI][nN][eE][dD][oO][nN]|[rR][oO][lL][eE]|[fF][uU][lL][lL][nN][aA][mM][eE])"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DocumentContentType">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        MIME типове, приемани за документ към задача (AllowedFileTypes.Documents).
+        Сървърът проверява и разширението, и „магическите байтове“ на файла — самото
+        деклариране на позволен MIME тип не е достатъчно.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="application/pdf"/>
+      <xs:enumeration value="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+      <xs:enumeration value="application/msword"/>
+      <xs:enumeration value="text/plain"/>
+      <xs:enumeration value="application/vnd.oasis.opendocument.text"/>
+      <xs:enumeration value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+      <xs:enumeration value="application/vnd.ms-excel"/>
+      <xs:enumeration value="text/csv"/>
+      <xs:enumeration value="application/csv"/>
+      <xs:enumeration value="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
+      <xs:enumeration value="application/vnd.ms-powerpoint"/>
+      <xs:enumeration value="image/jpeg"/>
+      <xs:enumeration value="image/png"/>
+      <xs:enumeration value="image/gif"/>
+      <xs:enumeration value="image/heic"/>
+      <xs:enumeration value="image/heif"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ImageContentType">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        MIME типове, приемани за профилна снимка (AllowedFileTypes.Images):
+        .jpg/.jpeg, .png, .heic.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="image/jpeg"/>
+      <xs:enumeration value="image/png"/>
+      <xs:enumeration value="image/heic"/>
+      <xs:enumeration value="image/heif"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ==================================================================== -->
+  <!-- 3. ОБЩИ СЪСТАВНИ ТИПОВЕ                                              -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="GuidList">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Списък от идентификатори (в JSON — масив от стрингове). Може да е празен.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NonEmptyGuidList">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Списък от идентификатори с поне един елемент.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EmptyRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Заявка без тяло и без параметри — носи само Authorization хедъра.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="IdRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Заявка, чийто единствен вход е идентификатор в маршрута.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">(path) Идентификатор на ресурса.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FileUpload">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Съдържание на качван файл. По мрежата това е част от multipart/form-data с
+        име на полето „file“; тук съдържанието е представено като base64, а името и
+        MIME типът — като атрибути, за да е описуемо в XSD.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:base64Binary">
+        <xs:attribute name="fileName" type="FileName" use="required"/>
+        <xs:attribute name="contentType" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- ==================================================================== -->
+  <!-- 4. АУТЕНТИКАЦИЯ — /api/v1/auth                                       -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="LoginRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/auth/login — анонимен достъп, rate limit политика „auth“.
+        Връща двойка access + refresh токен.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="email" type="Email">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Имейл за вход.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="password" type="NonEmptyString">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">
+            (body) Парола. При вход се изисква само да е непразна — сложността се
+            проверява при задаване, не при вход.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RefreshRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/auth/refresh — анонимен достъп. Ротира двойката токени.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="refreshToken" type="NonEmptyString">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Издаденият refresh токен.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LogoutRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/auth/logout — изисква автентикация, минава покрай гейта за
+        задължителна смяна на парола. Идемпотентно анулира подадения refresh токен.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="refreshToken" type="NonEmptyString">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Refresh токенът за анулиране.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ChangePasswordRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/auth/change-password — изисква автентикация, минава покрай гейта
+        за задължителна смяна на парола. Изчиства флага mustChangePassword.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="currentPassword" type="NonEmptyString">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Текущата парола.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="newPassword" type="Password">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Новата парола (виж Password).</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ForgotPasswordRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/auth/forgot-password — анонимен достъп. Винаги връща 200,
+        независимо дали акаунтът съществува (без изброяване на потребители).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="email" type="Email">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Имейл на акаунта.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ResetPasswordRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/auth/reset-password — анонимен достъп. Задава нова парола срещу
+        токен, изпратен по имейл.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="email" type="Email">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Имейл на акаунта.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="token" type="NonEmptyString">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Токенът за нулиране от имейла.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="newPassword" type="Password">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Новата парола (виж Password).</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetMeRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/auth/me — без параметри. Връща профил, роля, департамент и
+        правата на текущия потребител.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EmptyRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="loginRequest" type="LoginRequest"/>
+  <xs:element name="refreshRequest" type="RefreshRequest"/>
+  <xs:element name="logoutRequest" type="LogoutRequest"/>
+  <xs:element name="changePasswordRequest" type="ChangePasswordRequest"/>
+  <xs:element name="forgotPasswordRequest" type="ForgotPasswordRequest"/>
+  <xs:element name="resetPasswordRequest" type="ResetPasswordRequest"/>
+  <xs:element name="getMeRequest" type="GetMeRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 5. ЧЛЕНОВЕ — /api/v1/members                                         -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="GetMembersRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/members — страницирана и филтрируема справка за членовете.
+        Всички параметри са опционални и идват от query string.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="department" type="DepartmentCode" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">
+            (query) Филтър по код на департамент. Неразпозната стойност се игнорира
+            мълчаливо (без 400).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="role" type="SystemRole" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">(query) Филтър по роля. Неразпозната стойност се игнорира.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="status" type="MemberStatus" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">
+            (query) Филтър по статус. По подразбиране и при неразпозната стойност
+            се връщат само активните членове.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="search" type="SearchTerm" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Търсене по име или имейл.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="sort" type="MemberSort" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Сортиране (виж MemberSort).</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="page" type="PageNumber" minOccurs="0" default="1">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Страница; по подразбиране 1.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="pageSize" type="PageSize" minOccurs="0" default="20">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Размер на страницата; по подразбиране 20, максимум 100.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetMyProfileRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">GET /api/v1/members/me — без параметри.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EmptyRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateMyProfileRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        PUT /api/v1/members/me — самообслужване: единственото поле, което членът може
+        да променя сам, е телефонният номер.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="phoneNumber" type="PhoneNumber" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">
+            (body) Нов телефон; null или липсващо поле изчиства стойността.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateMyPhotoRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        PUT /api/v1/members/me/photo — multipart/form-data с поле „file“.
+        Приемат се само изображения (виж ImageContentType), максимум 5 MB.
+        Типът се проверява и по разширение, и по сигнатурата на файла.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="file" type="FileUpload">
+        <xs:annotation><xs:documentation xml:lang="bg">(multipart) Файлът със снимката.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetMemberPhotoRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/members/{id}/photo — връща аватара като поток от байтове.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на члена.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetMemberRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">GET /api/v1/members/{id} — пълен профил на член.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CreateMemberRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/members — policy „CanManageMembers“. Създава акаунт и изпраща
+        временна парола по имейл.
+
+        Правила, които XSD не може да изрази:
+        * имейлът трябва да е уникален;
+        * Org ролите НЕ трябва да имат departmentId, всички останали роли — трябва;
+        * подаденият departmentId трябва да съществува.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fullName" type="FullName">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Име и фамилия, 2–120 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="email" type="Email">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Уникален имейл за вход.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="phoneNumber" type="MemberPhoneNumber" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Телефон, по избор.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="role" type="SystemRole">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Роля в системата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="departmentId" type="Guid" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">
+            (body) Департамент. Задължителен за всички роли освен Org ролите; за Org
+            ролите трябва да липсва.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="joinedOn" type="xs:date">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Дата на присъединяване.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateMemberRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        PUT /api/v1/members/{id} — policy „CanManageMembers“. Същите правила за
+        съответствие роля ↔ департамент като при създаване. Имейлът не се променя
+        през този ендпойнт.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на члена.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="fullName" type="FullName">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Име и фамилия, 2–120 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="phoneNumber" type="MemberPhoneNumber" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Телефон, по избор.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="role" type="SystemRole">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Роля в системата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="departmentId" type="Guid" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Департамент (виж правилата в CreateMemberRequest).</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="joinedOn" type="xs:date">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Дата на присъединяване.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeactivateMemberRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/members/{id}/deactivate — policy „CanManageMembers“. Без тяло.
+        Анулира токените и ротира security stamp-а на члена.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ReactivateMemberRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/members/{id}/reactivate — policy „CanManageMembers“. Без тяло.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="getMembersRequest" type="GetMembersRequest"/>
+  <xs:element name="getMyProfileRequest" type="GetMyProfileRequest"/>
+  <xs:element name="updateMyProfileRequest" type="UpdateMyProfileRequest"/>
+  <xs:element name="updateMyPhotoRequest" type="UpdateMyPhotoRequest"/>
+  <xs:element name="getMemberPhotoRequest" type="GetMemberPhotoRequest"/>
+  <xs:element name="getMemberRequest" type="GetMemberRequest"/>
+  <xs:element name="createMemberRequest" type="CreateMemberRequest"/>
+  <xs:element name="updateMemberRequest" type="UpdateMemberRequest"/>
+  <xs:element name="deactivateMemberRequest" type="DeactivateMemberRequest"/>
+  <xs:element name="reactivateMemberRequest" type="ReactivateMemberRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 6. ДЕПАРТАМЕНТИ — /api/v1/departments                                -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="GetDepartmentsRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/departments — без параметри. Всички департаменти с брой членове
+        и ръководство.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EmptyRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="GetDepartmentRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/departments/{id} — детайли за департамент заедно с членовете му.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="getDepartmentsRequest" type="GetDepartmentsRequest"/>
+  <xs:element name="getDepartmentRequest" type="GetDepartmentRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 7. ЗАДАЧИ — /api/v1/tasks                                            -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="GetTasksRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/tasks — страницирана справка, ограничена до задачите, видими за
+        текущия потребител. Всички параметри са опционални и идват от query string;
+        неразпознатите enum стойности се игнорират мълчаливо.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="scope" type="TaskScope" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Организационни или департаментни задачи.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="department" type="DepartmentCode" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Филтър по код на департамент.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="assignee" type="Guid" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Само задачи с този изпълнител.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="priority" type="TaskPriority" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Филтър по приоритет.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="status" type="TaskStatus" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Филтър по статус.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="from" type="xs:dateTime" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Долна граница на крайния срок (UTC, включително).</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="to" type="xs:dateTime" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Горна граница на крайния срок (UTC, включително).</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="overdue" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">
+            (query) При true се връщат само просрочените задачи (с изтекъл срок и
+            статус, различен от Completed и Cancelled). false няма ефект.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sort" type="TaskSort" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Сортиране (виж TaskSort).</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="page" type="PageNumber" minOccurs="0" default="1">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Страница; по подразбиране 1.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="pageSize" type="PageSize" minOccurs="0" default="20">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Размер на страницата; по подразбиране 20, максимум 100.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetMyTasksRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/tasks/mine — без параметри. Задачите, на които текущият
+        потребител е изпълнител.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EmptyRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="GetTaskBoardRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/tasks/board — без параметри. Kanban изглед на видимите задачи,
+        групирани по статус (отменените се пропускат).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EmptyRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="GetTaskRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/tasks/{id} — пълни детайли. Връща 404 и когато задачата
+        съществува, но не е видима за потребителя.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CreateTaskRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/tasks — policy „CanCreateDeptTask“, плюс проверка на обхвата в
+        handler-а.
+
+        Правила, които XSD не може да изрази:
+        * scope = Departmental изисква departmentId; scope = Organizational забранява го;
+        * подаденият departmentId трябва да съществува;
+        * всеки изпълнител трябва да е съществуващ и активен член;
+        * dueAtUtc, ако е подаден, трябва да е в бъдещето.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="Title">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Заглавие, 3–150 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="description" type="Description" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Описание, до 4000 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="priority" type="TaskPriority">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Приоритет.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="scope" type="TaskScope">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Обхват на задачата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="departmentId" type="Guid" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Департамент — само при scope = Departmental.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="dueAtUtc" type="xs:dateTime" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Краен срок в UTC; трябва да е в бъдещето.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="assigneeIds" type="NonEmptyGuidList">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Поне един изпълнител.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateTaskRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        PUT /api/v1/tasks/{id} — policy „CanCreateDeptTask“. Обхватът и департаментът
+        на задачата не се променят през този ендпойнт. Проверката „срокът е в
+        бъдещето“ не се прилага при редакция.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на задачата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="title" type="Title">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Заглавие, 3–150 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="description" type="Description" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Описание, до 4000 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="priority" type="TaskPriority">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Приоритет.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="dueAtUtc" type="xs:dateTime" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Краен срок в UTC.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="assigneeIds" type="NonEmptyGuidList">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Пълен нов списък с изпълнители; поне един.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ChangeTaskStatusRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        PATCH /api/v1/tasks/{id}/status — разрешените преходи зависят от това дали
+        потребителят е изпълнител или ръководство; проверката е в handler-а.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на задачата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="status" type="TaskStatus">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Новият статус.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CancelTaskRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/tasks/{id}/cancel — без тяло. Идемпотентно: повторно отменяне на
+        вече отменена задача не променя нищо.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="DeleteTaskRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        DELETE /api/v1/tasks/{id} — policy „OrgPresidentOnly“. Физическо изтриване
+        заедно с прикачените документи.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="GetTaskCommentsRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/tasks/{id}/comments — хронологичен списък на коментарите.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AddTaskCommentRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">POST /api/v1/tasks/{id}/comments — добавя коментар.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на задачата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="text" type="CommentText">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Текст на коментара, 1–2000 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="getTasksRequest" type="GetTasksRequest"/>
+  <xs:element name="getMyTasksRequest" type="GetMyTasksRequest"/>
+  <xs:element name="getTaskBoardRequest" type="GetTaskBoardRequest"/>
+  <xs:element name="getTaskRequest" type="GetTaskRequest"/>
+  <xs:element name="createTaskRequest" type="CreateTaskRequest"/>
+  <xs:element name="updateTaskRequest" type="UpdateTaskRequest"/>
+  <xs:element name="changeTaskStatusRequest" type="ChangeTaskStatusRequest"/>
+  <xs:element name="cancelTaskRequest" type="CancelTaskRequest"/>
+  <xs:element name="deleteTaskRequest" type="DeleteTaskRequest"/>
+  <xs:element name="getTaskCommentsRequest" type="GetTaskCommentsRequest"/>
+  <xs:element name="addTaskCommentRequest" type="AddTaskCommentRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 8. ДОКУМЕНТИ КЪМ ЗАДАЧА — /api/v1/tasks/{taskId}/documents           -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="GetTaskDocumentsRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/tasks/{taskId}/documents — метаданни на документите (без вътрешните
+        ключове за съхранение).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taskId" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на задачата.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UploadTaskDocumentRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/tasks/{taskId}/documents — multipart/form-data с поле „file“.
+        Максимум 25 MB. Форматът се проверява по разширение, деклариран MIME тип и
+        сигнатура („магически байтове“) — виж DocumentContentType.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taskId" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на задачата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="file" type="FileUpload">
+        <xs:annotation><xs:documentation xml:lang="bg">(multipart) Файлът за качване.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DownloadTaskDocumentRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/tasks/{taskId}/documents/{docId}/download — връща файла като
+        прикачен файл.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taskId" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на задачата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="docId" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на документа.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeleteTaskDocumentRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        DELETE /api/v1/tasks/{taskId}/documents/{docId} — разрешено на качилия файла
+        или на организационното ръководство.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taskId" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на задачата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="docId" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на документа.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="getTaskDocumentsRequest" type="GetTaskDocumentsRequest"/>
+  <xs:element name="uploadTaskDocumentRequest" type="UploadTaskDocumentRequest"/>
+  <xs:element name="downloadTaskDocumentRequest" type="DownloadTaskDocumentRequest"/>
+  <xs:element name="deleteTaskDocumentRequest" type="DeleteTaskDocumentRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 9. КАЛЕНДАР И СЪБИТИЯ — /api/v1/events                               -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="GetEventsRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/events — записи в календарен прозорец: реални събития (с
+        разгънати повторения) плюс крайните срокове на задачите. Ако from/to липсват,
+        прозорецът се определя от view.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="from" type="xs:dateTime" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Начало на прозореца в UTC.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="to" type="xs:dateTime" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Край на прозореца в UTC.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="type" type="EventType" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Филтър по вид събитие.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="department" type="DepartmentCode" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Филтър по департамент.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="view" type="CalendarView" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Подразбиращ се прозорец, когато from/to липсват.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ExportEventsIcsRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/events/export.ics — същият прозорец и същите филтри като
+        GET /api/v1/events, но резултатът е файл text/calendar.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="GetEventsRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="GetEventRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/events/{id} — пълни детайли, включително участниците.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CreateEventRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/events — policy „CanManageEvents“. Организаторът се определя от
+        сървъра (текущият потребител). Отговорът включва евентуални застъпвания
+        в графика като предупреждение, но те не блокират създаването.
+
+        Правила, които XSD не може да изрази:
+        * endUtc трябва да е строго след startUtc;
+        * подаденият departmentId трябва да съществува;
+        * всеки участник трябва да е съществуващ и активен член.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="title" type="Title">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Заглавие, 3–150 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="description" type="Description" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Описание, до 4000 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="startUtc" type="xs:dateTime">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Начало в UTC.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="endUtc" type="xs:dateTime">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Край в UTC; строго след началото.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="location" type="Location" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Място, до 300 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="type" type="EventType">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Вид на събитието.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="departmentId" type="Guid" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Департамент; липсва при общоорганизационни събития.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="recurrence" type="RecurrenceType">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Повторяемост.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="participantIds" type="GuidList" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">
+            (body) Участници; може да липсва или да е празен списък. Дублираните
+            идентификатори се премахват от сървъра.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateEventRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        PUT /api/v1/events/{id} — policy „CanManageEvents“ плюс проверка EventAccess
+        (организатор, ръководство на собствения департамент или организационно
+        ръководство). Същите правила за валидация като при създаване.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на събитието.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="title" type="Title">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Заглавие, 3–150 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="description" type="Description" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Описание, до 4000 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="startUtc" type="xs:dateTime">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Начало в UTC.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="endUtc" type="xs:dateTime">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Край в UTC; строго след началото.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="location" type="Location" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Място, до 300 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="type" type="EventType">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Вид на събитието.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="departmentId" type="Guid" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Департамент.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="recurrence" type="RecurrenceType">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Повторяемост.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="participantIds" type="GuidList" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Пълен нов списък с участници.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeleteEventRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        DELETE /api/v1/events/{id} — policy „CanManageEvents“; секретарите нямат право
+        да изтриват.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="getEventsRequest" type="GetEventsRequest"/>
+  <xs:element name="exportEventsIcsRequest" type="ExportEventsIcsRequest"/>
+  <xs:element name="getEventRequest" type="GetEventRequest"/>
+  <xs:element name="createEventRequest" type="CreateEventRequest"/>
+  <xs:element name="updateEventRequest" type="UpdateEventRequest"/>
+  <xs:element name="deleteEventRequest" type="DeleteEventRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 10. ДЕЖУРСТВА — /api/v1/duty-records                                 -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="GetDutyRecordsRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/duty-records — обикновен член вижда само собствените си
+        дежурства (подаденият memberId се игнорира); ръководството на дежурствата
+        вижда всички и може да филтрира.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="memberId" type="Guid" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Филтър по член; уважава се само за ръководството.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="year" type="Year" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Отчетна година.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="month" type="Month" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Отчетен месец (1–12).</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetDutySummaryRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/duty-records/summary — policy „CanManageDuties“. Месечна таблица
+        с нормата за всички активни членове. При липсващи параметри се използва
+        текущият месец.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="year" type="Year" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Година; по подразбиране текущата.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="month" type="Month" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Месец; по подразбиране текущият.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetMyDutySummaryRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/duty-records/me/summary — месечният статус на текущия потребител
+        спрямо нормата.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="GetDutySummaryRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CreateDutyRecordRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/duty-records — policy „CanManageDuties“. Продължителността и
+        отчетният период се изчисляват на сървъра от startUtc/endUtc и никога не се
+        приемат от клиента.
+
+        Правила, които XSD не може да изрази:
+        * endUtc трябва да е след startUtc и дежурството да е поне 1 минута;
+        * memberId трябва да е съществуващ и активен член.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="memberId" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Членът, който е дежурил.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="startUtc" type="xs:dateTime">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Начало на смяната в UTC.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="endUtc" type="xs:dateTime">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Край на смяната в UTC.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="note" type="DutyNote" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Бележка, до 1000 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateDutyRecordRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        PUT /api/v1/duty-records/{id} — policy „CanManageDuties“. Членът не се
+        променя през този ендпойнт; продължителността и периодът се преизчисляват.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на записа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="startUtc" type="xs:dateTime">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Начало на смяната в UTC.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="endUtc" type="xs:dateTime">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Край на смяната в UTC.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="note" type="DutyNote" minOccurs="0" nillable="true">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Бележка, до 1000 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeleteDutyRecordRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        DELETE /api/v1/duty-records/{id} — policy „CanManageDuties“.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="RemindDutiesRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/duty-records/remind — policy „CanManageDuties“. Тялото е
+        незадължително: без memberId напомняне се изпраща до всички под нормата.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="memberId" type="Guid" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="bg">
+            (body) Конкретен член. При липса — всички членове под месечната норма.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="getDutyRecordsRequest" type="GetDutyRecordsRequest"/>
+  <xs:element name="getDutySummaryRequest" type="GetDutySummaryRequest"/>
+  <xs:element name="getMyDutySummaryRequest" type="GetMyDutySummaryRequest"/>
+  <xs:element name="createDutyRecordRequest" type="CreateDutyRecordRequest"/>
+  <xs:element name="updateDutyRecordRequest" type="UpdateDutyRecordRequest"/>
+  <xs:element name="deleteDutyRecordRequest" type="DeleteDutyRecordRequest"/>
+  <xs:element name="remindDutiesRequest" type="RemindDutiesRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 11. БЮДЖЕТ — /api/v1/budget                                          -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="GetBudgetSummaryRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/budget/summary — общо изразходвана сума за година. Достъпно за
+        всички автентикирани потребители.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="year" type="Year" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Година; по подразбиране текущата.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetExpensesRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/budget/expenses — страницирана хронологична справка за разходите.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="year" type="Year" minOccurs="0">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Филтър по година.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="page" type="PageNumber" minOccurs="0" default="1">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Страница; по подразбиране 1.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="pageSize" type="PageSize" minOccurs="0" default="20">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Размер на страницата; по подразбиране 20, максимум 100.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CreateExpenseRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/budget/expenses — policy „CanManageBudget“. Отчетната година се
+        извежда от датата на разхода и не се подава от клиента.
+
+        Правило, което XSD не изразява: spentOn не може да е в бъдещето.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="description" type="ExpenseDescription">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Описание, 1–300 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="amountEur" type="AmountEur">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Сума в евро, &gt; 0, най-много 2 знака след запетаята.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="spentOn" type="xs:date">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Дата на разхода; не може да е в бъдещето.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateExpenseRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        PUT /api/v1/budget/expenses/{id} — policy „CanManageBudget“. Отчетната година
+        се преизчислява от новата дата.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="Guid">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Идентификатор на разхода.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="description" type="ExpenseDescription">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Описание, 1–300 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="amountEur" type="AmountEur">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Сума в евро, &gt; 0.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="spentOn" type="xs:date">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Дата на разхода; не може да е в бъдещето.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeleteExpenseRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        DELETE /api/v1/budget/expenses/{id} — policy „CanManageBudget“.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="getBudgetSummaryRequest" type="GetBudgetSummaryRequest"/>
+  <xs:element name="getExpensesRequest" type="GetExpensesRequest"/>
+  <xs:element name="createExpenseRequest" type="CreateExpenseRequest"/>
+  <xs:element name="updateExpenseRequest" type="UpdateExpenseRequest"/>
+  <xs:element name="deleteExpenseRequest" type="DeleteExpenseRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 12. ИЗВЕСТИЯ — /api/v1/notifications                                 -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="GetNotificationsRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        GET /api/v1/notifications — известията на текущия потребител, най-новите
+        първи.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unreadOnly" type="xs:boolean" minOccurs="0" default="false">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Само непрочетените; по подразбиране false.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="page" type="PageNumber" minOccurs="0" default="1">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Страница; по подразбиране 1.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="pageSize" type="PageSize" minOccurs="0" default="20">
+        <xs:annotation><xs:documentation xml:lang="bg">(query) Размер на страницата; по подразбиране 20, максимум 100.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MarkNotificationReadRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/notifications/{id}/read — без тяло. Връща 404, ако известието не
+        принадлежи на текущия потребител.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="IdRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MarkAllNotificationsReadRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/notifications/read-all — без параметри и без тяло.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EmptyRequest"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="getNotificationsRequest" type="GetNotificationsRequest"/>
+  <xs:element name="markNotificationReadRequest" type="MarkNotificationReadRequest"/>
+  <xs:element name="markAllNotificationsReadRequest" type="MarkAllNotificationsReadRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 13. УСТРОЙСТВА ЗА PUSH — /api/v1/devices                             -->
+  <!-- ==================================================================== -->
+
+  <xs:complexType name="RegisterDeviceRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        POST /api/v1/devices — регистрира или опреснява push токена на текущия
+        потребител. Операцията е upsert по токена: 201 при нов запис, 200 при
+        опреснен съществуващ.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="token" type="DeviceToken">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Push токен, 1–512 символа.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="platform" type="DevicePlatform">
+        <xs:annotation><xs:documentation xml:lang="bg">(body) Платформа на устройството.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeregisterDeviceRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        DELETE /api/v1/devices/{token} — идемпотентно; премахва се само токен,
+        принадлежащ на текущия потребител.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="token" type="DeviceToken">
+        <xs:annotation><xs:documentation xml:lang="bg">(path) Push токенът за премахване.</xs:documentation></xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="registerDeviceRequest" type="RegisterDeviceRequest"/>
+  <xs:element name="deregisterDeviceRequest" type="DeregisterDeviceRequest"/>
+
+  <!-- ==================================================================== -->
+  <!-- 14. КОРЕНОВ ЕЛЕМЕНТ — коя да е заявка към API-то                     -->
+  <!-- ==================================================================== -->
+
+  <xs:element name="apiRequest">
+    <xs:annotation>
+      <xs:documentation xml:lang="bg">
+        Обвивка, която приема точно една произволна заявка от API-то. Полезна за
+        валидиране на генерирани примери или тестови набори — самото API не приема
+        този елемент.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="loginRequest"/>
+        <xs:element ref="refreshRequest"/>
+        <xs:element ref="logoutRequest"/>
+        <xs:element ref="changePasswordRequest"/>
+        <xs:element ref="forgotPasswordRequest"/>
+        <xs:element ref="resetPasswordRequest"/>
+        <xs:element ref="getMeRequest"/>
+
+        <xs:element ref="getMembersRequest"/>
+        <xs:element ref="getMyProfileRequest"/>
+        <xs:element ref="updateMyProfileRequest"/>
+        <xs:element ref="updateMyPhotoRequest"/>
+        <xs:element ref="getMemberPhotoRequest"/>
+        <xs:element ref="getMemberRequest"/>
+        <xs:element ref="createMemberRequest"/>
+        <xs:element ref="updateMemberRequest"/>
+        <xs:element ref="deactivateMemberRequest"/>
+        <xs:element ref="reactivateMemberRequest"/>
+
+        <xs:element ref="getDepartmentsRequest"/>
+        <xs:element ref="getDepartmentRequest"/>
+
+        <xs:element ref="getTasksRequest"/>
+        <xs:element ref="getMyTasksRequest"/>
+        <xs:element ref="getTaskBoardRequest"/>
+        <xs:element ref="getTaskRequest"/>
+        <xs:element ref="createTaskRequest"/>
+        <xs:element ref="updateTaskRequest"/>
+        <xs:element ref="changeTaskStatusRequest"/>
+        <xs:element ref="cancelTaskRequest"/>
+        <xs:element ref="deleteTaskRequest"/>
+        <xs:element ref="getTaskCommentsRequest"/>
+        <xs:element ref="addTaskCommentRequest"/>
+
+        <xs:element ref="getTaskDocumentsRequest"/>
+        <xs:element ref="uploadTaskDocumentRequest"/>
+        <xs:element ref="downloadTaskDocumentRequest"/>
+        <xs:element ref="deleteTaskDocumentRequest"/>
+
+        <xs:element ref="getEventsRequest"/>
+        <xs:element ref="exportEventsIcsRequest"/>
+        <xs:element ref="getEventRequest"/>
+        <xs:element ref="createEventRequest"/>
+        <xs:element ref="updateEventRequest"/>
+        <xs:element ref="deleteEventRequest"/>
+
+        <xs:element ref="getDutyRecordsRequest"/>
+        <xs:element ref="getDutySummaryRequest"/>
+        <xs:element ref="getMyDutySummaryRequest"/>
+        <xs:element ref="createDutyRecordRequest"/>
+        <xs:element ref="updateDutyRecordRequest"/>
+        <xs:element ref="deleteDutyRecordRequest"/>
+        <xs:element ref="remindDutiesRequest"/>
+
+        <xs:element ref="getBudgetSummaryRequest"/>
+        <xs:element ref="getExpensesRequest"/>
+        <xs:element ref="createExpenseRequest"/>
+        <xs:element ref="updateExpenseRequest"/>
+        <xs:element ref="deleteExpenseRequest"/>
+
+        <xs:element ref="getNotificationsRequest"/>
+        <xs:element ref="markNotificationReadRequest"/>
+        <xs:element ref="markAllNotificationsReadRequest"/>
+
+        <xs:element ref="registerDeviceRequest"/>
+        <xs:element ref="deregisterDeviceRequest"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
