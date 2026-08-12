@@ -54,9 +54,10 @@ export function Modal({ open, onClose, title, children, footer, className }: Mod
       className={cn(
         'w-[calc(100vw-2rem)] max-w-lg rounded-xl bg-white p-0 shadow-xl',
         'backdrop:bg-slate-900/40',
-        // The UA stylesheet centres modal dialogs with auto margins; keep that but reset
-        // the default border.
-        'border-0 text-slate-900',
+        // `m-auto` is required, not cosmetic: the UA stylesheet centres a modal dialog with
+        // `margin: auto`, and Tailwind's preflight resets every margin to 0 — without this
+        // the dialog sticks to the top-left corner.
+        'm-auto border-0 text-slate-900',
         className,
       )}
     >
