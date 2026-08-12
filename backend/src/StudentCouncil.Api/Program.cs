@@ -129,6 +129,17 @@ try
             }));
     });
 
+    // CORS for the browser client (the mobile apps and the Vite dev proxy call the API
+    // server-to-server and are unaffected). Origins are configured per environment — an empty
+    // list disables cross-origin access entirely rather than falling back to a permissive
+    // default. Credentials are not allowed: the SPA authenticates with a bearer token, not
+    // cookies, so `Authorization` only needs to be an allowed *request* header.
+    var corsOrigins = builder.Configuration.GetSection("Cors:Origins").Get<string[]>() ?? [];
+    builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy
+        .WithOrigins(corsOrigins)
+        .AllowAnyHeader()
+        .AllowAnyMethod()));
+
     var app = builder.Build();
 
     // Dev/Staging: apply migrations and seed. Production runs migrations from the pipeline.
@@ -174,6 +185,11 @@ try
     {
         app.UseHttpsRedirection();
     }
+
+    // Ahead of authentication and the rate limiter so that 401/429 responses still carry the
+    // CORS headers — otherwise the browser reports a misleading CORS failure instead of the
+    // real status. Preflight requests are answered here and never reach the controllers.
+    app.UseCors();
 
     app.UseAuthentication();
     app.UseAuthorization();
