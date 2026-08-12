@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj": {}
+    "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj": {}
   },
   "projects": {
-    "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj": {
+    "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj",
+        "projectUniqueName": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj",
         "projectName": "StudentCouncil.Domain",
-        "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj",
-        "packagesPath": "/Users/petarchernaev/.nuget/packages/",
-        "outputPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/obj/",
+        "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj",
+        "packagesPath": "/Users/polinadusheva/.nuget/packages/",
+        "outputPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/petarchernaev/.nuget/NuGet/NuGet.Config"
+          "/Users/polinadusheva/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"

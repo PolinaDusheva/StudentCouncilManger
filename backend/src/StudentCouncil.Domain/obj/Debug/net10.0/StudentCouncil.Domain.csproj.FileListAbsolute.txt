@@ -10,3 +10,15 @@
 /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.pdb
 /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/ref/StudentCouncil.Domain.dll
 /Users/petarchernaev/DEV/StudentCouncilApp/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.sourcelink.json
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/bin/Debug/net10.0/StudentCouncil.Domain.deps.json
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/bin/Debug/net10.0/StudentCouncil.Domain.dll
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/bin/Debug/net10.0/StudentCouncil.Domain.pdb
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.AssemblyInfoInputs.cache
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.AssemblyInfo.cs
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.csproj.CoreCompileInputs.cache
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.sourcelink.json
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.dll
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/refint/StudentCouncil.Domain.dll
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/StudentCouncil.Domain.pdb
+/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/Debug/net10.0/ref/StudentCouncil.Domain.dll
