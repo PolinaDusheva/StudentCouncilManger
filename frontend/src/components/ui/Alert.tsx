@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react'
-import { AlertCircle, CheckCircle2, Info } from 'lucide-react'
+import { AlertCircle, AlertTriangle, CheckCircle2, Info } from 'lucide-react'
 
 import { cn } from '@/lib/utils/cn'
 
-type Tone = 'error' | 'success' | 'info'
+type Tone = 'error' | 'warning' | 'success' | 'info'
 
 const TONES: Record<Tone, { box: string; icon: typeof Info }> = {
   error: { box: 'bg-red-50 text-red-800 ring-red-200', icon: AlertCircle },
+  // For outcomes that succeeded but need attention — e.g. an event saved with schedule overlaps.
+  warning: { box: 'bg-amber-50 text-amber-900 ring-amber-200', icon: AlertTriangle },
   success: { box: 'bg-green-50 text-green-800 ring-green-200', icon: CheckCircle2 },
   info: { box: 'bg-blue-50 text-blue-800 ring-blue-200', icon: Info },
 }

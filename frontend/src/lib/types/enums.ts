@@ -63,6 +63,24 @@ export const CALENDAR_VIEWS = ['day', 'week', 'month', 'list'] as const
 export type CalendarView = (typeof CALENDAR_VIEWS)[number]
 
 /**
+ * Sort values accepted by `GET /tasks` (XSD `TaskSort`). A `-` prefix reverses the direction;
+ * anything unrecognised falls back to `createdAt` descending on the server.
+ */
+export const TASK_SORTS = [
+  'dueAt',
+  '-dueAt',
+  'priority',
+  '-priority',
+  'status',
+  '-status',
+  'title',
+  '-title',
+  'createdAt',
+  '-createdAt',
+] as const
+export type TaskSort = (typeof TASK_SORTS)[number]
+
+/**
  * Sort values accepted by `GET /members` (XSD `MemberSort`). A `-` prefix reverses the
  * direction; anything unrecognised falls back to `fullName` ascending on the server.
  */

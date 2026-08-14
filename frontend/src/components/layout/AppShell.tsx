@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import { Building2, LayoutDashboard, LogOut, Users } from 'lucide-react'
+import { Building2, CalendarDays, ClipboardList, LayoutDashboard, LogOut, Users } from 'lucide-react'
 
 import { Avatar } from '@/components/ui/Avatar'
 import { Button } from '@/components/ui/Button'
@@ -9,6 +9,8 @@ import { DEPARTMENT_CODE_LABELS, SYSTEM_ROLE_LABELS } from '@/lib/types/enums'
 
 const NAV_ITEMS = [
   { to: '/', label: 'Табло', icon: LayoutDashboard, end: true },
+  { to: '/tasks', label: 'Задачи', icon: ClipboardList, end: false },
+  { to: '/events', label: 'Календар', icon: CalendarDays, end: false },
   { to: '/members', label: 'Членове', icon: Users, end: false },
   { to: '/departments', label: 'Отдели', icon: Building2, end: false },
 ]

@@ -83,6 +83,11 @@ const MESSAGES: Record<string, string> = {
   not_found: 'Ресурсът не е намерен.',
   rate_limited: 'Твърде много заявки. Опитай отново след малко.',
   payload_too_large: 'Файлът е твърде голям (максимум 25 MB).',
+  // The server checks the extension, the declared MIME type and the file's magic bytes, and
+  // reports all three failures under one code.
+  unsupported_file_type:
+    'Файлът не е позволен вид или съдържанието му не отговаря на разширението.',
+  invalid_status_transition: 'Тази промяна на статуса не е позволена.',
   internal_error: 'Възникна неочаквана грешка. Опитай отново.',
 }
 
