@@ -20,10 +20,10 @@ interface TaskCardProps {
 /** One task on the board: enough to recognise it, plus the moves the member may make. */
 export function TaskCard({ task, actor, onStatusChange, changing = false }: TaskCardProps) {
   return (
-    <article className="rounded-lg bg-white p-3 shadow-sm ring-1 ring-slate-200">
+    <article className="rounded-[15px] bg-surface p-3 shadow-[0_4px_15px_rgba(0,0,0,0.05)] ring-1 ring-divider">
       <Link
         to={`/tasks/${task.id}`}
-        className="hover:text-brand-700 block text-sm font-medium text-slate-900 hover:underline"
+        className="hover:text-accent-hover block text-sm font-medium text-ink hover:underline"
       >
         {task.title}
       </Link>
@@ -39,8 +39,8 @@ export function TaskCard({ task, actor, onStatusChange, changing = false }: Task
         <p
           className={
             task.isOverdue
-              ? 'mt-2 flex items-center gap-1 text-xs font-medium text-red-600'
-              : 'mt-2 text-xs text-slate-500'
+              ? 'mt-2 flex items-center gap-1 text-xs font-medium text-danger'
+              : 'mt-2 text-xs text-muted'
           }
         >
           {task.isOverdue && <AlertTriangle aria-hidden className="size-3.5" />}
@@ -49,7 +49,7 @@ export function TaskCard({ task, actor, onStatusChange, changing = false }: Task
       )}
 
       <div className="mt-3 flex items-center justify-between gap-2">
-        <div className="flex items-center gap-2.5 text-xs text-slate-500">
+        <div className="flex items-center gap-2.5 text-xs text-muted">
           <Counter icon={Users} count={task.assigneeCount} label="изпълнители" />
           <Counter icon={MessageSquare} count={task.commentCount} label="коментара" />
           <Counter icon={Paperclip} count={task.documentCount} label="документа" />

@@ -55,7 +55,7 @@ export function TaskBoardPage() {
   return (
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-semibold text-slate-900">Дъска</h1>
+        <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">Дъска</h1>
 
         <div className="flex gap-2">
           <Button variant="secondary" onClick={() => navigate('/tasks')}>
@@ -75,7 +75,7 @@ export function TaskBoardPage() {
       {changeStatus.isError && <Alert tone="error">{errorMessage(changeStatus.error)}</Alert>}
 
       {/* The endpoint takes no parameters, so there is nothing to filter by here. */}
-      <p className="text-sm text-slate-500">
+      <p className="text-sm text-muted">
         Показват се всички видими задачи без отказаните. За филтри използвай списъка.
       </p>
 
@@ -112,16 +112,16 @@ function Column({
   onStatusChange: (id: string, status: TaskStatus) => void
 }) {
   return (
-    <section className="rounded-xl bg-slate-100/70 p-3">
-      <h2 className="mb-3 flex items-center justify-between px-1 text-sm font-semibold text-slate-700">
+    <section className="rounded-[20px] bg-page p-3">
+      <h2 className="mb-3 flex items-center justify-between px-1 text-sm font-bold text-ink-soft">
         {title}
-        <span className="rounded-full bg-white px-2 py-0.5 text-xs font-normal text-slate-500">
+        <span className="rounded-full bg-surface px-2 py-0.5 text-xs font-normal text-muted">
           {tasks.length}
         </span>
       </h2>
 
       {tasks.length === 0 ? (
-        <p className="px-1 py-6 text-center text-sm text-slate-400">Няма задачи</p>
+        <p className="px-1 py-6 text-center text-sm text-faint">Няма задачи</p>
       ) : (
         <ul className="space-y-2">
           {tasks.map((task) => (
