@@ -6382,19 +6382,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/petarchernaev/.nuget/packages/": {}
+    "/Users/polinadusheva/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/petarchernaev/Desktop/СС Проект/backend/tests/StudentCouncil.IntegrationTests/StudentCouncil.IntegrationTests.csproj",
+      "projectUniqueName": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/tests/StudentCouncil.IntegrationTests/StudentCouncil.IntegrationTests.csproj",
       "projectName": "StudentCouncil.IntegrationTests",
-      "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/tests/StudentCouncil.IntegrationTests/StudentCouncil.IntegrationTests.csproj",
-      "packagesPath": "/Users/petarchernaev/.nuget/packages/",
-      "outputPath": "/Users/petarchernaev/Desktop/СС Проект/backend/tests/StudentCouncil.IntegrationTests/obj/",
+      "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/tests/StudentCouncil.IntegrationTests/StudentCouncil.IntegrationTests.csproj",
+      "packagesPath": "/Users/polinadusheva/.nuget/packages/",
+      "outputPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/tests/StudentCouncil.IntegrationTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/petarchernaev/.nuget/NuGet/NuGet.Config"
+        "/Users/polinadusheva/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -6406,8 +6406,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj": {
-              "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj"
+            "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj": {
+              "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj"
             }
           }
         }
@@ -6755,5 +6755,16 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Error",
+      "message": "Warning As Error: Package 'SSH.NET' 2025.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284",
+      "libraryId": "SSH.NET",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

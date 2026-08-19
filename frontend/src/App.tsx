@@ -7,6 +7,7 @@ import { ForgotPasswordPage } from '@/routes/auth/ForgotPasswordPage'
 import { LoginPage } from '@/routes/auth/LoginPage'
 import { ResetPasswordPage } from '@/routes/auth/ResetPasswordPage'
 import { DashboardPage } from '@/routes/dashboard/DashboardPage'
+import { BudgetPage } from '@/routes/budget/BudgetPage'
 import { DepartmentDetailPage } from '@/routes/departments/DepartmentDetailPage'
 import { CalendarPage } from '@/routes/events/CalendarPage'
 import { EventDetailPage } from '@/routes/events/EventDetailPage'
@@ -66,6 +67,8 @@ export function App() {
 
             <Route path="/departments" element={<DepartmentsPage />} />
             <Route path="/departments/:id" element={<DepartmentDetailPage />} />
+
+            <Route path="/budget" element={<BudgetPage />} />
           </Route>
         </Route>
 

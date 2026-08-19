@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/petarchernaev/Desktop/СС Проект/backend/tests/StudentCouncil.UnitTests/StudentCouncil.UnitTests.csproj": {}
+    "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/tests/StudentCouncil.UnitTests/StudentCouncil.UnitTests.csproj": {}
   },
   "projects": {
-    "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj": {
+    "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj",
+        "projectUniqueName": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj",
         "projectName": "StudentCouncil.Api",
-        "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj",
-        "packagesPath": "/Users/petarchernaev/.nuget/packages/",
-        "outputPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Api/obj/",
+        "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj",
+        "packagesPath": "/Users/polinadusheva/.nuget/packages/",
+        "outputPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/petarchernaev/.nuget/NuGet/NuGet.Config"
+          "/Users/polinadusheva/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -26,11 +26,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj": {
-                "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj"
+              "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj": {
+                "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj"
               },
-              "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj": {
-                "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj"
+              "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj": {
+                "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj"
               }
             }
           }
@@ -548,17 +548,17 @@
         }
       }
     },
-    "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj": {
+    "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj",
+        "projectUniqueName": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj",
         "projectName": "StudentCouncil.Application",
-        "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj",
-        "packagesPath": "/Users/petarchernaev/.nuget/packages/",
-        "outputPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/obj/",
+        "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj",
+        "packagesPath": "/Users/polinadusheva/.nuget/packages/",
+        "outputPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/petarchernaev/.nuget/NuGet/NuGet.Config"
+          "/Users/polinadusheva/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -570,8 +570,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj": {
-                "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj"
+              "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj": {
+                "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj"
               }
             }
           }
@@ -912,17 +912,17 @@
         }
       }
     },
-    "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj": {
+    "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj",
+        "projectUniqueName": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj",
         "projectName": "StudentCouncil.Domain",
-        "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj",
-        "packagesPath": "/Users/petarchernaev/.nuget/packages/",
-        "outputPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Domain/obj/",
+        "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/StudentCouncil.Domain.csproj",
+        "packagesPath": "/Users/polinadusheva/.nuget/packages/",
+        "outputPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/petarchernaev/.nuget/NuGet/NuGet.Config"
+          "/Users/polinadusheva/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -1246,17 +1246,17 @@
         }
       }
     },
-    "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj": {
+    "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj",
+        "projectUniqueName": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj",
         "projectName": "StudentCouncil.Infrastructure",
-        "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj",
-        "packagesPath": "/Users/petarchernaev/.nuget/packages/",
-        "outputPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Infrastructure/obj/",
+        "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj",
+        "packagesPath": "/Users/polinadusheva/.nuget/packages/",
+        "outputPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/petarchernaev/.nuget/NuGet/NuGet.Config"
+          "/Users/polinadusheva/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -1268,8 +1268,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj": {
-                "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj"
+              "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj": {
+                "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj"
               }
             }
           }
@@ -1767,17 +1767,17 @@
         }
       }
     },
-    "/Users/petarchernaev/Desktop/СС Проект/backend/tests/StudentCouncil.UnitTests/StudentCouncil.UnitTests.csproj": {
+    "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/tests/StudentCouncil.UnitTests/StudentCouncil.UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/petarchernaev/Desktop/СС Проект/backend/tests/StudentCouncil.UnitTests/StudentCouncil.UnitTests.csproj",
+        "projectUniqueName": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/tests/StudentCouncil.UnitTests/StudentCouncil.UnitTests.csproj",
         "projectName": "StudentCouncil.UnitTests",
-        "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/tests/StudentCouncil.UnitTests/StudentCouncil.UnitTests.csproj",
-        "packagesPath": "/Users/petarchernaev/.nuget/packages/",
-        "outputPath": "/Users/petarchernaev/Desktop/СС Проект/backend/tests/StudentCouncil.UnitTests/obj/",
+        "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/tests/StudentCouncil.UnitTests/StudentCouncil.UnitTests.csproj",
+        "packagesPath": "/Users/polinadusheva/.nuget/packages/",
+        "outputPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/tests/StudentCouncil.UnitTests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/petarchernaev/.nuget/NuGet/NuGet.Config"
+          "/Users/polinadusheva/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -1789,14 +1789,14 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj": {
-                "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj"
+              "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj": {
+                "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Api/StudentCouncil.Api.csproj"
               },
-              "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj": {
-                "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj"
+              "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj": {
+                "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Application/StudentCouncil.Application.csproj"
               },
-              "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj": {
-                "projectPath": "/Users/petarchernaev/Desktop/СС Проект/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj"
+              "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj": {
+                "projectPath": "/Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Infrastructure/StudentCouncil.Infrastructure.csproj"
               }
             }
           }

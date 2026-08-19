@@ -256,12 +256,22 @@ export interface BudgetSummaryDto {
 
 // ---------------------------------------------------------------- notifications
 
+/**
+ * Deep-link payload: `id` is present for `Task`/`Event`, absent for `Duty` (a duty reminder
+ * links to the caller's own summary screen, not a single entity).
+ */
+export interface NotificationPayload {
+  type: 'Task' | 'Event' | 'Duty'
+  id: string | null
+}
+
 export interface NotificationDto {
   id: string
+  /** Mirrors `NotificationType` in the domain (`TaskAssigned`, `EventReminder`, ...). */
   type: string
   title: string
   body: string
-  payload: Record<string, unknown> | null
+  payload: NotificationPayload | null
   isRead: boolean
   createdAtUtc: string
 }

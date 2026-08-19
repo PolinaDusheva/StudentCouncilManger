@@ -47,3 +47,18 @@ export function formatDateTime(value: string | null | undefined): string {
   const date = parse(value)
   return date ? DATE_TIME.format(date) : EMPTY
 }
+
+const EUR = new Intl.NumberFormat('bg-BG', {
+  style: 'currency',
+  currency: 'EUR',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+})
+
+/**
+ * Money as stored by the API: `decimal(10,2)` in euro. Always shows two decimals, because a
+ * budget figure that renders as `12 €` next to `12,50 €` reads as a different precision.
+ */
+export function formatEur(value: number | null | undefined): string {
+  return value === null || value === undefined || Number.isNaN(value) ? EMPTY : EUR.format(value)
+}

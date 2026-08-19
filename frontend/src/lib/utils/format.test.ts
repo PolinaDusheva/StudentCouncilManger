@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { formatDate, formatDateTime } from './format'
+import { formatDate, formatDateTime, formatEur } from './format'
 
 // Българският локал добавя суфикса „г.“ — това е коректният формат за езика,
 // затова се приема както е, вместо да се реже след форматирането.
@@ -32,5 +32,29 @@ describe('formatDateTime', () => {
 
   it('връща тире при липсваща стойност', () => {
     expect(formatDateTime(null)).toBe('—')
+  })
+})
+
+describe('formatEur', () => {
+  // Intl вмъква непрекъсваем интервал ( ) пред знака „€“, не обикновен — затова
+  // сравнението е по цифрите и десетичния знак, а не по целия низ буква по буква.
+  it('винаги показва два знака след десетичната запетая', () => {
+    expect(formatEur(12)).toContain('12,00')
+    expect(formatEur(12.5)).toContain('12,50')
+    expect(formatEur(1234.5)).toContain('1234,50')
+    expect(formatEur(12)).toContain('€')
+  })
+
+  it('връща тире при липсваща стойност', () => {
+    expect(formatEur(null)).toBe('—')
+    expect(formatEur(undefined)).toBe('—')
+  })
+
+  it('връща тире при NaN', () => {
+    expect(formatEur(Number.NaN)).toBe('—')
+  })
+
+  it('обработва нула', () => {
+    expect(formatEur(0)).toContain('0,00')
   })
 })

@@ -1,0 +1,1491 @@
+2026-08-19 14:24:21.951 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-08-19 14:24:22.079 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-08-19 14:24:22.130 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    migration_id character varying(150) NOT NULL,
+    product_version character varying(32) NOT NULL,
+    CONSTRAINT pk___ef_migrations_history PRIMARY KEY (migration_id)
+);
+2026-08-19 14:24:22.144 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-08-19 14:24:22.145 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id;
+2026-08-19 14:24:22.290 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-08-19 14:24:22.295 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-08-19 14:24:22.296 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-08-19 14:24:22.296 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@code='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM departments AS d
+    WHERE d.code = @code)
+2026-08-19 14:24:22.329 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-08-19 14:24:22.507 +03:00 [INF] Now listening on: http://localhost:5160
+2026-08-19 14:24:22.507 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-19 14:24:22.507 +03:00 [INF] Hosting environment: Development
+2026-08-19 14:24:22.507 +03:00 [INF] Content root path: /Users/polinadusheva/Documents/GitHub/StudentCouncilManger/backend/src/StudentCouncil.Api
+2026-08-19 14:31:50.991 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-08-19 14:31:51.021 +03:00 [INF] HTTP GET /health/live responded 200 in 45.1970 ms
+2026-08-19 14:32:29.690 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-08-19 14:32:29.814 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = DateTime), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO refresh_tokens (id, created_at_utc, expires_at_utc, member_id, replaced_by_token_hash, revoked_at_utc, token_hash)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-08-19 14:32:29.818 +03:00 [INF] Handled LoginCommand for user null in 173 ms
+2026-08-19 14:32:29.838 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 232.8103 ms
+2026-08-19 14:32:29.922 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:29.981 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Object), @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?' (DbType = Decimal), @p10='?' (DbType = DateTime), @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Date), @p14='?' (DbType = DateTime), @p15='?' (DbType = Guid), @p16='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO audit_logs (id, action, actor_id, details, entity_id, entity_type, timestamp)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+INSERT INTO expenses (id, added_by_id, amount_eur, created_at_utc, created_by_id, description, spent_on, updated_at_utc, updated_by_id, year)
+VALUES (@p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2026-08-19 14:32:30.045 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:32:30.047 +03:00 [INF] Handled CreateExpenseCommand for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 103 ms
+2026-08-19 14:32:30.050 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 201 in 195.6793 ms
+2026-08-19 14:32:30.064 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:30.069 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Object), @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?' (DbType = Decimal), @p10='?' (DbType = DateTime), @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Date), @p14='?' (DbType = DateTime), @p15='?' (DbType = Guid), @p16='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO audit_logs (id, action, actor_id, details, entity_id, entity_type, timestamp)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+INSERT INTO expenses (id, added_by_id, amount_eur, created_at_utc, created_by_id, description, spent_on, updated_at_utc, updated_by_id, year)
+VALUES (@p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2026-08-19 14:32:30.071 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:32:30.072 +03:00 [INF] Handled CreateExpenseCommand for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 5 ms
+2026-08-19 14:32:30.072 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 201 in 10.0242 ms
+2026-08-19 14:32:30.089 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:30.093 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Object), @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?' (DbType = Decimal), @p10='?' (DbType = DateTime), @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Date), @p14='?' (DbType = DateTime), @p15='?' (DbType = Guid), @p16='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO audit_logs (id, action, actor_id, details, entity_id, entity_type, timestamp)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+INSERT INTO expenses (id, added_by_id, amount_eur, created_at_utc, created_by_id, description, spent_on, updated_at_utc, updated_by_id, year)
+VALUES (@p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2026-08-19 14:32:30.095 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:32:30.095 +03:00 [INF] Handled CreateExpenseCommand for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 4 ms
+2026-08-19 14:32:30.096 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 201 in 11.9118 ms
+2026-08-19 14:32:30.109 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:30.111 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Object), @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?' (DbType = Decimal), @p10='?' (DbType = DateTime), @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Date), @p14='?' (DbType = DateTime), @p15='?' (DbType = Guid), @p16='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO audit_logs (id, action, actor_id, details, entity_id, entity_type, timestamp)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+INSERT INTO expenses (id, added_by_id, amount_eur, created_at_utc, created_by_id, description, spent_on, updated_at_utc, updated_by_id, year)
+VALUES (@p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2026-08-19 14:32:30.113 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:32:30.113 +03:00 [INF] Handled CreateExpenseCommand for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 3 ms
+2026-08-19 14:32:30.113 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 201 in 5.9937 ms
+2026-08-19 14:32:30.127 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:30.132 +03:00 [WRN] Handled validation_error (400): One or more validation errors occurred.
+2026-08-19 14:32:30.140 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 400 in 15.1554 ms
+2026-08-19 14:32:30.155 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:30.179 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:32:30.181 +03:00 [INF] Handled GetBudgetSummaryQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 17 ms
+2026-08-19 14:32:30.182 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 28.8355 ms
+2026-08-19 14:32:43.084 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-08-19 14:32:43.133 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = DateTime), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO refresh_tokens (id, created_at_utc, expires_at_utc, member_id, replaced_by_token_hash, revoked_at_utc, token_hash)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-08-19 14:32:43.133 +03:00 [INF] Handled LoginCommand for user null in 52 ms
+2026-08-19 14:32:43.133 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 55.7478 ms
+2026-08-19 14:32:43.234 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:43.244 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:32:43.245 +03:00 [INF] Handled GetMeQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 5 ms
+2026-08-19 14:32:43.247 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 15.1930 ms
+2026-08-19 14:32:43.251 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:43.253 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:32:43.254 +03:00 [INF] Handled GetMeQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 1 ms
+2026-08-19 14:32:43.254 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 4.7030 ms
+2026-08-19 14:32:43.282 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:43.290 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:32:43.292 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:32:43.293 +03:00 [INF] Handled GetBudgetSummaryQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 1 ms
+2026-08-19 14:32:43.293 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 21.0673 ms
+2026-08-19 14:32:43.303 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:32:43.310 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:32:43.314 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:32:43.315 +03:00 [INF] Handled GetExpensesQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 24 ms
+2026-08-19 14:32:43.316 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 44.0670 ms
+2026-08-19 14:33:01.797 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:01.802 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Object), @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?' (DbType = Decimal), @p10='?' (DbType = DateTime), @p11='?' (DbType = Guid), @p12='?', @p13='?' (DbType = Date), @p14='?' (DbType = DateTime), @p15='?' (DbType = Guid), @p16='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO audit_logs (id, action, actor_id, details, entity_id, entity_type, timestamp)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+INSERT INTO expenses (id, added_by_id, amount_eur, created_at_utc, created_by_id, description, spent_on, updated_at_utc, updated_by_id, year)
+VALUES (@p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2026-08-19 14:33:01.804 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:33:01.805 +03:00 [INF] Handled CreateExpenseCommand for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 5 ms
+2026-08-19 14:33:01.805 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 201 in 10.5083 ms
+2026-08-19 14:33:01.811 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:01.811 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:01.813 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:33:01.813 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:33:01.813 +03:00 [INF] Handled GetBudgetSummaryQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 1 ms
+2026-08-19 14:33:01.813 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 3.6852 ms
+2026-08-19 14:33:01.814 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:33:01.815 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:33:01.815 +03:00 [INF] Handled GetExpensesQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 2 ms
+2026-08-19 14:33:01.815 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 5.5037 ms
+2026-08-19 14:33:12.139 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:12.153 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@request_Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.id = @request_Id
+LIMIT 1
+2026-08-19 14:33:12.162 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Object), @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p10='?' (DbType = Guid), @p7='?' (DbType = Decimal), @p8='?' (DbType = DateTime), @p9='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO audit_logs (id, action, actor_id, details, entity_id, entity_type, timestamp)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+UPDATE expenses SET amount_eur = @p7, updated_at_utc = @p8, updated_by_id = @p9
+WHERE id = @p10;
+2026-08-19 14:33:12.165 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:33:12.165 +03:00 [INF] Handled UpdateExpenseCommand for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 17 ms
+2026-08-19 14:33:12.165 +03:00 [INF] HTTP PUT /api/v1/budget/expenses/ec1cb76d-138f-41a8-8ecf-a8b521b95d30 responded 200 in 28.5662 ms
+2026-08-19 14:33:12.170 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:12.170 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:12.172 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:33:12.172 +03:00 [INF] Handled GetBudgetSummaryQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 0 ms
+2026-08-19 14:33:12.172 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:33:12.172 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 3.1800 ms
+2026-08-19 14:33:12.173 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:33:12.174 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:33:12.174 +03:00 [INF] Handled GetExpensesQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 2 ms
+2026-08-19 14:33:12.174 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 5.3695 ms
+2026-08-19 14:33:21.705 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:21.716 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@request_Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.id = @request_Id
+LIMIT 1
+2026-08-19 14:33:21.721 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Object), @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO audit_logs (id, action, actor_id, details, entity_id, entity_type, timestamp)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+DELETE FROM expenses
+WHERE id = @p7;
+2026-08-19 14:33:21.724 +03:00 [INF] Handled DeleteExpenseCommand for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 10 ms
+2026-08-19 14:33:21.724 +03:00 [INF] HTTP DELETE /api/v1/budget/expenses/ec1cb76d-138f-41a8-8ecf-a8b521b95d30 responded 204 in 21.1398 ms
+2026-08-19 14:33:21.730 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:21.730 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:21.731 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:33:21.731 +03:00 [INF] Handled GetBudgetSummaryQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 0 ms
+2026-08-19 14:33:21.731 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:33:21.731 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 2.6999 ms
+2026-08-19 14:33:21.731 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:33:21.732 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:33:21.732 +03:00 [INF] Handled GetExpensesQuery for user "e71006a3-891c-4459-aa20-bf6c6d8cab84" in 1 ms
+2026-08-19 14:33:21.732 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 3.9352 ms
+2026-08-19 14:33:47.797 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-08-19 14:33:47.804 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@departmentId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT d.code
+FROM departments AS d
+WHERE d.id = @departmentId
+LIMIT 1
+2026-08-19 14:33:47.847 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = DateTime), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO refresh_tokens (id, created_at_utc, expires_at_utc, member_id, replaced_by_token_hash, revoked_at_utc, token_hash)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-08-19 14:33:47.847 +03:00 [INF] Handled LoginCommand for user null in 58 ms
+2026-08-19 14:33:47.848 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 60.9531 ms
+2026-08-19 14:33:47.863 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:47.864 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:33:47.864 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:33:47.865 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 2.6083 ms
+2026-08-19 14:33:47.878 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:47.879 +03:00 [INF] HTTP POST /api/v1/budget/expenses responded 403 in 2.4838 ms
+2026-08-19 14:33:53.935 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-08-19 14:33:53.936 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@departmentId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT d.code
+FROM departments AS d
+WHERE d.id = @departmentId
+LIMIT 1
+2026-08-19 14:33:53.980 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = DateTime), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO refresh_tokens (id, created_at_utc, expires_at_utc, member_id, replaced_by_token_hash, revoked_at_utc, token_hash)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-08-19 14:33:53.980 +03:00 [INF] Handled LoginCommand for user null in 45 ms
+2026-08-19 14:33:53.980 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 46.5925 ms
+2026-08-19 14:33:54.077 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:54.078 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:33:54.079 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:33:54.079 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.8829 ms
+2026-08-19 14:33:54.083 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:54.084 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:33:54.084 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:33:54.084 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.8499 ms
+2026-08-19 14:33:54.095 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:54.095 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:33:54.096 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:33:54.097 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:33:54.097 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:33:54.097 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 3.0061 ms
+2026-08-19 14:33:54.097 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:33:54.098 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:33:54.098 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:33:54.098 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 4.4039 ms
+2026-08-19 14:34:36.171 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:34:36.174 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:34:36.174 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:34:36.175 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 5.8978 ms
+2026-08-19 14:34:36.178 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:34:36.179 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:34:36.179 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:34:36.179 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.1477 ms
+2026-08-19 14:34:36.193 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:34:36.193 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:34:36.194 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:34:36.194 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:34:36.194 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:34:36.194 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 2.9170 ms
+2026-08-19 14:34:36.194 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:34:36.195 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:34:36.196 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:34:36.196 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 4.7535 ms
+2026-08-19 14:34:55.548 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:34:55.549 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:34:55.549 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:34:55.549 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.9665 ms
+2026-08-19 14:34:55.552 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:34:55.552 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:34:55.553 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:34:55.553 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 1.9641 ms
+2026-08-19 14:34:55.566 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:34:55.567 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:34:55.567 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:34:55.568 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:34:55.568 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:34:55.568 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 3.3715 ms
+2026-08-19 14:34:55.569 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:34:55.569 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:34:55.570 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:34:55.570 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 4.6263 ms
+2026-08-19 14:35:08.920 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:35:08.922 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:35:08.922 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:35:08.923 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.3825 ms
+2026-08-19 14:35:08.925 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:35:08.926 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:35:08.926 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:35:08.927 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.3803 ms
+2026-08-19 14:35:08.940 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:35:08.940 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:35:08.941 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:35:08.941 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:35:08.941 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:35:08.941 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 2.7678 ms
+2026-08-19 14:35:08.941 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:35:08.943 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:35:08.943 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:35:08.943 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 4.6354 ms
+2026-08-19 14:35:53.141 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:35:53.141 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:35:53.143 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:35:53.144 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:35:53.144 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:35:53.144 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:35:53.146 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 6.2527 ms
+2026-08-19 14:35:53.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:35:53.147 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 4 ms
+2026-08-19 14:35:53.147 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 7.8553 ms
+2026-08-19 14:36:29.145 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:36:29.145 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:36:29.147 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:36:29.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:36:29.147 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:36:29.148 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 7.0968 ms
+2026-08-19 14:36:29.148 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:36:29.149 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:36:29.149 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 3 ms
+2026-08-19 14:36:29.149 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 6.3664 ms
+2026-08-19 14:37:05.144 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:37:05.144 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:37:05.146 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:37:05.146 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:37:05.146 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:37:05.146 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 4.1300 ms
+2026-08-19 14:37:05.146 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:37:05.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:37:05.148 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:37:05.148 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 5.7429 ms
+2026-08-19 14:37:37.159 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:37:37.159 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:37:37.163 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:37:37.163 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:37:37.163 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:37:37.163 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 21.9369 ms
+2026-08-19 14:37:37.164 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:37:37.166 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:37:37.166 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 5 ms
+2026-08-19 14:37:37.167 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 25.4237 ms
+2026-08-19 14:38:13.148 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:38:13.148 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:38:13.150 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:38:13.150 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:38:13.150 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:38:13.150 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 3.8283 ms
+2026-08-19 14:38:13.150 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:38:13.151 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:38:13.151 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:38:13.151 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 5.0614 ms
+2026-08-19 14:38:49.163 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:38:49.164 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:38:49.168 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:38:49.168 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 4 ms
+2026-08-19 14:38:49.169 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 22.6568 ms
+2026-08-19 14:38:49.172 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:38:49.177 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:38:49.181 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:38:49.181 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 13 ms
+2026-08-19 14:38:49.185 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 38.7303 ms
+2026-08-19 14:39:22.529 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@now='?' (DbType = DateTime), @horizon24='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, e.calendar_event_id, e.member_id
+FROM calendar_events AS c
+LEFT JOIN event_participants AS e ON c.id = e.calendar_event_id
+WHERE c.recurrence = 'None' AND c.start_utc > @now AND c.start_utc <= @horizon24 AND (c.reminder24h_sent_at_utc IS NULL OR c.reminder1h_sent_at_utc IS NULL)
+ORDER BY c.id, e.calendar_event_id
+2026-08-19 14:39:22.529 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@now='?' (DbType = DateTime), @horizon='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.id, t.created_at_utc, t.created_by_id, t.deleted_at_utc, t.department_id, t.description, t.due_at_utc, t.due_soon_notified_at_utc, t.is_deleted, t.overdue_notified_at_utc, t.priority, t.scope, t.status, t.title, t.updated_at_utc, t.updated_by_id, s.task_item_id, s.member_id, s.id
+FROM tasks AS t
+LEFT JOIN (
+    SELECT t0.task_item_id, t0.member_id, t2.id
+    FROM task_assignees AS t0
+    INNER JOIN (
+        SELECT t1.id, t1.is_deleted
+        FROM tasks AS t1
+        WHERE NOT (t1.is_deleted)
+    ) AS t2 ON t0.task_item_id = t2.id
+    WHERE NOT (t2.is_deleted)
+) AS s ON t.id = s.task_item_id
+WHERE NOT (t.is_deleted) AND t.due_at_utc IS NOT NULL AND t.due_at_utc > @now AND t.due_at_utc <= @horizon AND t.status <> 'Completed' AND t.status <> 'Cancelled' AND t.due_soon_notified_at_utc IS NULL
+ORDER BY t.id, s.task_item_id, s.member_id
+2026-08-19 14:39:22.549 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id
+FROM "AspNetUsers" AS a
+WHERE a.status = 'Active'
+2026-08-19 14:39:22.577 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = DateTime), @p6='?' (DbType = Guid), @p7='?' (DbType = Boolean), @p8='?' (DbType = Object), @p9='?' (DbType = Guid), @p10='?', @p11='?', @p12='?' (DbType = DateTime), @p13='?' (DbType = Guid), @p14='?' (DbType = Guid), @p15='?', @p16='?' (DbType = DateTime), @p17='?' (DbType = Guid), @p18='?' (DbType = Boolean), @p19='?' (DbType = Object), @p20='?' (DbType = Guid), @p21='?', @p22='?', @p23='?' (DbType = DateTime), @p24='?' (DbType = Guid), @p25='?' (DbType = Guid), @p26='?', @p27='?' (DbType = DateTime), @p28='?' (DbType = Guid), @p29='?' (DbType = Boolean), @p30='?' (DbType = Object), @p31='?' (DbType = Guid), @p32='?', @p33='?', @p34='?' (DbType = DateTime), @p35='?' (DbType = Guid), @p36='?' (DbType = Guid), @p37='?', @p38='?' (DbType = DateTime), @p39='?' (DbType = Guid), @p40='?' (DbType = Boolean), @p41='?' (DbType = Object), @p42='?' (DbType = Guid), @p43='?', @p44='?', @p45='?' (DbType = DateTime), @p46='?' (DbType = Guid), @p47='?' (DbType = Guid), @p48='?', @p49='?' (DbType = DateTime), @p50='?' (DbType = Guid), @p51='?' (DbType = Boolean), @p52='?' (DbType = Object), @p53='?' (DbType = Guid), @p54='?', @p55='?', @p56='?' (DbType = DateTime), @p57='?' (DbType = Guid), @p58='?' (DbType = Guid), @p59='?', @p60='?' (DbType = DateTime), @p61='?' (DbType = Guid), @p62='?' (DbType = Boolean), @p63='?' (DbType = Object), @p64='?' (DbType = Guid), @p65='?', @p66='?', @p67='?' (DbType = DateTime), @p68='?' (DbType = Guid), @p69='?' (DbType = Guid), @p70='?', @p71='?' (DbType = DateTime), @p72='?' (DbType = Guid), @p73='?' (DbType = Boolean), @p74='?' (DbType = Object), @p75='?' (DbType = Guid), @p76='?', @p77='?', @p78='?' (DbType = DateTime), @p79='?' (DbType = Guid), @p80='?' (DbType = Guid), @p81='?', @p82='?' (DbType = DateTime), @p83='?' (DbType = Guid), @p84='?' (DbType = Boolean), @p85='?' (DbType = Object), @p86='?' (DbType = Guid), @p87='?', @p88='?', @p89='?' (DbType = DateTime), @p90='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE calendar_events SET reminder24h_sent_at_utc = @p0, updated_at_utc = @p1
+WHERE id = @p2;
+INSERT INTO notifications (id, body, created_at_utc, created_by_id, is_read, payload, recipient_id, title, type, updated_at_utc, updated_by_id)
+VALUES (@p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+INSERT INTO notifications (id, body, created_at_utc, created_by_id, is_read, payload, recipient_id, title, type, updated_at_utc, updated_by_id)
+VALUES (@p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24);
+INSERT INTO notifications (id, body, created_at_utc, created_by_id, is_read, payload, recipient_id, title, type, updated_at_utc, updated_by_id)
+VALUES (@p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35);
+INSERT INTO notifications (id, body, created_at_utc, created_by_id, is_read, payload, recipient_id, title, type, updated_at_utc, updated_by_id)
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46);
+INSERT INTO notifications (id, body, created_at_utc, created_by_id, is_read, payload, recipient_id, title, type, updated_at_utc, updated_by_id)
+VALUES (@p47, @p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, @p56, @p57);
+INSERT INTO notifications (id, body, created_at_utc, created_by_id, is_read, payload, recipient_id, title, type, updated_at_utc, updated_by_id)
+VALUES (@p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65, @p66, @p67, @p68);
+INSERT INTO notifications (id, body, created_at_utc, created_by_id, is_read, payload, recipient_id, title, type, updated_at_utc, updated_by_id)
+VALUES (@p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79);
+INSERT INTO notifications (id, body, created_at_utc, created_by_id, is_read, payload, recipient_id, title, type, updated_at_utc, updated_by_id)
+VALUES (@p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90);
+2026-08-19 14:39:22.579 +03:00 [INF] [DEV PUSH] "EventReminder" -> 8 member(s) | Напомняне за събитие | Събитие „Спортен турнир“ започва след 24 часа.
+2026-08-19 14:39:25.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:39:25.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:39:25.148 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:39:25.148 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:39:25.148 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:39:25.148 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 3.3909 ms
+2026-08-19 14:39:25.149 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:39:25.152 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:39:25.152 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 4 ms
+2026-08-19 14:39:25.152 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 7.0537 ms
+2026-08-19 14:40:01.144 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:40:01.144 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:40:01.146 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:40:01.147 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:40:01.147 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 4.6051 ms
+2026-08-19 14:40:01.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:40:01.148 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:40:01.150 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:40:01.150 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 4 ms
+2026-08-19 14:40:01.150 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 7.7375 ms
+2026-08-19 14:41:09.358 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:41:09.358 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:41:09.363 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:41:09.363 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 3 ms
+2026-08-19 14:41:09.363 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:41:09.363 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 7.3499 ms
+2026-08-19 14:41:09.363 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:41:09.364 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:41:09.364 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 4 ms
+2026-08-19 14:41:09.365 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 9.1643 ms
+2026-08-19 14:42:17.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:42:17.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:42:17.150 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(e.amount_eur), 0.0)
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:42:17.150 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM expenses AS e
+WHERE e.year = @year
+2026-08-19 14:42:17.150 +03:00 [INF] Handled GetBudgetSummaryQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:42:17.150 +03:00 [INF] HTTP GET /api/v1/budget/summary responded 200 in 4.6319 ms
+2026-08-19 14:42:17.150 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@year='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e.id, e.added_by_id, e.amount_eur, e.created_at_utc, e.created_by_id, e.description, e.spent_on, e.updated_at_utc, e.updated_by_id, e.year
+FROM expenses AS e
+WHERE e.year = @year
+ORDER BY e.spent_on DESC, e.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:42:17.151 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:42:17.151 +03:00 [INF] Handled GetExpensesQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:42:17.151 +03:00 [INF] HTTP GET /api/v1/budget/expenses responded 200 in 5.9569 ms
+2026-08-19 14:42:19.151 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:42:19.163 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:42:19.168 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:42:19.172 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 14 ms
+2026-08-19 14:42:19.177 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 26.6205 ms
+2026-08-19 14:42:35.145 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:42:35.152 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:42:35.154 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:42:35.154 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 7 ms
+2026-08-19 14:42:35.155 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 13.5104 ms
+2026-08-19 14:42:50.737 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-08-19 14:42:50.742 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@departmentId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT d.code
+FROM departments AS d
+WHERE d.id = @departmentId
+LIMIT 1
+2026-08-19 14:42:50.784 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = DateTime), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO refresh_tokens (id, created_at_utc, expires_at_utc, member_id, replaced_by_token_hash, revoked_at_utc, token_hash)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-08-19 14:42:50.785 +03:00 [INF] Handled LoginCommand for user null in 64 ms
+2026-08-19 14:42:50.785 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 65.8045 ms
+2026-08-19 14:42:50.800 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:42:50.804 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId
+2026-08-19 14:42:50.808 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:42:50.808 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 8 ms
+2026-08-19 14:42:50.809 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 10.0090 ms
+2026-08-19 14:42:57.513 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.normalized_email = @normalizedEmail
+LIMIT 2
+2026-08-19 14:42:57.514 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@departmentId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT d.code
+FROM departments AS d
+WHERE d.id = @departmentId
+LIMIT 1
+2026-08-19 14:42:57.562 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Guid), @p4='?', @p5='?' (DbType = DateTime), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO refresh_tokens (id, created_at_utc, expires_at_utc, member_id, replaced_by_token_hash, revoked_at_utc, token_hash)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-08-19 14:42:57.562 +03:00 [INF] Handled LoginCommand for user null in 49 ms
+2026-08-19 14:42:57.562 +03:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 50.0953 ms
+2026-08-19 14:42:57.671 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:42:57.672 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:42:57.672 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:42:57.673 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.0346 ms
+2026-08-19 14:42:57.676 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:42:57.677 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:42:57.677 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:42:57.677 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.4835 ms
+2026-08-19 14:42:57.693 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:42:57.693 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:42:57.694 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:42:57.694 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:42:57.694 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 2.6411 ms
+2026-08-19 14:43:10.463 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:43:10.465 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId
+2026-08-19 14:43:10.466 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:43:10.466 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:43:10.466 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 6.5503 ms
+2026-08-19 14:43:24.152 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:43:24.158 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:43:24.163 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@request_Id='?' (DbType = Guid), @userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.id = @request_Id AND n.recipient_id = @userId
+LIMIT 1
+2026-08-19 14:43:24.166 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (DbType = Boolean), @p1='?' (DbType = DateTime), @p2='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE notifications SET is_read = @p0, updated_at_utc = @p1, updated_by_id = @p2
+WHERE id = @p3;
+2026-08-19 14:43:24.166 +03:00 [INF] Handled MarkNotificationReadCommand for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 9 ms
+2026-08-19 14:43:24.167 +03:00 [INF] HTTP POST /api/v1/notifications/04962c2a-4669-4cf0-b292-a1ef51759c66/read responded 204 in 16.3941 ms
+2026-08-19 14:43:24.172 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:43:24.173 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:43:24.173 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:43:24.174 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:43:24.174 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 2.4272 ms
+2026-08-19 14:43:24.180 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:43:24.183 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:43:24.184 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 20 ms
+2026-08-19 14:43:24.192 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 35.0695 ms
+2026-08-19 14:43:32.639 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:43:32.641 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId
+2026-08-19 14:43:32.642 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:43:32.642 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:43:32.642 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.9518 ms
+2026-08-19 14:43:34.143 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:43:34.161 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Boolean), @userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+UPDATE notifications AS n
+SET is_read = @p
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:43:34.162 +03:00 [INF] Handled MarkAllNotificationsReadCommand for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 14 ms
+2026-08-19 14:43:34.162 +03:00 [INF] HTTP POST /api/v1/notifications/read-all responded 204 in 20.4588 ms
+2026-08-19 14:43:34.168 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:43:34.169 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:43:34.169 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:43:34.170 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:43:34.170 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.0784 ms
+2026-08-19 14:43:34.178 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:43:34.178 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId
+2026-08-19 14:43:34.180 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:43:34.180 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:43:34.180 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 14.4450 ms
+2026-08-19 14:44:04.184 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:04.187 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:44:04.188 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:44:04.188 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:44:04.188 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 8.0143 ms
+2026-08-19 14:44:07.703 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:07.705 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:44:07.705 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:44:07.705 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.9812 ms
+2026-08-19 14:44:07.708 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:07.709 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:44:07.709 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:44:07.709 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.5073 ms
+2026-08-19 14:44:07.736 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:07.736 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:07.737 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:44:07.738 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:44:07.738 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:44:07.738 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 3.9159 ms
+2026-08-19 14:44:07.743 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:44:07.745 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:44:07.745 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 7 ms
+2026-08-19 14:44:07.745 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 10.8407 ms
+2026-08-19 14:44:12.573 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:12.575 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:44:12.575 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:44:12.575 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.5615 ms
+2026-08-19 14:44:12.578 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:12.579 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:44:12.579 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:44:12.579 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.2968 ms
+2026-08-19 14:44:12.589 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:12.589 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:12.590 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:44:12.590 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:44:12.590 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:44:12.590 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 2.5457 ms
+2026-08-19 14:44:12.591 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:44:12.592 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:44:12.592 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:44:12.592 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 4.0518 ms
+2026-08-19 14:44:42.603 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:42.606 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:44:42.607 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:44:42.607 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:44:42.607 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 5.5668 ms
+2026-08-19 14:44:54.801 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:44:54.807 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:44:54.809 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:44:54.809 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 7 ms
+2026-08-19 14:44:54.809 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 11.5395 ms
+2026-08-19 14:45:05.146 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:45:05.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:45:05.148 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:45:05.148 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:45:05.148 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.0663 ms

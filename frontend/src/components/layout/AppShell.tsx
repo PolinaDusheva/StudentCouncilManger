@@ -1,16 +1,18 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import { Building2, CalendarDays, ClipboardList, LayoutDashboard, LogOut, Users } from 'lucide-react'
+import { Building2, CalendarDays, ClipboardList, LayoutDashboard, LogOut, Users, Wallet } from 'lucide-react'
 
 import { Avatar } from '@/components/ui/Avatar'
 import { Button } from '@/components/ui/Button'
 import { useAuth } from '@/lib/auth/useAuth'
 import { cn } from '@/lib/utils/cn'
 import { DEPARTMENT_CODE_LABELS, SYSTEM_ROLE_LABELS } from '@/lib/types/enums'
+import { NotificationBell } from '@/routes/notifications/NotificationBell'
 
 const NAV_ITEMS = [
   { to: '/', label: 'Табло', icon: LayoutDashboard, end: true },
   { to: '/tasks', label: 'Задачи', icon: ClipboardList, end: false },
   { to: '/events', label: 'Календар', icon: CalendarDays, end: false },
+  { to: '/budget', label: 'Бюджет', icon: Wallet, end: false },
   { to: '/members', label: 'Членове', icon: Users, end: false },
   { to: '/departments', label: 'Отдели', icon: Building2, end: false },
 ]
@@ -32,6 +34,8 @@ export function AppShell() {
           <span className="hidden font-semibold text-slate-900 sm:inline">Студентски съвет</span>
 
           <div className="ml-auto flex items-center gap-2">
+            <NotificationBell />
+
             <NavLink
               to="/profile"
               className={({ isActive }) =>

@@ -6,11 +6,23 @@
  * entry beneath it.
  */
 
+import type { ExpenseFilters } from './budget'
 import type { EventFilters } from './events'
 import type { MemberFilters } from './members'
+import type { NotificationFilters } from './notifications'
 import type { TaskFilters } from './tasks'
 
 export const queryKeys = {
+  notifications: {
+    all: ['notifications'] as const,
+    list: (filters: NotificationFilters) => [...queryKeys.notifications.all, 'list', filters] as const,
+    unreadCount: () => [...queryKeys.notifications.all, 'unreadCount'] as const,
+  },
+  budget: {
+    all: ['budget'] as const,
+    summary: (year: number | undefined) => [...queryKeys.budget.all, 'summary', year] as const,
+    expenses: (filters: ExpenseFilters) => [...queryKeys.budget.all, 'expenses', filters] as const,
+  },
   events: {
     all: ['events'] as const,
     lists: () => [...queryKeys.events.all, 'list'] as const,
