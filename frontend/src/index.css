@@ -1,16 +1,59 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-brand-50: oklch(0.97 0.02 250);
-  --color-brand-100: oklch(0.93 0.04 250);
-  --color-brand-200: oklch(0.87 0.07 250);
-  --color-brand-300: oklch(0.78 0.11 250);
-  --color-brand-400: oklch(0.68 0.15 250);
-  --color-brand-500: oklch(0.58 0.18 250);
-  --color-brand-600: oklch(0.5 0.18 250);
-  --color-brand-700: oklch(0.42 0.15 250);
-  --color-brand-800: oklch(0.35 0.12 250);
-  --color-brand-900: oklch(0.28 0.09 250);
+  /* Neutrals */
+  --color-ink: #1c1c1c;
+  --color-ink-soft: #333333;
+  --color-muted: #777777;
+  --color-faint: #aaa4a4;
+
+  --color-page: #f4f0ee;
+  --color-surface: #ffffff;
+  --color-subtle: #fbf9f8;
+  --color-row-hover: #fdf9fa;
+  --color-line: #ece7e7;
+  --color-divider: #eeeaea;
+  --color-border: #e6e0e0;
+
+  /* Accent */
+  --color-accent: #ff3c70;
+  --color-accent-hover: #e0295a;
+  --color-accent-soft: #ffe5ea;
+  --color-accent-soft-text: #c72552;
+
+  /* Data / info blue — not the primary color */
+  --color-data: #4a90e2;
+
+  /* Danger (buttons, destructive text) — distinct from the lighter `tone-danger-*` badge/alert tints */
+  --color-danger: #dc3545;
+  --color-danger-hover: #b52b39;
+
+  /* Badge / Alert tone triples */
+  --color-tone-neutral-bg: #f4f0ee;
+  --color-tone-neutral-text: #555555;
+  --color-tone-neutral-border: #eae4e4;
+
+  --color-tone-success-bg: #f7f9f7;
+  --color-tone-success-text: #1e7a34;
+  --color-tone-success-border: #e3ece5;
+  --color-tone-success-alert-text: #1b5f2a;
+
+  --color-tone-warning-bg: #fdfaf3;
+  --color-tone-warning-text: #96690a;
+  --color-tone-warning-border: #f0e6cf;
+  --color-tone-warning-alert-text: #7a5508;
+
+  --color-tone-danger-bg: #fdf6f7;
+  --color-tone-danger-text: #b52b39;
+  --color-tone-danger-border: #f4dfe2;
+  --color-tone-danger-alert-text: #8e2028;
+
+  --color-tone-info-bg: #f5f8fc;
+  --color-tone-info-text: #2f6cb0;
+  --color-tone-info-border: #dbe6f3;
+  --color-tone-info-alert-text: #2a5b91;
+
+  --font-serif: Georgia, 'Times New Roman', serif;
 }
 
 @layer base {
@@ -19,11 +62,28 @@
   }
 
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
+    @apply bg-page text-ink-soft antialiased;
   }
 
   /* Keyboard focus is always visible; pointer clicks do not draw a ring. */
   :focus-visible {
-    @apply outline-brand-500 outline-2 outline-offset-2;
+    @apply outline-accent outline-2 outline-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Thin decorative strip — AppShell top bar, section underlines. Used sparingly by design. */
+  .gradient-accent-bar {
+    background: linear-gradient(
+      90deg,
+      rgba(137, 58, 180, 0.55) 0%,
+      rgba(253, 29, 29, 0.69) 51%,
+      rgba(252, 176, 69, 0.82) 100%
+    );
+  }
+
+  /* Saturated mark gradient — logo squares, the signed-in member's own avatar ring. */
+  .gradient-accent-mark {
+    background: linear-gradient(135deg, #893ab4 0%, #fd1d1d 55%, #fcb045 100%);
   }
 }
