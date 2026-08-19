@@ -25,7 +25,7 @@ export function EventAgenda({ events }: { events: EventDto[] }) {
 
   if (byDay.size === 0) {
     return (
-      <div className="rounded-xl bg-white ring-1 ring-slate-200">
+      <div className="rounded-[15px] bg-surface ring-1 ring-divider">
         <EmptyState title="Няма събития в този период" />
       </div>
     )
@@ -39,11 +39,11 @@ export function EventAgenda({ events }: { events: EventDto[] }) {
     <div className="space-y-5">
       {days.map(([dayKey, entries]) => (
         <section key={dayKey}>
-          <h2 className="mb-2 text-sm font-semibold text-slate-900 first-letter:uppercase">
+          <h2 className="mb-2 text-sm font-semibold text-ink first-letter:uppercase">
             {DAY_HEADING.format(new Date(`${dayKey}T12:00:00`))}
           </h2>
 
-          <ul className="divide-y divide-slate-100 overflow-hidden rounded-xl bg-white ring-1 ring-slate-200">
+          <ul className="divide-y divide-divider overflow-hidden rounded-[15px] bg-surface ring-1 ring-divider">
             {entries
               .slice()
               .sort(
@@ -69,15 +69,15 @@ function AgendaRow({ entry }: { entry: EventDto }) {
   const to = entry.isDeadline && entry.taskId ? `/tasks/${entry.taskId}` : `/events/${entry.id}`
 
   return (
-    <Link to={to} className="flex gap-4 px-4 py-3 hover:bg-slate-50">
-      <span className="w-24 shrink-0 text-sm text-slate-500">
+    <Link to={to} className="flex gap-4 px-4 py-3 hover:bg-row-hover">
+      <span className="w-24 shrink-0 text-sm text-muted">
         {TIME.format(start)} – {TIME.format(end)}
       </span>
 
       <span className="min-w-0 flex-1">
-        <span className="block text-sm font-medium text-slate-900">{entry.title}</span>
+        <span className="block text-sm font-medium text-ink">{entry.title}</span>
 
-        <span className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">
+        <span className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
           <Badge tone={EVENT_TYPE_TONES[entry.type]}>{EVENT_TYPE_LABELS[entry.type]}</Badge>
 
           {entry.department && <span>{DEPARTMENT_CODE_LABELS[entry.department]}</span>}
@@ -96,7 +96,7 @@ function AgendaRow({ entry }: { entry: EventDto }) {
             </span>
           )}
 
-          {entry.isDeadline && <span className="text-red-600">краен срок на задача</span>}
+          {entry.isDeadline && <span className="text-danger">краен срок на задача</span>}
         </span>
       </span>
     </Link>

@@ -98,7 +98,7 @@ export function CalendarPage() {
   return (
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-semibold text-slate-900">Календар</h1>
+        <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">Календар</h1>
 
         <div className="flex gap-2">
           <Button variant="secondary" onClick={() => void handleExport()}>
@@ -133,12 +133,12 @@ export function CalendarPage() {
               </Button>
             </>
           )}
-          <span className="ml-1 text-sm font-medium text-slate-900 first-letter:uppercase">
+          <span className="ml-1 text-sm font-medium text-ink first-letter:uppercase">
             {periodLabel}
           </span>
         </div>
 
-        <div role="tablist" aria-label="Изглед" className="flex gap-1 rounded-lg bg-slate-100 p-1">
+        <div role="tablist" aria-label="Изглед" className="flex gap-1 rounded-lg bg-page p-1">
           {(Object.keys(VIEW_LABELS) as CalendarView[]).map((candidate) => (
             <button
               key={candidate}
@@ -148,9 +148,7 @@ export function CalendarPage() {
               onClick={() => setView(candidate)}
               className={cn(
                 'rounded-md px-3 py-1 text-sm font-medium transition-colors',
-                view === candidate
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-600 hover:text-slate-900',
+                view === candidate ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink',
               )}
             >
               {VIEW_LABELS[candidate]}
@@ -186,7 +184,7 @@ export function CalendarPage() {
         <EventAgenda events={events} />
       )}
 
-      <p className="flex items-center gap-1.5 text-xs text-slate-500">
+      <p className="flex items-center gap-1.5 text-xs text-muted">
         <CalendarDays aria-hidden className="size-3.5" />
         Крайните срокове на задачи се показват тук автоматично и се редактират през самата задача.
       </p>

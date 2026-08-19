@@ -19,10 +19,10 @@ export function MonthGrid({ weeks, events }: MonthGridProps) {
   const byDay = groupByLocalDay(events)
 
   return (
-    <div className="overflow-hidden rounded-xl bg-white ring-1 ring-slate-200">
-      <div className="grid grid-cols-7 border-b border-slate-200 bg-slate-50">
+    <div className="overflow-hidden rounded-[15px] bg-surface ring-1 ring-divider">
+      <div className="grid grid-cols-7 border-b border-divider bg-subtle">
         {WEEKDAY_LABELS.map((label) => (
-          <div key={label} className="px-2 py-2 text-center text-xs font-medium text-slate-500">
+          <div key={label} className="px-2 py-2 text-center text-xs font-medium text-muted">
             {label}
           </div>
         ))}
@@ -45,16 +45,16 @@ function DayCell({ day, entries }: { day: GridDay; entries: EventDto[] }) {
   return (
     <div
       className={cn(
-        'min-h-24 border-r border-b border-slate-100 p-1.5',
-        !day.inMonth && 'bg-slate-50/60',
+        'min-h-24 border-r border-b border-divider p-1.5',
+        !day.inMonth && 'bg-subtle/60',
       )}
     >
       <span
         className={cn(
           'inline-flex size-6 items-center justify-center rounded-full text-xs',
-          day.isToday && 'bg-brand-600 font-semibold text-white',
-          !day.isToday && day.inMonth && 'text-slate-700',
-          !day.isToday && !day.inMonth && 'text-slate-400',
+          day.isToday && 'bg-accent font-semibold text-white',
+          !day.isToday && day.inMonth && 'text-ink-soft',
+          !day.isToday && !day.inMonth && 'text-faint',
         )}
       >
         {day.date.getDate()}
@@ -68,7 +68,7 @@ function DayCell({ day, entries }: { day: GridDay; entries: EventDto[] }) {
         ))}
       </ul>
 
-      {hidden > 0 && <p className="mt-0.5 px-1 text-xs text-slate-500">+{hidden} още</p>}
+      {hidden > 0 && <p className="mt-0.5 px-1 text-xs text-muted">+{hidden} още</p>}
     </div>
   )
 }
@@ -83,11 +83,11 @@ function EntryLine({ entry }: { entry: EventDto }) {
     <Link
       to={to}
       title={entry.title}
-      className="flex items-center gap-1 rounded px-1 py-0.5 text-xs hover:bg-slate-100"
+      className="flex items-center gap-1 rounded px-1 py-0.5 text-xs hover:bg-page"
     >
       <span aria-hidden className={cn('size-1.5 shrink-0 rounded-full', EVENT_TYPE_DOTS[entry.type])} />
-      <span className="shrink-0 text-slate-500">{TIME.format(start)}</span>
-      <span className="truncate text-slate-900">{entry.title}</span>
+      <span className="shrink-0 text-muted">{TIME.format(start)}</span>
+      <span className="truncate text-ink">{entry.title}</span>
     </Link>
   )
 }

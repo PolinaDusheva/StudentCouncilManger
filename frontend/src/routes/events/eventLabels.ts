@@ -29,10 +29,10 @@ export const RECURRENCE_LABELS: Record<RecurrenceType, string> = {
 
 /** Dot colour used on the month grid, matching the badge tone of each type. */
 export const EVENT_TYPE_DOTS: Record<EventType, string> = {
-  Meeting: 'bg-blue-500',
-  PublicEvent: 'bg-green-500',
-  InternalMeeting: 'bg-slate-400',
-  SportsEvent: 'bg-amber-500',
-  Deadline: 'bg-red-500',
-  Other: 'bg-slate-400',
+  Meeting: 'bg-data',
+  PublicEvent: 'bg-tone-success-text',
+  InternalMeeting: 'bg-faint',
+  SportsEvent: 'bg-tone-warning-text',
+  Deadline: 'bg-danger',
+  Other: 'bg-faint',
 }
