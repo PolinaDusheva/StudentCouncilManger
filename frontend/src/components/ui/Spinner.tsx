@@ -10,7 +10,7 @@ interface SpinnerProps {
 /** Centred loading indicator for route-level and panel-level waits. */
 export function Spinner({ label = 'Зареждане…', className }: SpinnerProps) {
   return (
-    <div role="status" className={cn('flex items-center justify-center gap-2 py-8 text-slate-500', className)}>
+    <div role="status" className={cn('flex items-center justify-center gap-2 py-8 text-muted', className)}>
       <Loader2 aria-hidden className="size-5 animate-spin" />
       <span className="text-sm">{label}</span>
     </div>

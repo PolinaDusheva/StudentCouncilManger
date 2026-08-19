@@ -59,7 +59,7 @@ export function ResetPasswordPage() {
       title="Нова парола"
       subtitle={linkIsComplete ? email : undefined}
       footer={
-        <Link to={LOGIN_PATH} className="text-brand-700 font-medium hover:underline">
+        <Link to={LOGIN_PATH} className="text-accent hover:text-accent-hover font-medium hover:underline">
           Обратно към входа
         </Link>
       }

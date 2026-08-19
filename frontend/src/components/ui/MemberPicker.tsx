@@ -81,19 +81,19 @@ export function MemberPicker({
 
   return (
     <div className="space-y-1.5">
-      <span className="block text-sm font-medium text-slate-700">{label}</span>
+      <span className="block text-sm font-semibold text-ink-soft">{label}</span>
 
       {selected.length > 0 && (
         <ul className="flex flex-wrap gap-1.5 pb-1">
           {selected.map((member) => (
             <li key={member.id}>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 py-1 pr-1 pl-2 text-sm">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-page py-1 pr-1 pl-2 text-sm">
                 {member.fullName}
                 <button
                   type="button"
                   onClick={() => toggle(member.id)}
                   aria-label={`Премахни ${member.fullName}`}
-                  className="rounded-full p-0.5 text-slate-400 hover:bg-slate-200 hover:text-slate-700"
+                  className="rounded-full p-0.5 text-faint hover:bg-divider hover:text-ink-soft"
                 >
                   <X aria-hidden className="size-3.5" />
                 </button>
@@ -104,7 +104,7 @@ export function MemberPicker({
       )}
 
       <div className="relative">
-        <Search aria-hidden className="absolute top-2.5 left-3 size-4 text-slate-400" />
+        <Search aria-hidden className="absolute top-2.5 left-3 size-4 text-faint" />
         <input
           id={id}
           type="search"
@@ -114,21 +114,21 @@ export function MemberPicker({
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? errorId : undefined}
           className={cn(
-            'block w-full rounded-lg border-0 py-2 pr-3 pl-9 text-sm text-slate-900 shadow-sm',
-            'ring-1 ring-slate-300 ring-inset placeholder:text-slate-400',
-            'focus:ring-brand-500 focus:ring-2 focus:ring-inset focus:outline-none',
-            error && 'ring-red-500',
+            'block w-full rounded-xl border-2 border-line bg-surface py-2 pr-3 pl-9 text-sm text-ink',
+            'shadow-[inset_0_2px_5px_rgba(0,0,0,0.05)] placeholder:text-faint',
+            'focus:border-accent focus:shadow-[0_0_0_4px_rgba(255,60,112,0.15)] focus:outline-none',
+            error && 'border-danger',
           )}
         />
       </div>
 
-      <div className="max-h-56 overflow-y-auto rounded-lg ring-1 ring-slate-200">
+      <div className="max-h-56 overflow-y-auto rounded-lg ring-1 ring-divider">
         {isFetching && !data ? (
           <Spinner className="py-4" />
         ) : data?.items.length === 0 ? (
-          <p className="px-3 py-4 text-center text-sm text-slate-500">Няма намерени членове.</p>
+          <p className="px-3 py-4 text-center text-sm text-muted">Няма намерени членове.</p>
         ) : (
-          <ul className="divide-y divide-slate-100">
+          <ul className="divide-y divide-divider">
             {data?.items.map((member) => {
               const isSelected = value.includes(member.id)
 
@@ -139,20 +139,20 @@ export function MemberPicker({
                     onClick={() => toggle(member.id)}
                     aria-pressed={isSelected}
                     className={cn(
-                      'flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm hover:bg-slate-50',
-                      isSelected && 'bg-brand-50 hover:bg-brand-50',
+                      'flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm hover:bg-row-hover',
+                      isSelected && 'bg-accent-soft hover:bg-accent-soft',
                     )}
                   >
                     <Avatar photoUrl={member.photoUrl} fullName={member.fullName} size="sm" />
                     <span className="min-w-0 flex-1">
-                      <span className="block truncate font-medium text-slate-900">
+                      <span className="block truncate font-medium text-ink">
                         {member.fullName}
                       </span>
-                      <span className="block truncate text-xs text-slate-500">
+                      <span className="block truncate text-xs text-muted">
                         {SYSTEM_ROLE_LABELS[member.role]}
                       </span>
                     </span>
-                    {isSelected && <Check aria-hidden className="text-brand-600 size-4 shrink-0" />}
+                    {isSelected && <Check aria-hidden className="text-accent size-4 shrink-0" />}
                   </button>
                 </li>
               )
@@ -162,11 +162,11 @@ export function MemberPicker({
       </div>
 
       {error ? (
-        <p id={errorId} role="alert" className="text-sm text-red-600">
+        <p id={errorId} role="alert" className="text-sm text-danger">
           {error}
         </p>
       ) : hint ? (
-        <p className="text-sm text-slate-500">{hint}</p>
+        <p className="text-sm text-muted">{hint}</p>
       ) : null}
     </div>
   )

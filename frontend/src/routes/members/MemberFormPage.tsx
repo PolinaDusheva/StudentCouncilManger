@@ -121,20 +121,20 @@ export function MemberFormPage() {
     <div className="space-y-5">
       <Link
         to={isEdit ? `/members/${id}` : '/members'}
-        className="inline-flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900"
+        className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink"
       >
         <ArrowLeft aria-hidden className="size-4" />
         Назад
       </Link>
 
-      <h1 className="text-2xl font-semibold text-slate-900">
+      <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">
         {isEdit ? 'Редакция на член' : 'Нов член'}
       </h1>
 
       <form
         onSubmit={handleSubmit((values) => save.mutate(values))}
         noValidate
-        className="max-w-xl space-y-4 rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
+        className="max-w-xl space-y-4 rounded-[20px] bg-surface p-6 shadow-[0_4px_15px_rgba(0,0,0,0.05)] ring-1 ring-divider"
       >
         {save.isError && !(save.error instanceof ApiError && save.error.isValidation) && (
           <Alert tone="error">{errorMessage(save.error)}</Alert>

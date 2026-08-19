@@ -43,7 +43,7 @@ export function ForgotPasswordPage() {
       title="Забравена парола"
       subtitle={sent ? undefined : 'Ще изпратим линк за нулиране на паролата.'}
       footer={
-        <Link to={LOGIN_PATH} className="text-brand-700 font-medium hover:underline">
+        <Link to={LOGIN_PATH} className="text-accent hover:text-accent-hover font-medium hover:underline">
           Обратно към входа
         </Link>
       }

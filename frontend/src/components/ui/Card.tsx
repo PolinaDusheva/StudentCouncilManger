@@ -9,8 +9,8 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Shared white surface for page sections. Replaces the `rounded-xl bg-white p-* shadow-sm
- * ring-1 ring-slate-200` combination that used to be hand-rolled on nearly every route.
+ * Shared white surface for page sections. Replaces the hand-rolled card shell (rounded corners,
+ * soft shadow, hairline border) that used to be duplicated on nearly every route.
  */
 export function Card({ children, variant = 'default', className, ...props }: CardProps) {
   return (
