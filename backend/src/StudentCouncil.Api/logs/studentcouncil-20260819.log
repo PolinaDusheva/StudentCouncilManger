@@ -1489,3 +1489,1170 @@ ORDER BY n.created_at_utc DESC
 LIMIT @p2 OFFSET @p
 2026-08-19 14:45:05.148 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
 2026-08-19 14:45:05.148 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.0663 ms
+2026-08-19 14:45:23.149 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:45:23.150 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:45:23.151 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:45:23.151 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:45:23.151 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.0243 ms
+2026-08-19 14:45:29.151 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:45:29.153 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:45:29.154 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:45:29.154 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:45:29.154 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 5.6685 ms
+2026-08-19 14:45:41.150 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:45:41.151 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:45:41.152 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:45:41.152 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:45:41.152 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.2479 ms
+2026-08-19 14:45:59.173 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:45:59.173 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:45:59.175 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:45:59.176 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:45:59.176 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:45:59.176 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:45:59.176 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 11.4603 ms
+2026-08-19 14:45:59.178 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:45:59.178 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 3 ms
+2026-08-19 14:45:59.178 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 13.6199 ms
+2026-08-19 14:46:29.198 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:46:29.202 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:46:29.202 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:46:29.203 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:46:29.203 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 8.0164 ms
+2026-08-19 14:46:59.212 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:46:59.213 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:46:59.214 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:46:59.214 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:46:59.214 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 3.2327 ms
+2026-08-19 14:47:29.222 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:47:29.223 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:47:29.224 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:47:29.224 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:47:29.224 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 3.7714 ms
+2026-08-19 14:47:42.923 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:47:42.925 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:47:42.925 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:47:42.925 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.1450 ms
+2026-08-19 14:47:42.927 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:47:42.928 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:47:42.928 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:47:42.929 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.1825 ms
+2026-08-19 14:47:42.939 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:47:42.939 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:47:42.940 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:47:42.940 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:47:42.940 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:47:42.940 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:47:42.940 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 2.8155 ms
+2026-08-19 14:47:42.941 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:47:42.941 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:47:42.941 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 3.2373 ms
+2026-08-19 14:48:00.687 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:00.691 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:48:00.691 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 3 ms
+2026-08-19 14:48:00.691 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 16.9578 ms
+2026-08-19 14:48:00.694 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:00.695 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:48:00.695 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:48:00.695 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.2728 ms
+2026-08-19 14:48:00.705 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:00.715 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:48:00.716 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:48:00.716 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 10 ms
+2026-08-19 14:48:00.716 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 12.1670 ms
+2026-08-19 14:48:00.717 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:00.718 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:48:00.720 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:48:00.720 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:48:00.720 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 16.0279 ms
+2026-08-19 14:48:17.728 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:17.731 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:48:17.731 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:48:17.731 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.9433 ms
+2026-08-19 14:48:17.734 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:17.735 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:48:17.735 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:48:17.735 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.5327 ms
+2026-08-19 14:48:17.744 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:17.744 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:17.745 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:48:17.745 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:48:17.746 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:48:17.746 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:48:17.746 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 2.4155 ms
+2026-08-19 14:48:17.746 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:48:17.746 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:48:17.746 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 2.6850 ms
+2026-08-19 14:48:34.487 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:34.488 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:48:34.488 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:48:34.489 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.1950 ms
+2026-08-19 14:48:34.492 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:34.493 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:48:34.493 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:48:34.493 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.1897 ms
+2026-08-19 14:48:34.501 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:34.501 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:34.501 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:48:34.503 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:48:34.503 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:48:34.504 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:48:34.504 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.0450 ms
+2026-08-19 14:48:34.504 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:48:34.504 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 3 ms
+2026-08-19 14:48:34.504 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 4.7343 ms
+2026-08-19 14:48:49.274 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:49.276 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:48:49.276 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:48:49.276 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 3.8408 ms
+2026-08-19 14:48:49.280 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:49.281 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = @userId
+LIMIT 1
+2026-08-19 14:48:49.281 +03:00 [INF] Handled GetMeQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:48:49.281 +03:00 [INF] HTTP GET /api/v1/auth/me responded 200 in 2.9217 ms
+2026-08-19 14:48:49.305 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:49.305 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:48:49.306 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:48:49.307 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:48:49.307 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:48:49.307 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.9066 ms
+2026-08-19 14:48:49.307 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:48:49.308 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:48:49.308 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:48:49.308 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 3.8354 ms
+2026-08-19 14:49:08.178 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:49:08.182 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:49:08.182 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:49:08.183 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:49:08.183 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 5.7625 ms
+2026-08-19 14:49:20.176 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:49:20.177 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:49:20.182 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:49:20.184 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 7 ms
+2026-08-19 14:49:20.184 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 9.5685 ms
+2026-08-19 14:49:26.180 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:49:26.182 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:49:26.182 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:49:26.182 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:49:26.182 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 3.3417 ms
+2026-08-19 14:49:44.178 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:49:44.182 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:49:44.183 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:49:44.183 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:49:44.183 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 7.1251 ms
+2026-08-19 14:49:56.175 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:49:56.179 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:49:56.180 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:49:56.181 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:49:56.181 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 7.5820 ms
+2026-08-19 14:50:01.813 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:50:01.814 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:50:01.815 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:50:01.815 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:50:01.815 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 3.5650 ms
+2026-08-19 14:50:31.828 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:50:31.829 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:50:31.829 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:50:31.829 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:50:31.829 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 3.0341 ms
+2026-08-19 14:51:01.837 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:51:01.840 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:51:01.840 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:51:01.840 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:51:01.841 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.6688 ms
+2026-08-19 14:51:31.848 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:51:31.850 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:51:31.851 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:51:31.851 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:51:31.851 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.2923 ms
+2026-08-19 14:52:01.860 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:52:01.862 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:52:01.862 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:52:01.862 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 0 ms
+2026-08-19 14:52:01.862 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 3.6478 ms
+2026-08-19 14:52:31.874 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:52:31.877 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:52:31.878 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:52:31.878 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:52:31.878 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 5.9456 ms
+2026-08-19 14:52:45.080 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:52:45.082 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:52:45.083 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:52:45.084 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:52:45.084 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 11.6268 ms
+2026-08-19 14:53:01.897 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:53:01.899 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:53:01.900 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:53:01.900 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:53:01.900 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 15.3274 ms
+2026-08-19 14:53:34.120 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:53:34.121 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:53:34.122 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:53:34.122 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:53:34.122 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 3.9784 ms
+2026-08-19 14:53:34.129 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:53:34.137 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:53:34.140 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:53:34.140 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 10 ms
+2026-08-19 14:53:34.141 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 14.4443 ms
+2026-08-19 14:54:04.131 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:54:04.133 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:54:04.133 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:54:04.133 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:54:04.133 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.3711 ms
+2026-08-19 14:54:22.533 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@now='?' (DbType = DateTime), @horizon24='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, e.calendar_event_id, e.member_id
+FROM calendar_events AS c
+LEFT JOIN event_participants AS e ON c.id = e.calendar_event_id
+WHERE c.recurrence = 'None' AND c.start_utc > @now AND c.start_utc <= @horizon24 AND (c.reminder24h_sent_at_utc IS NULL OR c.reminder1h_sent_at_utc IS NULL)
+ORDER BY c.id, e.calendar_event_id
+2026-08-19 14:54:22.536 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id
+FROM "AspNetUsers" AS a
+WHERE a.status = 'Active'
+2026-08-19 14:54:22.546 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@now='?' (DbType = DateTime), @horizon='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.id, t.created_at_utc, t.created_by_id, t.deleted_at_utc, t.department_id, t.description, t.due_at_utc, t.due_soon_notified_at_utc, t.is_deleted, t.overdue_notified_at_utc, t.priority, t.scope, t.status, t.title, t.updated_at_utc, t.updated_by_id, s.task_item_id, s.member_id, s.id
+FROM tasks AS t
+LEFT JOIN (
+    SELECT t0.task_item_id, t0.member_id, t2.id
+    FROM task_assignees AS t0
+    INNER JOIN (
+        SELECT t1.id, t1.is_deleted
+        FROM tasks AS t1
+        WHERE NOT (t1.is_deleted)
+    ) AS t2 ON t0.task_item_id = t2.id
+    WHERE NOT (t2.is_deleted)
+) AS s ON t.id = s.task_item_id
+WHERE NOT (t.is_deleted) AND t.due_at_utc IS NOT NULL AND t.due_at_utc > @now AND t.due_at_utc <= @horizon AND t.status <> 'Completed' AND t.status <> 'Cancelled' AND t.due_soon_notified_at_utc IS NULL
+ORDER BY t.id, s.task_item_id, s.member_id
+2026-08-19 14:54:29.779 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:54:29.781 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:54:29.782 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:54:29.782 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:54:29.782 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.9870 ms
+2026-08-19 14:54:29.785 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:54:29.786 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:54:29.822 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:54:29.822 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 37 ms
+2026-08-19 14:54:29.822 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 44.5349 ms
+2026-08-19 14:54:50.206 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:54:50.208 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:54:50.208 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:54:50.208 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:54:50.209 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 30.2418 ms
+2026-08-19 14:55:07.179 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:55:07.179 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:55:07.181 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:55:07.181 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:55:07.181 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:55:07.181 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:55:07.182 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 4.2296 ms
+2026-08-19 14:55:07.182 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:55:07.182 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:55:07.182 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 4.6740 ms
+2026-08-19 14:55:25.179 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:55:25.183 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:55:25.183 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:55:25.183 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 3 ms
+2026-08-19 14:55:25.183 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 5.8571 ms
+2026-08-19 14:55:41.942 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:55:41.942 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:55:41.943 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:55:41.943 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:55:41.946 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:55:41.946 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 4 ms
+2026-08-19 14:55:41.946 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 6.2835 ms
+2026-08-19 14:55:41.948 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:55:41.948 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 5 ms
+2026-08-19 14:55:41.948 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 7.6446 ms
+2026-08-19 14:56:11.955 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:56:11.956 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:56:11.956 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:56:11.957 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:56:11.957 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 3.5827 ms
+2026-08-19 14:56:41.967 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:56:41.970 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:56:41.971 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:56:41.971 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:56:41.971 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 5.9593 ms
+2026-08-19 14:56:48.191 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:56:48.195 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:56:48.196 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:56:48.196 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 2 ms
+2026-08-19 14:56:48.196 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 6.8203 ms
+2026-08-19 14:57:05.187 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:57:05.190 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:57:05.191 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:57:05.191 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:57:05.191 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 7.0988 ms
+2026-08-19 14:57:23.197 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:57:23.199 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:57:23.215 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:57:23.216 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:57:23.216 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 15 ms
+2026-08-19 14:57:23.216 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 24.8090 ms
+2026-08-19 14:57:23.217 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:57:23.219 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:57:23.220 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 18 ms
+2026-08-19 14:57:23.220 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 28.7143 ms
+2026-08-19 14:57:41.190 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:57:41.192 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:57:41.193 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:57:41.193 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:57:41.193 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 8.5649 ms
+2026-08-19 14:57:59.203 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:57:59.203 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:57:59.207 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:57:59.208 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:57:59.208 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 3 ms
+2026-08-19 14:57:59.208 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 11.5691 ms
+2026-08-19 14:57:59.209 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@eventId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.created_at_utc, s.created_by_id, s.department_id, s.description, s.end_utc, s.location, s.organizer_id, s.recurrence, s.reminder1h_sent_at_utc, s.reminder24h_sent_at_utc, s.start_utc, s.title, s.type, s.updated_at_utc, s.updated_by_id, s.id0, s.code, s.created_at_utc0, s.created_by_id0, s.description0, s.name, s.updated_at_utc0, s.updated_by_id0, e.calendar_event_id, e.member_id
+FROM (
+    SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, d.id AS id0, d.code, d.created_at_utc AS created_at_utc0, d.created_by_id AS created_by_id0, d.description AS description0, d.name, d.updated_at_utc AS updated_at_utc0, d.updated_by_id AS updated_by_id0
+    FROM calendar_events AS c
+    LEFT JOIN departments AS d ON c.department_id = d.id
+    WHERE c.id = @eventId
+    LIMIT 1
+) AS s
+LEFT JOIN event_participants AS e ON s.id = e.calendar_event_id
+ORDER BY s.id, s.id0, e.calendar_event_id
+2026-08-19 14:57:59.210 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@distinct='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id AS "Id", a.full_name AS "FullName", a.email AS "Email", a.phone_number AS "PhoneNumber", a.photo_url AS "PhotoUrl", a.role AS "Role", a.department_id AS "DepartmentId", d.code AS "DepartmentCode", d.name AS "DepartmentName", a.joined_on AS "JoinedOn", a.status AS "Status"
+FROM "AspNetUsers" AS a
+LEFT JOIN departments AS d ON a.department_id = d.id
+WHERE a.id = ANY (@distinct)
+2026-08-19 14:57:59.210 +03:00 [INF] Handled GetEventQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 3 ms
+2026-08-19 14:57:59.211 +03:00 [INF] HTTP GET /api/v1/events/9dcb5ecc-eb2c-48a2-b8da-49c1347e95d9 responded 200 in 11.6542 ms
+2026-08-19 14:58:17.198 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id, a.access_failed_count, a.concurrency_stamp, a.department_id, a.email, a.email_confirmed, a.full_name, a.joined_on, a.lockout_enabled, a.lockout_end, a.must_change_password, a.normalized_email, a.normalized_user_name, a.password_hash, a.phone_number, a.phone_number_confirmed, a.photo_url, a.role, a.security_stamp, a.status, a.two_factor_enabled, a.user_name
+FROM "AspNetUsers" AS a
+WHERE a.id = @p
+LIMIT 1
+2026-08-19 14:58:17.200 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+2026-08-19 14:58:17.200 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT n.id, n.body, n.created_at_utc, n.created_by_id, n.is_read, n.payload, n.recipient_id, n.title, n.type, n.updated_at_utc, n.updated_by_id
+FROM notifications AS n
+WHERE n.recipient_id = @userId AND NOT (n.is_read)
+ORDER BY n.created_at_utc DESC
+LIMIT @p2 OFFSET @p
+2026-08-19 14:58:17.200 +03:00 [INF] Handled GetNotificationsQuery for user "8cf9a97e-14aa-4aec-ae1f-82875cbb48c3" in 1 ms
+2026-08-19 14:58:17.201 +03:00 [INF] HTTP GET /api/v1/notifications responded 200 in 15.7068 ms
+2026-08-19 15:09:22.580 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@now='?' (DbType = DateTime), @horizon='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.id, t.created_at_utc, t.created_by_id, t.deleted_at_utc, t.department_id, t.description, t.due_at_utc, t.due_soon_notified_at_utc, t.is_deleted, t.overdue_notified_at_utc, t.priority, t.scope, t.status, t.title, t.updated_at_utc, t.updated_by_id, s.task_item_id, s.member_id, s.id
+FROM tasks AS t
+LEFT JOIN (
+    SELECT t0.task_item_id, t0.member_id, t2.id
+    FROM task_assignees AS t0
+    INNER JOIN (
+        SELECT t1.id, t1.is_deleted
+        FROM tasks AS t1
+        WHERE NOT (t1.is_deleted)
+    ) AS t2 ON t0.task_item_id = t2.id
+    WHERE NOT (t2.is_deleted)
+) AS s ON t.id = s.task_item_id
+WHERE NOT (t.is_deleted) AND t.due_at_utc IS NOT NULL AND t.due_at_utc > @now AND t.due_at_utc <= @horizon AND t.status <> 'Completed' AND t.status <> 'Cancelled' AND t.due_soon_notified_at_utc IS NULL
+ORDER BY t.id, s.task_item_id, s.member_id
+2026-08-19 15:09:22.580 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@now='?' (DbType = DateTime), @horizon24='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.id, c.created_at_utc, c.created_by_id, c.department_id, c.description, c.end_utc, c.location, c.organizer_id, c.recurrence, c.reminder1h_sent_at_utc, c.reminder24h_sent_at_utc, c.start_utc, c.title, c.type, c.updated_at_utc, c.updated_by_id, e.calendar_event_id, e.member_id
+FROM calendar_events AS c
+LEFT JOIN event_participants AS e ON c.id = e.calendar_event_id
+WHERE c.recurrence = 'None' AND c.start_utc > @now AND c.start_utc <= @horizon24 AND (c.reminder24h_sent_at_utc IS NULL OR c.reminder1h_sent_at_utc IS NULL)
+ORDER BY c.id, e.calendar_event_id
+2026-08-19 15:09:22.585 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT a.id
+FROM "AspNetUsers" AS a
+WHERE a.status = 'Active'
+2026-08-19 15:22:48.796 +03:00 [INF] Application is shutting down...
