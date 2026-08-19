@@ -4,6 +4,7 @@ import { Pencil, Plus, Trash2, Wallet } from 'lucide-react'
 
 import { Alert } from '@/components/ui/Alert'
 import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { ConfirmDialog } from '@/components/ui/ConfirmDialog'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { Pagination } from '@/components/ui/Pagination'
@@ -109,7 +110,7 @@ export function BudgetPage() {
             variant="ghost"
             size="sm"
             aria-label={`Изтрий ${expense.description}`}
-            className="text-red-600 hover:bg-red-50"
+            className="text-danger hover:bg-tone-danger-bg"
             onClick={() => setPendingDelete(expense)}
           >
             <Trash2 aria-hidden className="size-4" />
@@ -122,7 +123,7 @@ export function BudgetPage() {
   return (
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-semibold text-slate-900">Бюджет</h1>
+        <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">Бюджет</h1>
 
         {canManageBudget && (
           <Button onClick={() => setModal({ mode: 'create' })}>
@@ -133,17 +134,17 @@ export function BudgetPage() {
       </div>
 
       <div className="flex flex-wrap items-end justify-between gap-3">
-        <div className="flex items-center gap-3 rounded-xl bg-white px-5 py-4 shadow-sm ring-1 ring-slate-200">
-          <span className="bg-brand-50 flex size-10 items-center justify-center rounded-lg">
-            <Wallet aria-hidden className="text-brand-600 size-5" />
+        <Card className="flex items-center gap-3 px-5 py-4">
+          <span className="bg-accent-soft flex size-10 items-center justify-center rounded-lg">
+            <Wallet aria-hidden className="text-accent-soft-text size-5" />
           </span>
           <div>
-            <p className="text-xs text-slate-500">Общо за {year}</p>
-            <p className="text-xl font-semibold text-slate-900">
+            <p className="text-xs text-muted">Общо за {year}</p>
+            <p className="text-xl font-semibold text-ink">
               {summary.isPending ? '…' : formatEur(summary.data?.totalEur ?? 0)}
             </p>
           </div>
-        </div>
+        </Card>
 
         <Select
           label="Година"
