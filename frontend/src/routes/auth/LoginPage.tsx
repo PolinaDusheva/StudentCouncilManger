@@ -51,7 +51,7 @@ export function LoginPage() {
       title="Студентски съвет"
       subtitle="Влез с университетския си имейл"
       footer={
-        <Link to="/forgot-password" className="text-brand-700 font-medium hover:underline">
+        <Link to="/forgot-password" className="text-accent hover:text-accent-hover font-medium hover:underline">
           Забравена парола?
         </Link>
       }
