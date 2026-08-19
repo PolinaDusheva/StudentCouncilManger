@@ -87,13 +87,13 @@ export function NotificationBell() {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={count > 0 ? `Известия, ${count} непрочетени` : 'Известия'}
-        className="relative rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+        className="relative rounded-lg p-2 text-muted hover:bg-page hover:text-ink-soft"
       >
         <Bell aria-hidden className="size-5" />
         {count > 0 && (
           <span
             aria-hidden
-            className="absolute top-1 right-1 flex size-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-medium text-white"
+            className="absolute top-1 right-1 flex size-4 items-center justify-center rounded-full bg-accent text-[10px] font-medium text-white"
           >
             {count > 9 ? '9+' : count}
           </span>
@@ -104,16 +104,16 @@ export function NotificationBell() {
         <div
           role="menu"
           aria-label="Известия"
-          className="absolute right-0 z-10 mt-2 w-80 rounded-lg bg-white shadow-lg ring-1 ring-slate-200"
+          className="absolute right-0 z-10 mt-2 w-80 rounded-[15px] bg-surface shadow-[0_10px_30px_rgba(0,0,0,0.15)] ring-1 ring-divider"
         >
-          <div className="flex items-center justify-between border-b border-slate-100 px-3 py-2">
-            <span className="text-sm font-semibold text-slate-900">Известия</span>
+          <div className="flex items-center justify-between border-b border-divider px-3 py-2">
+            <span className="text-sm font-semibold text-ink">Известия</span>
             {count > 0 && (
               <button
                 type="button"
                 onClick={() => markAllRead.mutate()}
                 disabled={markAllRead.isPending}
-                className="text-brand-600 hover:text-brand-700 inline-flex items-center gap-1 text-xs font-medium disabled:opacity-50"
+                className="text-accent hover:text-accent-hover inline-flex items-center gap-1 text-xs font-medium disabled:opacity-50"
               >
                 <CheckCheck aria-hidden className="size-3.5" />
                 Прочети всички
@@ -129,9 +129,9 @@ export function NotificationBell() {
                 {errorMessage(list.error)}
               </Alert>
             ) : list.data.items.length === 0 ? (
-              <p className="px-3 py-6 text-center text-sm text-slate-500">Няма известия.</p>
+              <p className="px-3 py-6 text-center text-sm text-muted">Няма известия.</p>
             ) : (
-              <ul className="divide-y divide-slate-100">
+              <ul className="divide-y divide-divider">
                 {list.data.items.map((notification) => (
                   <li key={notification.id}>
                     <NotificationRow notification={notification} onClick={handleClick} />
@@ -161,7 +161,7 @@ function NotificationRow({
       role="menuitem"
       onClick={() => onClick(notification)}
       className={cn(
-        'flex w-full gap-2.5 px-3 py-2.5 text-left hover:bg-slate-50',
+        'flex w-full gap-2.5 px-3 py-2.5 text-left hover:bg-row-hover',
         !navigable && 'cursor-default',
       )}
     >
@@ -169,23 +169,20 @@ function NotificationRow({
         aria-hidden
         className={cn(
           'mt-1.5 size-1.5 shrink-0 rounded-full',
-          notification.isRead ? 'bg-transparent' : 'bg-brand-600',
+          notification.isRead ? 'bg-transparent' : 'bg-accent',
         )}
       />
       <span className="min-w-0 flex-1">
-        <span className="block text-xs text-slate-500">
+        <span className="block text-xs text-muted">
           {NOTIFICATION_TYPE_LABELS[notification.type] ?? notification.type}
         </span>
         <span
-          className={cn(
-            'block text-sm text-slate-900',
-            notification.isRead ? 'font-normal' : 'font-medium',
-          )}
+          className={cn('block text-sm text-ink', notification.isRead ? 'font-normal' : 'font-medium')}
         >
           {notification.title}
         </span>
-        <span className="mt-0.5 block line-clamp-2 text-xs text-slate-600">{notification.body}</span>
-        <span className="mt-0.5 block text-xs text-slate-400">
+        <span className="mt-0.5 block line-clamp-2 text-xs text-ink-soft">{notification.body}</span>
+        <span className="mt-0.5 block text-xs text-faint">
           {formatDateTime(notification.createdAtUtc)}
         </span>
       </span>
