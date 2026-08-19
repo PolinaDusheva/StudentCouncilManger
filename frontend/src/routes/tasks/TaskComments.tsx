@@ -6,6 +6,7 @@ import { Send } from 'lucide-react'
 import { Alert } from '@/components/ui/Alert'
 import { Avatar } from '@/components/ui/Avatar'
 import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { Spinner } from '@/components/ui/Spinner'
 import { errorMessage } from '@/lib/api/problem'
 import { queryKeys } from '@/lib/api/queryKeys'
@@ -42,8 +43,8 @@ export function TaskComments({ taskId }: { taskId: string }) {
   })
 
   return (
-    <section className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-      <h2 className="mb-4 text-sm font-semibold text-slate-900">
+    <Card variant="panel">
+      <h2 className="mb-4 font-serif text-[22px] leading-[1.3] font-normal text-ink">
         Коментари {comments && `(${comments.length})`}
       </h2>
 
@@ -64,14 +65,14 @@ export function TaskComments({ taskId }: { taskId: string }) {
                   />
                   <div className="min-w-0 flex-1">
                     <p className="text-sm">
-                      <span className="font-medium text-slate-900">
+                      <span className="font-medium text-ink">
                         {comment.author?.fullName ?? 'Изтрит член'}
                       </span>
-                      <span className="ml-2 text-xs text-slate-500">
+                      <span className="ml-2 text-xs text-muted">
                         {formatDateTime(comment.createdAtUtc)}
                       </span>
                     </p>
-                    <p className="mt-0.5 text-sm whitespace-pre-wrap text-slate-700">
+                    <p className="mt-0.5 text-sm whitespace-pre-wrap text-ink-soft">
                       {comment.text}
                     </p>
                   </div>
@@ -83,7 +84,7 @@ export function TaskComments({ taskId }: { taskId: string }) {
           <form
             onSubmit={handleSubmit((values) => add.mutate(values))}
             noValidate
-            className="space-y-2 border-t border-slate-200 pt-4"
+            className="space-y-2 border-t border-divider pt-4"
           >
             {add.isError && <Alert tone="error">{errorMessage(add.error)}</Alert>}
 
@@ -95,12 +96,12 @@ export function TaskComments({ taskId }: { taskId: string }) {
               rows={3}
               placeholder="Напиши коментар…"
               aria-invalid={errors.text ? true : undefined}
-              className="focus:ring-brand-500 block w-full rounded-lg border-0 px-3 py-2 text-sm text-slate-900 shadow-sm ring-1 ring-slate-300 ring-inset placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:outline-none"
+              className="block w-full rounded-xl border-2 border-line bg-surface px-4 py-3 text-sm text-ink shadow-[inset_0_2px_5px_rgba(0,0,0,0.05)] placeholder:text-faint focus:border-accent focus:shadow-[0_0_0_4px_rgba(255,60,112,0.15)] focus:outline-none"
               {...register('text')}
             />
 
             {errors.text && (
-              <p role="alert" className="text-sm text-red-600">
+              <p role="alert" className="text-sm text-danger">
                 {errors.text.message}
               </p>
             )}
@@ -114,6 +115,6 @@ export function TaskComments({ taskId }: { taskId: string }) {
           </form>
         </>
       )}
-    </section>
+    </Card>
   )
 }

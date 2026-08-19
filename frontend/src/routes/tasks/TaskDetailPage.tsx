@@ -7,6 +7,7 @@ import { Alert } from '@/components/ui/Alert'
 import { Avatar } from '@/components/ui/Avatar'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { ConfirmDialog } from '@/components/ui/ConfirmDialog'
 import { Spinner } from '@/components/ui/Spinner'
 import { ApiError, errorMessage } from '@/lib/api/problem'
@@ -107,9 +108,9 @@ export function TaskDetailPage() {
     <div className="space-y-5">
       <BackLink />
 
-      <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <Card variant="panel">
         <div className="flex flex-wrap items-start justify-between gap-3">
-          <h1 className="text-xl font-semibold text-slate-900">{task.title}</h1>
+          <h1 className="font-serif text-2xl font-normal text-ink">{task.title}</h1>
 
           <div className="flex flex-wrap items-center gap-2">
             {actor && (
@@ -163,36 +164,36 @@ export function TaskDetailPage() {
         )}
 
         {task.description && (
-          <p className="mt-5 border-t border-slate-200 pt-5 text-sm whitespace-pre-wrap text-slate-700">
+          <p className="mt-5 border-t border-divider pt-5 text-sm whitespace-pre-wrap text-ink-soft">
             {task.description}
           </p>
         )}
 
-        <dl className="mt-5 grid gap-x-6 gap-y-4 border-t border-slate-200 pt-5 text-sm sm:grid-cols-2">
+        <dl className="mt-5 grid gap-x-6 gap-y-4 border-t border-divider pt-5 text-sm sm:grid-cols-2">
           <div>
-            <dt className="text-slate-500">Краен срок</dt>
-            <dd className="mt-0.5 flex items-center gap-1.5 font-medium text-slate-900">
-              {isOverdue && <AlertTriangle aria-hidden className="size-4 text-red-500" />}
-              <span className={isOverdue ? 'text-red-600' : undefined}>
+            <dt className="text-muted">Краен срок</dt>
+            <dd className="mt-0.5 flex items-center gap-1.5 font-medium text-ink">
+              {isOverdue && <AlertTriangle aria-hidden className="size-4 text-danger" />}
+              <span className={isOverdue ? 'text-danger' : undefined}>
                 {formatDateTime(task.dueAtUtc)}
               </span>
             </dd>
           </div>
 
           <div>
-            <dt className="text-slate-500">Създадена</dt>
-            <dd className="mt-0.5 font-medium text-slate-900">
+            <dt className="text-muted">Създадена</dt>
+            <dd className="mt-0.5 font-medium text-ink">
               {formatDateTime(task.createdAtUtc)}
               {task.createdBy && (
-                <span className="font-normal text-slate-500"> от {task.createdBy.fullName}</span>
+                <span className="font-normal text-muted"> от {task.createdBy.fullName}</span>
               )}
             </dd>
           </div>
         </dl>
-      </div>
+      </Card>
 
-      <section className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-        <h2 className="mb-4 text-sm font-semibold text-slate-900">
+      <Card variant="panel">
+        <h2 className="mb-4 font-serif text-[22px] leading-[1.3] font-normal text-ink">
           Изпълнители ({task.assignees.length})
         </h2>
 
@@ -203,7 +204,7 @@ export function TaskDetailPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Card>
 
       <TaskDocuments taskId={task.id} />
 
@@ -240,7 +241,7 @@ function BackLink() {
   return (
     <Link
       to="/tasks"
-      className="inline-flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900"
+      className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink"
     >
       <ArrowLeft aria-hidden className="size-4" />
       Всички задачи
@@ -252,7 +253,7 @@ function MemberLine({ member }: { member: MemberSummaryDto }) {
   return (
     <Link to={`/members/${member.id}`} className="group flex min-w-0 items-center gap-2.5">
       <Avatar photoUrl={member.photoUrl} fullName={member.fullName} size="sm" />
-      <span className="group-hover:text-brand-700 truncate text-sm font-medium text-slate-900 group-hover:underline">
+      <span className="group-hover:text-accent-hover truncate text-sm font-medium text-ink group-hover:underline">
         {member.fullName}
       </span>
     </Link>

@@ -82,12 +82,12 @@ export function TaskFilters({ filters, onChange }: TaskFiltersProps) {
           }
         />
 
-        <label className="flex h-10 items-center gap-2 text-sm text-slate-700">
+        <label className="flex h-10 items-center gap-2 text-sm text-ink-soft">
           <input
             type="checkbox"
             checked={filters.overdue ?? false}
             onChange={(event) => onChange({ overdue: event.target.checked || undefined })}
-            className="text-brand-600 focus:ring-brand-500 size-4 rounded border-slate-300"
+            className="text-accent focus:ring-accent size-4 rounded border-line"
           />
           Само просрочени
         </label>

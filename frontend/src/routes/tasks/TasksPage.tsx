@@ -73,14 +73,14 @@ export function TasksPage() {
           {task.isOverdue && (
             <AlertTriangle
               aria-label="Просрочена"
-              className="mt-0.5 size-4 shrink-0 text-red-500"
+              className="mt-0.5 size-4 shrink-0 text-danger"
             />
           )}
           <div className="min-w-0">
             {/* A real link, so the row is reachable by keyboard. */}
             <Link
               to={`/tasks/${task.id}`}
-              className="hover:text-brand-700 font-medium hover:underline"
+              className="hover:text-accent-hover font-medium hover:underline"
               onClick={(event) => event.stopPropagation()}
             >
               {task.title}
@@ -115,7 +115,7 @@ export function TasksPage() {
         task.department ? (
           DEPARTMENT_CODE_LABELS[task.department]
         ) : (
-          <span className="text-slate-400">Организационна</span>
+          <span className="text-faint">Организационна</span>
         ),
     },
     {
@@ -123,7 +123,7 @@ export function TasksPage() {
       header: 'Краен срок',
       sortKey: 'dueAt',
       render: (task) => (
-        <span className={cn(task.isOverdue && 'font-medium text-red-600')}>
+        <span className={cn(task.isOverdue && 'font-medium text-danger')}>
           {formatDate(task.dueAtUtc)}
         </span>
       ),
@@ -134,9 +134,9 @@ export function TasksPage() {
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-900">Задачи</h1>
+          <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">Задачи</h1>
           {!isPending && (
-            <p className="mt-1 text-sm text-slate-600">
+            <p className="mt-1 text-sm text-muted">
               {totalCount} {totalCount === 1 ? 'задача' : 'задачи'}
             </p>
           )}
@@ -157,7 +157,7 @@ export function TasksPage() {
         </div>
       </div>
 
-      <div role="tablist" aria-label="Обхват" className="flex gap-1 border-b border-slate-200">
+      <div role="tablist" aria-label="Обхват" className="flex gap-1 border-b border-divider">
         <TabButton active={tab === 'all'} onClick={() => setTab('all')}>
           Всички
         </TabButton>
@@ -223,8 +223,8 @@ function TabButton({
       className={cn(
         '-mb-px border-b-2 px-3 py-2 text-sm font-medium transition-colors',
         active
-          ? 'border-brand-600 text-brand-700'
-          : 'border-transparent text-slate-600 hover:text-slate-900',
+          ? 'border-accent text-ink'
+          : 'border-transparent text-muted hover:text-ink',
       )}
     >
       {children}
@@ -243,7 +243,7 @@ function Counters({ task }: { task: TaskListItemDto }) {
   if (items.length === 0) return null
 
   return (
-    <div className="mt-1 flex items-center gap-3 text-xs text-slate-500">
+    <div className="mt-1 flex items-center gap-3 text-xs text-muted">
       {items.map(({ icon: Icon, count, label }) => (
         <span key={label} className="inline-flex items-center gap-1">
           <Icon aria-hidden className="size-3.5" />

@@ -82,7 +82,7 @@ export function TaskStatusMenu({
         <div
           role="menu"
           aria-label="Смяна на статус"
-          className="absolute right-0 z-10 mt-1 min-w-44 rounded-lg bg-white py-1 shadow-lg ring-1 ring-slate-200"
+          className="absolute right-0 z-10 mt-1 min-w-44 rounded-[15px] bg-surface py-1 shadow-[0_10px_30px_rgba(0,0,0,0.15)] ring-1 ring-divider"
         >
           {options.map((status) => (
             <button
@@ -94,7 +94,7 @@ export function TaskStatusMenu({
                 onChange(status)
               }}
               className={cn(
-                'flex w-full items-center gap-2 px-3 py-2 text-left text-sm hover:bg-slate-50',
+                'flex w-full items-center gap-2 px-3 py-2 text-left text-sm hover:bg-row-hover',
               )}
             >
               <Badge tone={TASK_STATUS_TONES[status]}>{TASK_STATUS_LABELS[status]}</Badge>

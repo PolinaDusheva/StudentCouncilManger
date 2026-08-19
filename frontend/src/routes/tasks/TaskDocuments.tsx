@@ -4,6 +4,7 @@ import { Download, FileText, Trash2, Upload } from 'lucide-react'
 
 import { Alert } from '@/components/ui/Alert'
 import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { ConfirmDialog } from '@/components/ui/ConfirmDialog'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { Spinner } from '@/components/ui/Spinner'
@@ -88,9 +89,9 @@ export function TaskDocuments({ taskId }: { taskId: string }) {
   }
 
   return (
-    <section className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+    <Card variant="panel">
       <div className="mb-4 flex items-center justify-between gap-3">
-        <h2 className="text-sm font-semibold text-slate-900">
+        <h2 className="font-serif text-[22px] leading-[1.3] font-normal text-ink">
           Документи {documents && `(${documents.length})`}
         </h2>
 
@@ -145,16 +146,16 @@ export function TaskDocuments({ taskId }: { taskId: string }) {
       ) : documents.length === 0 ? (
         <EmptyState title="Няма прикачени документи" description="До 25 MB на файл." />
       ) : (
-        <ul className="divide-y divide-slate-100">
+        <ul className="divide-y divide-divider">
           {documents.map((document) => (
             <li key={document.id} className="flex items-center gap-3 py-3">
-              <FileText aria-hidden className="size-5 shrink-0 text-slate-400" />
+              <FileText aria-hidden className="size-5 shrink-0 text-faint" />
 
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium text-slate-900">
+                <p className="truncate text-sm font-medium text-ink">
                   {document.originalFileName}
                 </p>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-muted">
                   {formatFileSize(document.sizeBytes)}
                   {document.uploadedBy && ` · ${document.uploadedBy.fullName}`}
                   {` · ${formatDateTime(document.uploadedAtUtc)}`}
@@ -176,7 +177,7 @@ export function TaskDocuments({ taskId }: { taskId: string }) {
                   size="sm"
                   onClick={() => setPendingDelete(document)}
                   aria-label={`Изтрий ${document.originalFileName}`}
-                  className="text-red-600 hover:bg-red-50"
+                  className="text-danger hover:bg-tone-danger-bg"
                 >
                   <Trash2 aria-hidden className="size-4" />
                 </Button>
@@ -195,6 +196,6 @@ export function TaskDocuments({ taskId }: { taskId: string }) {
         onConfirm={() => pendingDelete && remove.mutate(pendingDelete.id)}
         onCancel={() => setPendingDelete(null)}
       />
-    </section>
+    </Card>
   )
 }

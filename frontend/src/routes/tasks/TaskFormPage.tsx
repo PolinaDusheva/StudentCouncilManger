@@ -132,20 +132,20 @@ export function TaskFormPage() {
     <div className="space-y-5">
       <Link
         to={isEdit ? `/tasks/${id}` : '/tasks'}
-        className="inline-flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900"
+        className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink"
       >
         <ArrowLeft aria-hidden className="size-4" />
         Назад
       </Link>
 
-      <h1 className="text-2xl font-semibold text-slate-900">
+      <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">
         {isEdit ? 'Редакция на задача' : 'Нова задача'}
       </h1>
 
       <form
         onSubmit={handleSubmit((values) => save.mutate(values))}
         noValidate
-        className="max-w-2xl space-y-4 rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200"
+        className="max-w-2xl space-y-4 rounded-[20px] bg-surface p-6 shadow-[0_4px_15px_rgba(0,0,0,0.05)] ring-1 ring-divider"
       >
         {save.isError && !(save.error instanceof ApiError && save.error.isValidation) && (
           <Alert tone="error">{errorMessage(save.error)}</Alert>
@@ -154,17 +154,17 @@ export function TaskFormPage() {
         <Input label="Заглавие" autoFocus error={errors.title?.message} {...register('title')} />
 
         <div className="space-y-1.5">
-          <label htmlFor="task-description" className="block text-sm font-medium text-slate-700">
+          <label htmlFor="task-description" className="block text-sm font-semibold text-ink-soft">
             Описание
           </label>
           <textarea
             id="task-description"
             rows={4}
-            className="focus:ring-brand-500 block w-full rounded-lg border-0 px-3 py-2 text-sm text-slate-900 shadow-sm ring-1 ring-slate-300 ring-inset focus:ring-2 focus:ring-inset focus:outline-none"
+            className="block w-full rounded-xl border-2 border-line bg-surface px-4 py-3 text-sm text-ink shadow-[inset_0_2px_5px_rgba(0,0,0,0.05)] focus:border-accent focus:shadow-[0_0_0_4px_rgba(255,60,112,0.15)] focus:outline-none"
             {...register('description')}
           />
           {errors.description && (
-            <p role="alert" className="text-sm text-red-600">
+            <p role="alert" className="text-sm text-danger">
               {errors.description.message}
             </p>
           )}
@@ -190,12 +190,12 @@ export function TaskFormPage() {
         {isEdit ? (
           // Scope and department are fixed at creation — PUT /tasks/{id} does not accept them.
           <div className="space-y-1.5">
-            <span className="block text-sm font-medium text-slate-700">Вид</span>
+            <span className="block text-sm font-semibold text-ink-soft">Вид</span>
             <div className="flex flex-wrap gap-2">
               <Badge>{TASK_SCOPE_LABELS[task!.scope]}</Badge>
               {task!.department && <Badge>{DEPARTMENT_CODE_LABELS[task!.department]}</Badge>}
             </div>
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-muted">
               Видът и отделът се задават при създаване и не се променят.
             </p>
           </div>
