@@ -1,4 +1,5 @@
 import { Alert } from '@/components/ui/Alert'
+import { Card } from '@/components/ui/Card'
 import { useAuth, usePermissions } from '@/lib/auth/useAuth'
 import { DEPARTMENT_CODE_LABELS, MEMBER_STATUS_LABELS, SYSTEM_ROLE_LABELS } from '@/lib/types/enums'
 import type { PermissionSet } from '@/lib/types/dto'
@@ -27,14 +28,14 @@ export function DashboardPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold text-slate-900">Здравей, {user.fullName.split(' ')[0]}!</h1>
-        <p className="mt-1 text-sm text-slate-600">
-          Влезе успешно. Функционалните модули предстоят.
-        </p>
+        <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">
+          Здравей, {user.fullName.split(' ')[0]}!
+        </h1>
+        <p className="mt-1 text-sm text-muted">Влезе успешно. Функционалните модули предстоят.</p>
       </div>
 
-      <section className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-        <h2 className="mb-4 text-sm font-semibold text-slate-900">Профил</h2>
+      <Card>
+        <h2 className="mb-4 font-serif text-[22px] leading-[1.3] font-normal text-ink">Профил</h2>
         <dl className="grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2">
           <Field label="Имейл" value={user.email} />
           <Field label="Телефон" value={user.phoneNumber ?? '—'} />
@@ -49,11 +50,11 @@ export function DashboardPage() {
           />
           <Field label="Статус" value={MEMBER_STATUS_LABELS[user.status]} />
         </dl>
-      </section>
+      </Card>
 
-      <section className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-        <h2 className="mb-1 text-sm font-semibold text-slate-900">Права</h2>
-        <p className="mb-4 text-sm text-slate-600">
+      <Card>
+        <h2 className="mb-1 font-serif text-[22px] leading-[1.3] font-normal text-ink">Права</h2>
+        <p className="mb-4 text-sm text-muted">
           Изчислени от сървъра според ролята. Определят кои действия ще се показват в интерфейса.
         </p>
 
@@ -64,18 +65,18 @@ export function DashboardPage() {
                 aria-hidden
                 className={
                   permissions[key]
-                    ? 'size-1.5 shrink-0 rounded-full bg-green-600'
-                    : 'size-1.5 shrink-0 rounded-full bg-slate-300'
+                    ? 'size-1.5 shrink-0 rounded-full bg-tone-success-text'
+                    : 'size-1.5 shrink-0 rounded-full bg-border'
                 }
               />
-              <span className={permissions[key] ? 'text-slate-900' : 'text-slate-400'}>
+              <span className={permissions[key] ? 'text-ink' : 'text-faint'}>
                 {PERMISSION_LABELS[key]}
               </span>
               <span className="sr-only">{permissions[key] ? '— разрешено' : '— забранено'}</span>
             </li>
           ))}
         </ul>
-      </section>
+      </Card>
 
       <Alert tone="info">
         Следващи модули: членове и отдели, задачи, календар, дежурства, бюджет, известия.
@@ -87,8 +88,8 @@ export function DashboardPage() {
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-slate-500">{label}</dt>
-      <dd className="mt-0.5 font-medium text-slate-900">{value}</dd>
+      <dt className="text-muted">{label}</dt>
+      <dd className="mt-0.5 font-medium text-ink">{value}</dd>
     </div>
   )
 }
