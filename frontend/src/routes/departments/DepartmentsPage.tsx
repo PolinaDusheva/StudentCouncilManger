@@ -15,7 +15,7 @@ export function DepartmentsPage() {
 
   return (
     <div className="space-y-5">
-      <h1 className="text-2xl font-semibold text-slate-900">Отдели</h1>
+      <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">Отдели</h1>
 
       <div className="grid gap-4 sm:grid-cols-2">
         {departments.map((department) => (
@@ -33,15 +33,15 @@ function DepartmentCard({ department }: { department: DepartmentDto }) {
   return (
     <Link
       to={`/departments/${department.id}`}
-      className="hover:ring-brand-300 block rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200 transition-shadow hover:shadow-md"
+      className="block rounded-[15px] bg-surface p-5 shadow-[0_4px_15px_rgba(0,0,0,0.05)] ring-1 ring-divider transition-shadow hover:shadow-md hover:ring-accent"
     >
-      <h2 className="font-semibold text-slate-900">{department.name}</h2>
+      <h2 className="font-semibold text-ink">{department.name}</h2>
 
       {department.description && (
-        <p className="mt-1 line-clamp-2 text-sm text-slate-600">{department.description}</p>
+        <p className="mt-1 line-clamp-2 text-sm text-muted">{department.description}</p>
       )}
 
-      <div className="mt-4 flex items-center gap-4 text-sm text-slate-500">
+      <div className="mt-4 flex items-center gap-4 text-sm text-muted">
         <span className="inline-flex items-center gap-1.5">
           <Users aria-hidden className="size-4" />
           {department.memberCount} {department.memberCount === 1 ? 'член' : 'члена'}
