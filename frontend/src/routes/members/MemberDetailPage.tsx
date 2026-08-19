@@ -7,6 +7,7 @@ import { Alert } from '@/components/ui/Alert'
 import { Avatar } from '@/components/ui/Avatar'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { ConfirmDialog } from '@/components/ui/ConfirmDialog'
 import { Spinner } from '@/components/ui/Spinner'
 import { deactivateMember, getMember, reactivateMember } from '@/lib/api/members'
@@ -54,18 +55,18 @@ export function MemberDetailPage() {
     <div className="space-y-5">
       <Link
         to="/members"
-        className="inline-flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900"
+        className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink"
       >
         <ArrowLeft aria-hidden className="size-4" />
         Всички членове
       </Link>
 
-      <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <Card variant="panel">
         <div className="flex flex-wrap items-start gap-5">
           <Avatar photoUrl={member.photoUrl} fullName={member.fullName} size="lg" />
 
           <div className="min-w-0 flex-1">
-            <h1 className="text-xl font-semibold text-slate-900">{member.fullName}</h1>
+            <h1 className="font-serif text-2xl font-normal text-ink">{member.fullName}</h1>
             <div className="mt-2 flex flex-wrap gap-2">
               <Badge tone={roleTone(member.role)}>{SYSTEM_ROLE_LABELS[member.role]}</Badge>
               <Badge tone={statusTone(member.status)}>{MEMBER_STATUS_LABELS[member.status]}</Badge>
@@ -91,7 +92,7 @@ export function MemberDetailPage() {
           )}
         </div>
 
-        <dl className="mt-6 grid gap-x-6 gap-y-4 border-t border-slate-200 pt-6 text-sm sm:grid-cols-2">
+        <dl className="mt-6 grid gap-x-6 gap-y-4 border-t border-divider pt-6 text-sm sm:grid-cols-2">
           <Field label="Имейл" value={member.email} />
           <Field label="Телефон" value={member.phoneNumber ?? '—'} />
           <Field
@@ -104,7 +105,7 @@ export function MemberDetailPage() {
           />
           <Field label="Присъединен на" value={formatDate(member.joinedOn)} />
         </dl>
-      </div>
+      </Card>
 
       {toggleStatus.isError && <Alert tone="error">{errorMessage(toggleStatus.error)}</Alert>}
 
@@ -129,8 +130,8 @@ export function MemberDetailPage() {
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-slate-500">{label}</dt>
-      <dd className="mt-0.5 font-medium text-slate-900">{value}</dd>
+      <dt className="text-muted">{label}</dt>
+      <dd className="mt-0.5 font-medium text-ink">{value}</dd>
     </div>
   )
 }

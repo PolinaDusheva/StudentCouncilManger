@@ -63,7 +63,7 @@ export function MembersPage() {
           {/* A real link, so the row is reachable by keyboard — Table.onRowClick is mouse-only. */}
           <Link
             to={`/members/${member.id}`}
-            className="hover:text-brand-700 font-medium hover:underline"
+            className="hover:text-accent-hover font-medium hover:underline"
             onClick={(event) => event.stopPropagation()}
           >
             {member.fullName}
@@ -84,7 +84,7 @@ export function MembersPage() {
         member.department ? (
           DEPARTMENT_CODE_LABELS[member.department]
         ) : (
-          <span className="text-slate-400">Организационно ниво</span>
+          <span className="text-faint">Организационно ниво</span>
         ),
     },
     {
@@ -100,9 +100,9 @@ export function MembersPage() {
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-900">Членове</h1>
+          <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">Членове</h1>
           {data && (
-            <p className="mt-1 text-sm text-slate-600">
+            <p className="mt-1 text-sm text-muted">
               {data.totalCount} {data.totalCount === 1 ? 'член' : 'члена'}
             </p>
           )}

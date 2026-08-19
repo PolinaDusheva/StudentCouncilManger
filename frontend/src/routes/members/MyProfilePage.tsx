@@ -8,6 +8,7 @@ import { Alert } from '@/components/ui/Alert'
 import { Avatar } from '@/components/ui/Avatar'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
 import { Input } from '@/components/ui/Input'
 import { Spinner } from '@/components/ui/Spinner'
 import {
@@ -98,15 +99,15 @@ export function MyProfilePage() {
 
   return (
     <div className="max-w-xl space-y-5">
-      <h1 className="text-2xl font-semibold text-slate-900">Моят профил</h1>
+      <h1 className="font-serif text-[34px] leading-[1.15] font-normal text-ink">Моят профил</h1>
 
-      <section className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <Card variant="panel">
         <div className="flex items-center gap-5">
           <Avatar photoUrl={profile.photoUrl} fullName={profile.fullName} size="lg" />
 
           <div className="min-w-0">
-            <p className="font-medium text-slate-900">{profile.fullName}</p>
-            <p className="mt-0.5 text-sm text-slate-500">{profile.email}</p>
+            <p className="font-medium text-ink">{profile.fullName}</p>
+            <p className="mt-0.5 text-sm text-muted">{profile.email}</p>
 
             <Button
               variant="secondary"
@@ -143,36 +144,36 @@ export function MyProfilePage() {
             {errorMessage(savePhoto.error)}
           </Alert>
         )}
-      </section>
+      </Card>
 
-      <section className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-        <h2 className="mb-4 text-sm font-semibold text-slate-900">Данни</h2>
+      <Card variant="panel">
+        <h2 className="mb-4 font-serif text-[22px] leading-[1.3] font-normal text-ink">Данни</h2>
 
         <dl className="mb-5 grid gap-x-6 gap-y-3 text-sm sm:grid-cols-2">
           <div>
-            <dt className="text-slate-500">Роля</dt>
+            <dt className="text-muted">Роля</dt>
             <dd className="mt-1">
               <Badge tone={roleTone(profile.role)}>{SYSTEM_ROLE_LABELS[profile.role]}</Badge>
             </dd>
           </div>
           <div>
-            <dt className="text-slate-500">Отдел</dt>
-            <dd className="mt-0.5 font-medium text-slate-900">
+            <dt className="text-muted">Отдел</dt>
+            <dd className="mt-0.5 font-medium text-ink">
               {profile.department
                 ? (profile.departmentName ?? DEPARTMENT_CODE_LABELS[profile.department])
                 : 'Организационно ниво'}
             </dd>
           </div>
           <div>
-            <dt className="text-slate-500">Присъединен на</dt>
-            <dd className="mt-0.5 font-medium text-slate-900">{formatDate(profile.joinedOn)}</dd>
+            <dt className="text-muted">Присъединен на</dt>
+            <dd className="mt-0.5 font-medium text-ink">{formatDate(profile.joinedOn)}</dd>
           </div>
         </dl>
 
         <form
           onSubmit={handleSubmit((values) => saveProfile.mutate(values))}
           noValidate
-          className="space-y-4 border-t border-slate-200 pt-5"
+          className="space-y-4 border-t border-divider pt-5"
         >
           {saveProfile.isError && <Alert tone="error">{errorMessage(saveProfile.error)}</Alert>}
           {saveProfile.isSuccess && !isDirty && <Alert tone="success">Профилът е запазен.</Alert>}
@@ -191,7 +192,7 @@ export function MyProfilePage() {
             </Button>
           </div>
         </form>
-      </section>
+      </Card>
     </div>
   )
 }
