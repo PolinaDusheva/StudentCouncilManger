@@ -31,7 +31,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
 
   return (
     <div className="space-y-1.5">
-      <label htmlFor={id} className="block text-sm font-medium text-slate-700">
+      <label htmlFor={id} className="block text-sm font-semibold text-ink-soft">
         {label}
       </label>
 
@@ -41,11 +41,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
         aria-invalid={error ? true : undefined}
         aria-describedby={describedBy}
         className={cn(
-          'block w-full rounded-lg border-0 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm',
-          'ring-1 ring-slate-300 ring-inset',
-          'focus:ring-brand-500 focus:ring-2 focus:ring-inset focus:outline-none',
-          'disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500',
-          error && 'ring-red-500 focus:ring-red-500',
+          'block w-full rounded-xl border-2 border-line bg-surface px-4 py-3 text-sm text-ink',
+          'focus:border-accent focus:shadow-[0_0_0_4px_rgba(255,60,112,0.15)] focus:outline-none',
+          'disabled:cursor-not-allowed disabled:bg-subtle disabled:text-faint',
+          error && 'border-danger focus:border-danger focus:shadow-none',
           className,
         )}
         {...props}
@@ -59,11 +58,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
       </select>
 
       {error ? (
-        <p id={errorId} role="alert" className="text-sm text-red-600">
+        <p id={errorId} role="alert" className="text-sm text-danger">
           {error}
         </p>
       ) : hint ? (
-        <p id={hintId} className="text-sm text-slate-500">
+        <p id={hintId} className="text-sm text-muted">
           {hint}
         </p>
       ) : null}
