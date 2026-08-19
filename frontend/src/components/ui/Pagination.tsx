@@ -31,7 +31,7 @@ export function Pagination({
 
   return (
     <div className={cn('flex items-center justify-between gap-4 pt-3', className)}>
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-muted">
         {first} – {last} от {totalCount}
       </p>
 
@@ -39,6 +39,7 @@ export function Pagination({
         <Button
           variant="secondary"
           size="sm"
+          className="size-9 p-0"
           onClick={() => onPageChange(page - 1)}
           disabled={page <= 1}
           aria-label="Предишна страница"
@@ -46,13 +47,14 @@ export function Pagination({
           <ChevronLeft aria-hidden className="size-4" />
         </Button>
 
-        <span className="text-sm text-slate-600">
+        <span className="text-sm text-muted">
           {page} / {totalPages}
         </span>
 
         <Button
           variant="secondary"
           size="sm"
+          className="size-9 p-0"
           onClick={() => onPageChange(page + 1)}
           disabled={page >= totalPages}
           aria-label="Следваща страница"

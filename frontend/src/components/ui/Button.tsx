@@ -7,16 +7,17 @@ type Variant = 'primary' | 'secondary' | 'ghost' | 'danger'
 type Size = 'sm' | 'md'
 
 const VARIANTS: Record<Variant, string> = {
-  primary: 'bg-brand-600 text-white hover:bg-brand-700 disabled:hover:bg-brand-600',
+  primary:
+    'bg-ink text-white hover:bg-accent hover:shadow-[0_5px_15px_rgba(255,60,112,0.3)] disabled:hover:bg-ink disabled:hover:shadow-none',
   secondary:
-    'bg-white text-slate-900 ring-1 ring-slate-300 ring-inset hover:bg-slate-50 disabled:hover:bg-white',
-  ghost: 'text-slate-700 hover:bg-slate-100 disabled:hover:bg-transparent',
-  danger: 'bg-red-600 text-white hover:bg-red-700 disabled:hover:bg-red-600',
+    'bg-transparent text-ink ring-2 ring-border ring-inset hover:ring-accent hover:text-accent disabled:hover:ring-border disabled:hover:text-ink',
+  ghost: 'text-muted hover:bg-page hover:text-ink disabled:hover:bg-transparent disabled:hover:text-muted',
+  danger: 'bg-danger text-white hover:bg-danger-hover disabled:hover:bg-danger',
 }
 
 const SIZES: Record<Size, string> = {
-  sm: 'h-8 px-3 text-sm',
-  md: 'h-10 px-4 text-sm',
+  sm: 'h-9 px-4 text-sm',
+  md: 'h-11 px-5 text-sm',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -42,7 +43,7 @@ export function Button({
       disabled={disabled || loading}
       aria-busy={loading || undefined}
       className={cn(
-        'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors',
+        'inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all',
         'disabled:cursor-not-allowed disabled:opacity-60',
         VARIANTS[variant],
         SIZES[size],
