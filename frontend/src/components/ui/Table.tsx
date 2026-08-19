@@ -60,7 +60,7 @@ export function Table<T>({
 
   if (loading) {
     return (
-      <div className="rounded-xl bg-white ring-1 ring-slate-200">
+      <div className="rounded-[15px] bg-surface ring-1 ring-divider">
         <Spinner />
       </div>
     )
@@ -68,16 +68,16 @@ export function Table<T>({
 
   if (rows.length === 0) {
     return (
-      <div className="rounded-xl bg-white ring-1 ring-slate-200">
+      <div className="rounded-[15px] bg-surface ring-1 ring-divider">
         {empty ?? <EmptyState title="Няма записи" />}
       </div>
     )
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl bg-white ring-1 ring-slate-200">
+    <div className="overflow-x-auto rounded-[15px] bg-surface ring-1 ring-divider">
       <table className="w-full text-left text-sm">
-        <thead className="border-b border-slate-200 text-xs text-slate-500">
+        <thead className="border-b border-divider bg-subtle text-xs font-semibold text-muted uppercase tracking-wide">
           <tr>
             {columns.map((column) => {
               const isSorted = column.sortKey !== undefined && sortField === column.sortKey
@@ -96,7 +96,7 @@ export function Table<T>({
                     <button
                       type="button"
                       onClick={() => toggleSort(column.sortKey!)}
-                      className="inline-flex items-center gap-1 hover:text-slate-900"
+                      className="inline-flex items-center gap-1 hover:text-ink"
                     >
                       {column.header}
                       {isSorted && <SortIcon aria-hidden className="size-3.5" />}
@@ -110,12 +110,12 @@ export function Table<T>({
           </tr>
         </thead>
 
-        <tbody className="divide-y divide-slate-100">
+        <tbody className="divide-y divide-divider">
           {rows.map((row) => (
             <tr
               key={rowKey(row)}
               onClick={onRowClick ? () => onRowClick(row) : undefined}
-              className={cn(onRowClick && 'cursor-pointer hover:bg-slate-50')}
+              className={cn(onRowClick && 'cursor-pointer hover:bg-row-hover')}
             >
               {columns.map((column) => (
                 <td key={column.key} className={cn('px-4 py-3', column.className)}>
