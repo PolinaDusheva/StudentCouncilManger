@@ -52,22 +52,23 @@ export function Modal({ open, onClose, title, children, footer, className }: Mod
         if (event.target === dialogRef.current) onClose()
       }}
       className={cn(
-        'w-[calc(100vw-2rem)] max-w-lg rounded-xl bg-white p-0 shadow-xl',
-        'backdrop:bg-slate-900/40',
+        'w-[calc(100vw-2rem)] max-w-lg rounded-[20px] bg-surface p-0',
+        'shadow-[0_15px_50px_rgba(0,0,0,0.15),0_2px_6px_rgba(0,0,0,0.1)]',
+        'backdrop:bg-ink/40',
         // `m-auto` is required, not cosmetic: the UA stylesheet centres a modal dialog with
         // `margin: auto`, and Tailwind's preflight resets every margin to 0 — without this
         // the dialog sticks to the top-left corner.
-        'm-auto border-0 text-slate-900',
+        'm-auto border-0 text-ink-soft',
         className,
       )}
     >
-      <div className="flex items-start justify-between gap-4 border-b border-slate-200 px-5 py-4">
-        <h2 className="text-base font-semibold">{title}</h2>
+      <div className="flex items-start justify-between gap-4 border-b border-divider px-5 py-4">
+        <h2 className="font-serif text-[19px] font-normal text-ink">{title}</h2>
         <button
           type="button"
           onClick={onClose}
           aria-label="Затвори"
-          className="-m-1 rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+          className="-m-1 rounded-md p-1 text-faint hover:bg-page hover:text-ink-soft"
         >
           <X aria-hidden className="size-4" />
         </button>
@@ -76,7 +77,7 @@ export function Modal({ open, onClose, title, children, footer, className }: Mod
       <div className="px-5 py-4">{children}</div>
 
       {footer && (
-        <div className="flex justify-end gap-2 border-t border-slate-200 px-5 py-4">{footer}</div>
+        <div className="flex justify-end gap-2 border-t border-divider px-5 py-4">{footer}</div>
       )}
     </dialog>
   )
